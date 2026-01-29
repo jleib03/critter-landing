@@ -14,9 +14,7 @@ import {
 import {
   ChevronDown,
   BookOpen,
-  Lightbulb,
-  FileText,
-  Newspaper,
+  HelpCircle,
   GitBranch,
   Mail,
   Zap,
@@ -37,6 +35,7 @@ export default function LandingNav({
 }: LandingNavProps) {
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
   const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
 
   const scrollToDemo = (featureIndex: number) => {
     // Scroll to demo section
@@ -129,7 +128,7 @@ export default function LandingNav({
               </Button>
             </Link>
 
-            {/* Resources Dropdown (includes Blog) */}
+            {/* Resources Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
@@ -141,33 +140,20 @@ export default function LandingNav({
                 <DropdownMenuItem asChild>
                   <Link href="/blog" className="flex items-center gap-2 cursor-pointer">
                     <BookOpen className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">All Articles</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/blog/category/growth-tips" className="flex items-center gap-2 cursor-pointer">
-                    <Lightbulb className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">Growth Tips</span>
+                    <span className="font-body">Blog</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/blog/category/case-study" className="flex items-center gap-2 cursor-pointer">
-                    <FileText className="h-4 w-4 text-green-600" />
-                    <span className="font-body">Case Studies</span>
+                  <Link href="/faqs" className="flex items-center gap-2 cursor-pointer">
+                    <HelpCircle className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">FAQs</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link href="/blog/category/guide" className="flex items-center gap-2 cursor-pointer">
-                    <BookOpen className="h-4 w-4 text-purple-600" />
-                    <span className="font-body">Guides</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/blog/category/news" className="flex items-center gap-2 cursor-pointer">
-                    <Newspaper className="h-4 w-4 text-blue-600" />
-                    <span className="font-body">News</span>
-                  </Link>
+                  <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
+                    <Calendar className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">Schedule a Demo</span>
+                  </a>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
