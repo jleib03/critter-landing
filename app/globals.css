@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'SangBleu Kingdom';
+  src: url('/fonts/SangBleuKingdom-Light-WebXL.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SangBleu Kingdom';
+  src: url('/fonts/SangBleuKingdom-Light-WebS.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse International';
+  src: url('/fonts/SuisseIntl-Light-WebXL.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse International';
+  src: url('/fonts/SuisseIntl-Light-WebM.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse International';
+  src: url('/fonts/SuisseIntl-Light-WebS.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse International';
+  src: url('/fonts/SuisseIntl-Book-WebXL.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse International';
+  src: url('/fonts/SuisseIntl-Book-WebM.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Suisse International';
+  src: url('/fonts/SuisseIntl-Book-WebS.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 16 76% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 26% 88%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 30 26% 88%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 30 26% 88%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 26% 88%;
+    --input: 30 26% 88%;
+    --ring: 16 76% 56%;
+    --radius: 0.5rem;
+
+    /* Critter brand colors */
+    --critter-orange: 14 80% 55%;
+    --critter-beige: 35 39% 93%;
+    --critter-blue: 204 70% 53%;
+    --critter-green: 145 38% 54%;
+    --critter-pink: 349 74% 87%;
+    --critter-maroon: 358 61% 31%;
+    --critter-dark-blue: 212 40% 44%;
+    --critter-gray: 0 0% 47%;
+    --critter-cream: 40 33% 94%;
+  }
+
+  .dark {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 16 76% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 26% 88%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 30 26% 88%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 30 26% 88%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 26% 88%;
+    --input: 30 26% 88%;
+    --ring: 16 76% 56%;
+
+    /* Critter brand colors (same in dark mode) */
+    --critter-orange: 14 80% 55%;
+    --critter-beige: 35 39% 93%;
+    --critter-blue: 204 70% 53%;
+    --critter-green: 145 38% 54%;
+    --critter-pink: 349 74% 87%;
+    --critter-maroon: 358 61% 31%;
+    --critter-dark-blue: 212 40% 44%;
+    --critter-gray: 0 0% 47%;
+    --critter-cream: 40 33% 94%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
