@@ -220,47 +220,12 @@ export default function LandingNav({
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Product Selector - Free Trial Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle flex items-center gap-1">
-                  Free Trial
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-64 bg-white border-critter-cream">
-                <DropdownMenuLabel className="font-subtitle text-critter-gray text-xs">Start your free trial</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <a
-                    href={`${hubUrl}/auth/signup`}
-                    className="flex items-center gap-3 cursor-pointer py-3"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-critter-orange/10 flex items-center justify-center">
-                      <Database className="h-5 w-5 text-critter-orange" />
-                    </div>
-                    <div>
-                      <p className="font-subtitle text-critter-maroon">Critter Hub CRM</p>
-                      <p className="font-body text-xs text-critter-gray">7-day free trial</p>
-                    </div>
-                  </a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a
-                    href={`${opsUrl}/auth/signup`}
-                    className="flex items-center gap-3 cursor-pointer py-3"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-critter-blue/20 flex items-center justify-center">
-                      <Calendar className="h-5 w-5 text-critter-blue" />
-                    </div>
-                    <div>
-                      <p className="font-subtitle text-critter-maroon">Critter Ops</p>
-                      <p className="font-body text-xs text-critter-gray">14-day free trial</p>
-                    </div>
-                  </a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* Free Trial - Direct link to Hub signup */}
+            <a href={`${hubUrl}/auth/signup`}>
+              <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
+                Free Trial
+              </Button>
+            </a>
           </div>
         </div>
       </div>
