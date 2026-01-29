@@ -18,30 +18,8 @@ import FeatureSection from "./FeatureSection";
 import AutomationBanner from "./AutomationBanner";
 import FeaturesBar from "./FeaturesBar";
 import PreviewModal from "./PreviewModal";
-import BlogSection from "./BlogSection";
 
-// Article type for blog section
-interface ArticleSummary {
-  slug: string;
-  title: string;
-  description: string;
-  excerpt: string;
-  category: "growth-tips" | "case-study" | "news" | "guide" | "product-update";
-  author: string;
-  publishedAt: string;
-  updatedAt?: string;
-  image: string;
-  imageAlt: string;
-  tags: string[];
-  readingTime: number;
-  featured?: boolean;
-}
-
-interface LandingPageProps {
-  blogArticles: ArticleSummary[];
-}
-
-export default function LandingPage({ blogArticles }: LandingPageProps) {
+export default function LandingPage() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [previewModal, setPreviewModal] = useState<string | null>(null);
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
@@ -134,10 +112,6 @@ export default function LandingPage({ blogArticles }: LandingPageProps) {
         </div>
       </section>
 
-      {/* Blog Section */}
-      {blogArticles && blogArticles.length > 0 && (
-        <BlogSection articles={blogArticles} />
-      )}
 
       {/* Final CTA */}
       <section className="py-20 px-6 bg-white">
