@@ -9,7 +9,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
-  DropdownMenuLabel,
 } from "@/app/components/ui/dropdown-menu";
 import {
   ChevronDown,
@@ -24,8 +23,6 @@ import {
   MessageSquare,
   Users,
   Dog,
-  Database,
-  Calendar,
 } from "lucide-react";
 
 interface LandingNavProps {
@@ -36,7 +33,6 @@ export default function LandingNav({
   onFeatureClick
 }: LandingNavProps) {
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
-  const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
 
   const scrollToDemo = (featureIndex: number) => {
     // Scroll to demo section
@@ -178,47 +174,12 @@ export default function LandingNav({
               </Button>
             </Link>
 
-            {/* Product Selector - Log In Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-critter-maroon hover:text-critter-orange">
-                  Log In
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-64 bg-white border-critter-cream">
-                <DropdownMenuLabel className="font-subtitle text-critter-gray text-xs">Choose your product</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <a
-                    href={`${hubUrl}/auth/signin`}
-                    className="flex items-center gap-3 cursor-pointer py-3"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-critter-orange/10 flex items-center justify-center">
-                      <Database className="h-5 w-5 text-critter-orange" />
-                    </div>
-                    <div>
-                      <p className="font-subtitle text-critter-maroon">Critter Hub CRM</p>
-                      <p className="font-body text-xs text-critter-gray">Marketing & customer management</p>
-                    </div>
-                  </a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a
-                    href={`${opsUrl}/auth/signin`}
-                    className="flex items-center gap-3 cursor-pointer py-3"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-critter-blue/20 flex items-center justify-center">
-                      <Calendar className="h-5 w-5 text-critter-blue" />
-                    </div>
-                    <div>
-                      <p className="font-subtitle text-critter-maroon">Critter Ops</p>
-                      <p className="font-body text-xs text-critter-gray">Scheduling & operations</p>
-                    </div>
-                  </a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            {/* Log In - Direct link to Hub signin */}
+            <a href={`${hubUrl}/auth/signin`} className="hidden sm:block">
+              <Button variant="ghost" className="font-subtitle text-critter-maroon hover:text-critter-orange">
+                Log In
+              </Button>
+            </a>
 
             {/* Free Trial - Direct link to Hub signup */}
             <a href={`${hubUrl}/auth/signup`}>

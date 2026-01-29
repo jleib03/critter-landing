@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
 import {
   ArrowRight,
+  Check,
   Database,
   ClipboardList,
   Mail,
@@ -50,29 +51,24 @@ export default function LandingPage({ blogArticles }: LandingPageProps) {
       {/* Navigation */}
       <LandingNav onFeatureClick={setActiveFeature} />
 
-      {/* Hero Section */}
+      {/* Hero Section - Updated copy from Figma */}
       <section className="pt-28 pb-8 px-6">
         <div className="container mx-auto max-w-5xl text-center">
-          <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-critter-maroon mb-6 leading-[1.1]">
-            The easiest way to grow
+          <h1 className="font-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-critter-maroon mb-6 leading-[0.95] tracking-tight">
+            Automated growth
             <br />
-            your pet care business
+            <span className="text-critter-orange">for pet care businesses</span>
           </h1>
           <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto mb-8">
-            Marketing automation that actually works. Connect your existing tools, engage your customers, and grow your revenue—all on autopilot.
+            Reimagine client engagement at scale with data-driven tools for CRM, marketing, & growth built for your business.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href={`${hubUrl}/auth/signup`}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">
-                Start Free Trial
+                Start 7 Day Free Trial
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
-            <Link href="https://calendly.com/critter-pet/demo" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-critter-maroon text-critter-maroon hover:bg-critter-maroon hover:text-white font-subtitle px-8 h-12">
-                Book a Demo
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -84,33 +80,33 @@ export default function LandingPage({ blogArticles }: LandingPageProps) {
         setPreviewModal={setPreviewModal}
       />
 
-      {/* Feature Sections */}
+      {/* Feature Sections - Updated copy from CRM */}
       <FeatureSection
         title="Connect your data"
-        description="Import customers from Time to Pet, Pretty Pet Clients, or upload a CSV. We clean, organize, and enrich your data automatically."
+        description="Import customers from Time To Pet, PetPocketbook, or any CSV. We clean, dedupe, and organize your data so you can focus on growing your business."
         layout="image-left"
         icon={<Database className="h-6 w-6" />}
+      />
+
+      <FeatureSection
+        title="Capture leads"
+        description="Beautiful lead forms, scheduling links, and referral pages that convert visitors into customers. Auto-enroll new leads into nurture sequences."
+        layout="image-right"
+        icon={<ClipboardList className="h-6 w-6" />}
       />
 
       <AutomationBanner />
 
       <FeatureSection
-        title="Capture leads"
-        description="Beautiful lead forms, online scheduling, and referral programs that bring new pet parents to your door."
-        layout="image-right"
-        icon={<ClipboardList className="h-6 w-6" />}
-      />
-
-      <FeatureSection
         title="Engage your clients"
-        description="Personalized email and SMS campaigns that bring pet parents back. Birthday wishes, win-back sequences, and seasonal promotions—all automated."
+        description="Send personalized email and SMS campaigns that bring pet parents back. Birthday wishes, win-back sequences, and promotional campaigns—all on autopilot."
         layout="image-left"
         icon={<Mail className="h-6 w-6" />}
       />
 
       <FeatureSection
         title="Know your business"
-        description="Real-time dashboards, customer insights, and revenue tracking. See what's working and make smarter decisions."
+        description="Ask Balto anything about your business. Get instant insights, smart recommendations, and AI-drafted campaigns based on your actual customer data."
         layout="image-right"
         icon={<BarChart3 className="h-6 w-6" />}
       />
@@ -118,33 +114,46 @@ export default function LandingPage({ blogArticles }: LandingPageProps) {
       {/* Features Bar */}
       <FeaturesBar />
 
+      {/* Social Proof Bar */}
+      <section className="py-12 px-6 bg-white">
+        <div className="container mx-auto max-w-4xl">
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-critter-gray">
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5 text-critter-orange" />
+              <span className="font-body">Works With Any Data Source</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5 text-critter-orange" />
+              <span className="font-body">Industry-Leading Deliverability</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5 text-critter-orange" />
+              <span className="font-body">TCPA Compliant SMS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Blog Section */}
       {blogArticles && blogArticles.length > 0 && (
         <BlogSection articles={blogArticles} />
       )}
 
       {/* Final CTA */}
-      <section className="py-20 px-6 bg-critter-cream">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
-            Ready to grow your pet care business?
+      <section className="py-20 px-6 bg-white">
+        <div className="container mx-auto max-w-2xl text-center">
+          <h2 className="font-title text-4xl sm:text-5xl text-critter-maroon mb-4">
+            Ready to Grow Your Business?
           </h2>
-          <p className="font-body text-lg text-critter-gray mb-8 max-w-xl mx-auto">
-            Join hundreds of pet care professionals who trust Critter to manage their customer relationships and marketing.
+          <p className="font-body text-lg text-critter-gray mb-8">
+            Start your free 7-day trial today. No credit card required.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href={`${hubUrl}/auth/signup`}>
-              <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">
-                Start Your Free Trial
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </a>
-            <Link href="https://calendly.com/critter-pet/demo" target="_blank" rel="noopener noreferrer">
-              <Button size="lg" variant="outline" className="border-critter-maroon text-critter-maroon hover:bg-critter-maroon hover:text-white font-subtitle px-8 h-12">
-                Schedule a Demo
-              </Button>
-            </Link>
-          </div>
+          <a href={`${hubUrl}/auth/signup`}>
+            <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-10 h-14 text-lg">
+              Start Free Trial
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+          </a>
         </div>
       </section>
 
