@@ -31,11 +31,11 @@ export default function LandingPage() {
 
       {/* Hero Section - Updated copy from Figma */}
       <section className="pt-28 pb-8 px-6">
-        <div className="container mx-auto max-w-5xl text-center">
-          <h1 className="font-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-black mb-6 leading-[0.95] tracking-tight">
-            Automated growth for
+        <div className="container mx-auto max-w-6xl text-center">
+          <h1 className="font-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black mb-6 leading-[0.95] tracking-tight">
+            <span className="whitespace-nowrap">Automated growth for</span>
             <br />
-            pet care businesses
+            <span className="whitespace-nowrap">pet care businesses</span>
           </h1>
           <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto mb-8">
             Reimagine client engagement at scale with data-driven tools for CRM, marketing, & growth built for your business.
