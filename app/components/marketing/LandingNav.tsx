@@ -63,7 +63,7 @@ export default function LandingNav({
             {/* Features Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-critter-maroon hover:text-critter-orange">
+                <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
                   Features
                   <ChevronDown className="h-4 w-4" />
                 </Button>
@@ -118,7 +118,7 @@ export default function LandingNav({
             <Link href="/balto-ai" className="hidden sm:block">
               <Button
                 variant="ghost"
-                className="flex items-center gap-1 font-subtitle text-critter-maroon hover:text-critter-orange"
+                className="flex items-center gap-1 font-subtitle text-black hover:text-critter-orange"
               >
                 <Dog className="h-4 w-4" />
                 Balto AI
@@ -128,7 +128,7 @@ export default function LandingNav({
             {/* Resources Dropdown (includes Blog) */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-critter-maroon hover:text-critter-orange">
+                <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
                   Resources
                   <ChevronDown className="h-4 w-4" />
                 </Button>
@@ -169,14 +169,14 @@ export default function LandingNav({
             </DropdownMenu>
 
             <Link href="/pricing" className="hidden sm:block">
-              <Button variant="ghost" className="font-subtitle text-critter-maroon hover:text-critter-orange">
+              <Button variant="ghost" className="font-subtitle text-black hover:text-critter-orange">
                 Pricing
               </Button>
             </Link>
 
             {/* Log In - Direct link to Hub signin */}
             <a href={`${hubUrl}/auth/signin`} className="hidden sm:block">
-              <Button variant="ghost" className="font-subtitle text-critter-maroon hover:text-critter-orange">
+              <Button variant="ghost" className="font-subtitle text-black hover:text-critter-orange">
                 Log In
               </Button>
             </a>

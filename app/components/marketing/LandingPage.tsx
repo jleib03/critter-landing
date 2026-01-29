@@ -54,10 +54,10 @@ export default function LandingPage({ blogArticles }: LandingPageProps) {
       {/* Hero Section - Updated copy from Figma */}
       <section className="pt-28 pb-8 px-6">
         <div className="container mx-auto max-w-5xl text-center">
-          <h1 className="font-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-critter-maroon mb-6 leading-[0.95] tracking-tight">
-            Automated growth
+          <h1 className="font-title text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-black mb-6 leading-[0.95] tracking-tight">
+            Automated growth for
             <br />
-            <span className="text-critter-orange">for pet care businesses</span>
+            pet care businesses
           </h1>
           <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto mb-8">
             Reimagine client engagement at scale with data-driven tools for CRM, marketing, & growth built for your business.
