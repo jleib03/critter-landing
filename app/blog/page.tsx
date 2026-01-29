@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, Clock, Lightbulb, FileText, BookOpen, Newspaper, Zap } from "lucide-react";
+import { Clock, Lightbulb, FileText, BookOpen, Newspaper, Zap } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { Badge } from "@/app/components/ui/badge";
 import { generatedArticles, ArticleSummary } from "@/lib/blog/generated-articles";
@@ -106,17 +106,6 @@ export default function BlogPage() {
 
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-6 max-w-6xl">
-          {/* Back link */}
-          <div className="mb-6">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-critter-maroon hover:text-critter-orange transition-colors font-body"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Link>
-          </div>
-
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="font-title text-4xl sm:text-5xl text-critter-maroon mb-4">

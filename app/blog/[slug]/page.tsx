@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Clock, Calendar } from "lucide-react";
+import { Clock, Calendar } from "lucide-react";
 import { generatedArticles } from "@/lib/blog/generated-articles";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
@@ -82,17 +82,6 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
 
       <article className="pt-24 pb-16">
         <div className="container mx-auto px-6 max-w-3xl">
-          {/* Back link */}
-          <div className="mb-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-critter-maroon hover:text-critter-orange transition-colors font-body"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Blog
-            </Link>
-          </div>
-
           {/* Article header */}
           <header className="mb-10">
             <Badge className={`${category.bgColor} ${category.textColor} font-subtitle mb-4`}>

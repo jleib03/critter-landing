@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
-import { Check, X, Rocket, MessageSquare, Mail, TrendingUp, ArrowLeft, UserPlus, Zap } from "lucide-react";
+import { Check, X, Rocket, MessageSquare, Mail, TrendingUp, UserPlus, Zap } from "lucide-react";
 import { BaltoIcon } from "@/app/components/icons/BaltoIcon";
 
 interface PricingTier {
@@ -106,17 +106,6 @@ export default function PricingPage() {
     <div className="min-h-screen bg-critter-beige">
       {/* Hero Section */}
       <div className="container mx-auto px-6 py-10">
-        {/* Back to Landing Page Link */}
-        <div className="mb-6">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-critter-maroon hover:text-critter-orange transition-colors font-body"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-        </div>
-
         <div className="text-center mb-8">
           <h1 className="font-title text-5xl text-critter-maroon mb-3">
             Simple, Transparent Pricing

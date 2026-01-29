@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
 
@@ -15,17 +14,6 @@ export default function FAQsPage() {
 
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-6 max-w-3xl">
-          {/* Back link */}
-          <div className="mb-6">
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 text-black hover:text-critter-orange transition-colors font-body"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back to Home
-            </Link>
-          </div>
-
           {/* Header */}
           <div className="text-center mb-12">
             <h1 className="font-title text-4xl sm:text-5xl text-black mb-4">
