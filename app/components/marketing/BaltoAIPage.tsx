@@ -285,6 +285,8 @@ function FeatureSection({
 }
 
 export default function BaltoAIPage() {
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
+
   return (
     <div className="min-h-screen bg-critter-beige">
       {/* Navigation */}
@@ -333,12 +335,12 @@ export default function BaltoAIPage() {
             <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
               Schedule time with our team to see what impact Balto can have on your business
             </p>
-            <Link href="https://calendly.com/critter-pet/demo" target="_blank" rel="noopener noreferrer">
+            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
               <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                 Book a Demo
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -358,12 +360,12 @@ export default function BaltoAIPage() {
             <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
               Meet with our team to learn what Critter can do for you today with a demo tailored to your business and your needs.
             </p>
-            <Link href="https://calendly.com/critter-pet/demo" target="_blank" rel="noopener noreferrer">
+            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                 Book a Demo
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
