@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     description: "Grow your pet care business with automated marketing, customer management, and AI-powered insights.",
   },
   icons: {
-    icon: "/images/critter-favicon.png",
-    apple: "/images/critter-favicon.png",
+    icon: "/images/critter-favicon-circle.png",
+    apple: "/images/critter-favicon-circle.png",
   },
 };
 
