@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import CRMDemo from "@/app/components/marketing/demos/CRMDemo";
+import { PersonalTouchMockup, AutomationMockup, DataInsightsMockup } from "@/app/components/marketing/demos/SectionMockups";
 import { Database, ClipboardList, Mail, Users, Heart, TrendingUp } from "lucide-react";
 
 export const metadata = {
@@ -52,18 +53,21 @@ export default function CRMPage() {
           description: "Maintain the personal touch that made your business special, even as you grow. Critter keeps you connected to every client with automated yet personalized communications.",
           layout: "image-left",
           icon: <Database className="h-6 w-6" />,
+          imagePlaceholder: <PersonalTouchMockup />,
         },
         {
           title: "Deep automation & personalization",
           description: "Set up automated workflows that feel personal. From onboarding sequences to birthday messages, every touchpoint is tailored to each client and their pets.",
           layout: "image-right",
           icon: <ClipboardList className="h-6 w-6" />,
+          imagePlaceholder: <AutomationMockup />,
         },
         {
           title: "Leverage your data to save time (and pain)",
           description: "Let your data work for you. Critter analyzes client behavior, identifies trends, and surfaces actionable insights so you can make smarter decisions faster.",
           layout: "image-left",
           icon: <Mail className="h-6 w-6" />,
+          imagePlaceholder: <DataInsightsMockup />,
         },
       ]}
     />
