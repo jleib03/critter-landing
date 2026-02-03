@@ -13,7 +13,6 @@ import {
 } from "@/app/components/ui/dropdown-menu";
 import {
   ChevronDown,
-  BookOpen,
   HelpCircle,
   GitBranch,
   Mail,
@@ -105,12 +104,6 @@ export default function LandingNav({
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56 bg-white border-critter-cream">
-                <DropdownMenuItem asChild>
-                  <Link href="/blog" className="flex items-center gap-2 cursor-pointer">
-                    <BookOpen className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">Blog</span>
-                  </Link>
-                </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/faqs" className="flex items-center gap-2 cursor-pointer">
                     <HelpCircle className="h-4 w-4 text-critter-orange" />

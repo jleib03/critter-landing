@@ -36,12 +36,6 @@ export default function LandingFooter() {
               Pricing
             </Link>
             <Link
-              href="/blog"
-              className="font-body text-sm text-white/90 hover:text-white transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
               href="mailto:support@critter.pet"
               className="font-body text-sm text-white/90 hover:text-white transition-colors"
             >
