@@ -17,6 +17,7 @@ import FeatureSection from "./FeatureSection";
 import AutomationBanner from "./AutomationBanner";
 import FeaturesBar from "./FeaturesBar";
 import PreviewModal from "./PreviewModal";
+import { ConnectDataMockup, CaptureLeadsMockup, EngageClientsMockup, DataInsightsMockup } from "./demos/SectionMockups";
 
 export default function LandingPage() {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -64,6 +65,7 @@ export default function LandingPage() {
         description="The only CRM & marketing tool integrating your booking and operational data with marketing and growth performance out of the box. Eliminate manual work and duplicate entry to keep data in sync."
         layout="image-left"
         icon={<Database className="h-6 w-6" />}
+        imagePlaceholder={<ConnectDataMockup />}
       />
 
       <FeatureSection
@@ -71,6 +73,7 @@ export default function LandingPage() {
         description="Streamline the customer relationship from first contact, bringing new leads into your system with forms that embed in your website, a Meet & Greet scheduler, and unique referral links per client."
         layout="image-right"
         icon={<ClipboardList className="h-6 w-6" />}
+        imagePlaceholder={<CaptureLeadsMockup />}
       />
 
       <AutomationBanner />
@@ -80,6 +83,7 @@ export default function LandingPage() {
         description="Surprise and delight your customers with tailored communications, rewards, and promotions based on their activity with you. Maintain the same level of personal touch with clients as when it was just you."
         layout="image-left"
         icon={<Mail className="h-6 w-6" />}
+        imagePlaceholder={<EngageClientsMockup />}
       />
 
       <FeatureSection
@@ -87,6 +91,7 @@ export default function LandingPage() {
         description="Talk with your data like never before. Our proprietary Balto AI knows your business inside and out, actively monitoring and learning from your data every day. Data analysis tools that have your back."
         layout="image-right"
         icon={<BarChart3 className="h-6 w-6" />}
+        imagePlaceholder={<DataInsightsMockup />}
       />
 
       {/* Features Bar */}

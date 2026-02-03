@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
-import { Database, ClipboardList, Mail } from "lucide-react";
+import CRMDemo from "@/app/components/marketing/demos/CRMDemo";
+import { Database, ClipboardList, Mail, Users, Heart, TrendingUp } from "lucide-react";
 
 export const metadata = {
   title: "CRM for Pet Care Businesses | Critter",
@@ -11,11 +12,13 @@ export default function CRMPage() {
     <FeaturePage
       heroTitle="Know every customer at every stage"
       heroSubtitle="From first contact across channels through the 100th booking, build a relationship with a personal touch, even as you scale"
+      heroDemo={<CRMDemo />}
       sectionHeadline="Relationship building tools for a relationship driven business"
       cards={[
         {
           tag: "Personalization",
           title: "Build deep relationships",
+          icon: <Users className="h-6 w-6" />,
           bullets: [
             "Activity tracking",
             "Detailed client & pet profiles",
@@ -25,6 +28,7 @@ export default function CRMPage() {
         {
           tag: "Retention",
           title: "Build long relationships",
+          icon: <Heart className="h-6 w-6" />,
           bullets: [
             "Custom funnel",
             "Data-driven stage tracking",
@@ -34,6 +38,7 @@ export default function CRMPage() {
         {
           tag: "Profitability",
           title: "Build profitable relationships",
+          icon: <TrendingUp className="h-6 w-6" />,
           bullets: [
             "Customer lifetime value tracking",
             "Customer journey mapping",

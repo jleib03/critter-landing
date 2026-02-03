@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
-import { Database, ClipboardList, Mail } from "lucide-react";
+import MarketingDemo from "@/app/components/marketing/demos/MarketingDemo";
+import { Database, ClipboardList, Mail, TrendingUp, Zap, Clock } from "lucide-react";
 
 export const metadata = {
   title: "Marketing Automation for Pet Care | Critter",
@@ -11,11 +12,13 @@ export default function MarketingPage() {
     <FeaturePage
       heroTitle="Set-it-and-forget-it marketing tailored to you"
       heroSubtitle="Drive higher ROI on both time and spend, engaging both existing clients and new audiences with data driven automation tools"
+      heroDemo={<MarketingDemo />}
       sectionHeadline="A marketing sidekick analyzing your data and actively driving growth on your behalf"
       cards={[
         {
           tag: "Conversion",
           title: "Optimize for messaging that wins",
+          icon: <TrendingUp className="h-6 w-6" />,
           bullets: [
             "Automated audience builder",
             "Multi-channel marketing",
@@ -25,6 +28,7 @@ export default function MarketingPage() {
         {
           tag: "Upsell",
           title: "Optimize for profitability from within",
+          icon: <Zap className="h-6 w-6" />,
           bullets: [
             "Upsell & cross-sell programs",
             "Win-back reengagement",
@@ -34,6 +38,7 @@ export default function MarketingPage() {
         {
           tag: "Efficiency",
           title: "Optimize for time & capacity",
+          icon: <Clock className="h-6 w-6" />,
           bullets: [
             "Pet industry specific templates",
             "Campaign auto enrollment",

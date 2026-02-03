@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
-import { Database, ClipboardList, Mail } from "lucide-react";
+import ReferralDemo from "@/app/components/marketing/demos/ReferralDemo";
+import { Database, ClipboardList, Mail, Gift, Users, BarChart3 } from "lucide-react";
 
 export const metadata = {
   title: "Referral Management for Pet Care | Critter",
@@ -11,11 +12,13 @@ export default function ReferralsPage() {
     <FeaturePage
       heroTitle="Reward clients for referrals at scale"
       heroSubtitle="Empower clients with unique referral links and customized referral programs that grow your business from within"
+      heroDemo={<ReferralDemo />}
       sectionHeadline="Tap into your client networks with incentive based referral programs"
       cards={[
         {
           tag: "Personalization",
           title: "Design a program your clients love",
+          icon: <Gift className="h-6 w-6" />,
           bullets: [
             "Unique referral links",
             "Criteria-based enrollment",
@@ -25,6 +28,7 @@ export default function ReferralsPage() {
         {
           tag: "Quantity",
           title: "Incentivize consistent outreach",
+          icon: <Users className="h-6 w-6" />,
           bullets: [
             "Tiered rewards",
             "Automated reminders",
@@ -34,6 +38,7 @@ export default function ReferralsPage() {
         {
           tag: "Tracking",
           title: "Referrals at scale with ease",
+          icon: <BarChart3 className="h-6 w-6" />,
           bullets: [
             "Referral tracking",
             "Reward tracking",

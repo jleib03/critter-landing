@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
-import { Database, ClipboardList, Mail } from "lucide-react";
+import LeadGenDemo from "@/app/components/marketing/demos/LeadGenDemo";
+import { Database, ClipboardList, Mail, Users, Star, TrendingUp } from "lucide-react";
 
 export const metadata = {
   title: "Lead Generation for Pet Care | Critter",
@@ -11,11 +12,13 @@ export default function LeadGenerationPage() {
     <FeaturePage
       heroTitle="The client-at-first-contact toolkit"
       heroSubtitle="Tools, communications, and automation that surprise and delight your audience that convert 'if' to 'when'"
+      heroDemo={<LeadGenDemo />}
       sectionHeadline="Attract, nurture, and convert top tier clients"
       cards={[
         {
           tag: "Quantity",
           title: "Outbound lead gen that works",
+          icon: <Users className="h-6 w-6" />,
           bullets: [
             "Automated referral programs",
             "Multi-channel lead capture",
@@ -25,6 +28,7 @@ export default function LeadGenerationPage() {
         {
           tag: "Quality",
           title: "Qualify inbound leads",
+          icon: <Star className="h-6 w-6" />,
           bullets: [
             "Automated pipeline management",
             "Form builder",
@@ -34,6 +38,7 @@ export default function LeadGenerationPage() {
         {
           tag: "Conversion",
           title: "Close new clients",
+          icon: <TrendingUp className="h-6 w-6" />,
           bullets: [
             "Automated follow-up",
             "Targeted promotion",

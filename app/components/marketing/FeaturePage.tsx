@@ -10,6 +10,7 @@ interface FeatureCard {
   tag: string;
   title: string;
   bullets: string[];
+  icon?: React.ReactNode;
 }
 
 interface FeatureSectionData {
@@ -17,11 +18,13 @@ interface FeatureSectionData {
   description: string;
   layout: "image-left" | "image-right";
   icon: React.ReactNode;
+  imagePlaceholder?: React.ReactNode;
 }
 
 interface FeaturePageProps {
   heroTitle: string;
   heroSubtitle: string;
+  heroDemo?: React.ReactNode;
   sectionHeadline: string;
   cards: FeatureCard[];
   featureSections: FeatureSectionData[];
@@ -30,6 +33,7 @@ interface FeaturePageProps {
 export default function FeaturePage({
   heroTitle,
   heroSubtitle,
+  heroDemo,
   sectionHeadline,
   cards,
   featureSections,
@@ -60,13 +64,15 @@ export default function FeaturePage({
                 </Button>
               </a>
             </div>
-            {/* Right image placeholder */}
-            <div className="flex-1">
-              <div className="bg-white rounded-2xl shadow-lg border border-critter-cream p-8 aspect-[4/3] flex items-center justify-center">
-                <div className="w-full h-full bg-gradient-to-br from-critter-beige to-critter-cream rounded-xl flex items-center justify-center">
-                  <div className="text-critter-orange/30 font-body text-sm">Image placeholder</div>
+            {/* Right demo / image */}
+            <div className="flex-1 w-full">
+              {heroDemo || (
+                <div className="bg-white rounded-2xl shadow-lg border border-critter-cream p-8 aspect-[4/3] flex items-center justify-center">
+                  <div className="w-full h-full bg-gradient-to-br from-critter-beige to-critter-cream rounded-xl flex items-center justify-center">
+                    <div className="text-critter-orange/30 font-body text-sm">Image placeholder</div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -87,19 +93,15 @@ export default function FeaturePage({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {cards.map((card, i) => (
               <div key={i} className="bg-white rounded-2xl border border-critter-cream p-8 shadow-sm">
-                {/* Icon placeholder */}
-                <div className="w-12 h-12 rounded-xl bg-critter-orange/10 flex items-center justify-center mb-4">
-                  <div className="w-6 h-6 rounded-full bg-critter-orange/30" />
+                <div className="w-12 h-12 rounded-xl bg-critter-orange/10 flex items-center justify-center mb-4 text-critter-orange">
+                  {card.icon || <div className="w-6 h-6 rounded-full bg-critter-orange/30" />}
                 </div>
-                {/* Tag */}
                 <span className="inline-block bg-critter-cream text-critter-maroon font-subtitle text-xs px-3 py-1 rounded-full mb-4">
                   {card.tag}
                 </span>
-                {/* Title */}
                 <h3 className="font-title text-xl text-critter-maroon mb-4">
                   {card.title}
                 </h3>
-                {/* Bullets */}
                 <ul className="space-y-3">
                   {card.bullets.map((bullet, j) => (
                     <li key={j} className="flex items-start gap-3">
@@ -122,6 +124,7 @@ export default function FeaturePage({
           description={section.description}
           layout={section.layout}
           icon={section.icon}
+          imagePlaceholder={section.imagePlaceholder}
         />
       ))}
 
