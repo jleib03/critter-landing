@@ -17,9 +17,7 @@ import {
   HelpCircle,
   GitBranch,
   Mail,
-  Zap,
   ClipboardList,
-  MessageSquare,
   Users,
   Dog,
   Database,
@@ -36,18 +34,6 @@ export default function LandingNav({
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
   const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
   const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
-
-  const scrollToDemo = (featureIndex: number) => {
-    // Scroll to demo section
-    const demoSection = document.getElementById('demo');
-    if (demoSection) {
-      demoSection.scrollIntoView({ behavior: 'smooth' });
-    }
-    // Set active feature if callback provided
-    if (onFeatureClick) {
-      onFeatureClick(featureIndex);
-    }
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-critter-beige/80 backdrop-blur-md">
@@ -72,47 +58,29 @@ export default function LandingNav({
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-56 bg-white border-critter-cream">
-                <DropdownMenuItem
-                  onClick={() => scrollToDemo(0)}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <GitBranch className="h-4 w-4 text-critter-orange" />
-                  <span className="font-body">Lifecycle Funnel</span>
+                <DropdownMenuItem asChild>
+                  <Link href="/features/crm" className="flex items-center gap-2 cursor-pointer">
+                    <Users className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">Customer CRM</span>
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => scrollToDemo(5)}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <Mail className="h-4 w-4 text-critter-orange" />
-                  <span className="font-body">Campaigns</span>
+                <DropdownMenuItem asChild>
+                  <Link href="/features/marketing" className="flex items-center gap-2 cursor-pointer">
+                    <Mail className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">Marketing Automation</span>
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => scrollToDemo(2)}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <Zap className="h-4 w-4 text-critter-orange" />
-                  <span className="font-body">Programs</span>
+                <DropdownMenuItem asChild>
+                  <Link href="/features/lead-generation" className="flex items-center gap-2 cursor-pointer">
+                    <ClipboardList className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">Lead Generation</span>
+                  </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => scrollToDemo(4)}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <ClipboardList className="h-4 w-4 text-critter-orange" />
-                  <span className="font-body">Lead Generation</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => scrollToDemo(6)}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <MessageSquare className="h-4 w-4 text-critter-orange" />
-                  <span className="font-body">Texting</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => scrollToDemo(3)}
-                  className="flex items-center gap-2 cursor-pointer"
-                >
-                  <Users className="h-4 w-4 text-critter-orange" />
-                  <span className="font-body">Customer CRM</span>
+                <DropdownMenuItem asChild>
+                  <Link href="/features/referrals" className="flex items-center gap-2 cursor-pointer">
+                    <GitBranch className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">Referral Management</span>
+                  </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/app/components/ui/button";
 import {
   Database,
   ClipboardList,
@@ -30,6 +31,7 @@ export default function FeatureSection({
   imagePlaceholder,
   icon,
 }: FeatureSectionProps) {
+  const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
   const placeholder = imagePlaceholder || defaultPlaceholders[title] || <Database className="h-16 w-16 text-critter-orange/40" />;
 
   const imageContent = (
@@ -53,9 +55,14 @@ export default function FeatureSection({
       <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
         {title}
       </h2>
-      <p className="font-body text-lg text-critter-gray leading-relaxed">
+      <p className="font-body text-lg text-critter-gray leading-relaxed mb-6">
         {description}
       </p>
+      <a href={`${hubUrl}/auth/signup`}>
+        <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle w-fit">
+          Get Started
+        </Button>
+      </a>
     </div>
   );
 

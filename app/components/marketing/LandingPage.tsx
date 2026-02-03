@@ -1,15 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
 import {
   ArrowRight,
-  Check,
   Database,
   ClipboardList,
   Mail,
   BarChart3,
+  Calendar,
 } from "lucide-react";
 import LandingNav from "./LandingNav";
 import LandingFooter from "./LandingFooter";
@@ -23,6 +22,7 @@ export default function LandingPage() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [previewModal, setPreviewModal] = useState<string | null>(null);
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
 
   return (
     <div className="min-h-screen bg-critter-beige">
@@ -58,17 +58,17 @@ export default function LandingPage() {
         setPreviewModal={setPreviewModal}
       />
 
-      {/* Feature Sections - Updated copy from CRM */}
+      {/* Feature Sections - Updated copy from Figma */}
       <FeatureSection
         title="Connect your data"
-        description="Import customers from Time To Pet, PetPocketbook, or any CSV. We clean, dedupe, and organize your data so you can focus on growing your business."
+        description="The only CRM & marketing tool integrating your booking and operational data with marketing and growth performance out of the box. Eliminate manual work and duplicate entry to keep data in sync."
         layout="image-left"
         icon={<Database className="h-6 w-6" />}
       />
 
       <FeatureSection
         title="Capture leads"
-        description="Beautiful lead forms, scheduling links, and referral pages that convert visitors into customers. Auto-enroll new leads into nurture sequences."
+        description="Streamline the customer relationship from first contact, bringing new leads into your system with forms that embed in your website, a Meet & Greet scheduler, and unique referral links per client."
         layout="image-right"
         icon={<ClipboardList className="h-6 w-6" />}
       />
@@ -77,14 +77,14 @@ export default function LandingPage() {
 
       <FeatureSection
         title="Engage your clients"
-        description="Send personalized email and SMS campaigns that bring pet parents back. Birthday wishes, win-back sequences, and promotional campaigns—all on autopilot."
+        description="Surprise and delight your customers with tailored communications, rewards, and promotions based on their activity with you. Maintain the same level of personal touch with clients as when it was just you."
         layout="image-left"
         icon={<Mail className="h-6 w-6" />}
       />
 
       <FeatureSection
         title="Know your business"
-        description="Ask Balto anything about your business. Get instant insights, smart recommendations, and AI-drafted campaigns based on your actual customer data."
+        description="Talk with your data like never before. Our proprietary Balto AI knows your business inside and out, actively monitoring and learning from your data every day. Data analysis tools that have your back."
         layout="image-right"
         icon={<BarChart3 className="h-6 w-6" />}
       />
@@ -92,42 +92,23 @@ export default function LandingPage() {
       {/* Features Bar */}
       <FeaturesBar />
 
-      {/* Social Proof Bar */}
-      <section className="py-12 px-6 bg-white">
-        <div className="container mx-auto max-w-4xl">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 text-critter-gray">
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5 text-critter-orange" />
-              <span className="font-body">Works With Any Data Source</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5 text-critter-orange" />
-              <span className="font-body">Industry-Leading Deliverability</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="h-5 w-5 text-critter-orange" />
-              <span className="font-body">TCPA Compliant SMS</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
       {/* Final CTA */}
-      <section className="py-20 px-6 bg-white">
-        <div className="container mx-auto max-w-2xl text-center">
-          <h2 className="font-title text-4xl sm:text-5xl text-critter-maroon mb-4">
-            Ready to Grow Your Business?
-          </h2>
-          <p className="font-body text-lg text-critter-gray mb-8">
-            Start your free 7-day trial today. No credit card required.
-          </p>
-          <a href={`${hubUrl}/auth/signup`}>
-            <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-10 h-14 text-lg">
-              Start Free Trial
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </a>
+      <section className="py-16 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <div className="bg-white rounded-2xl border-2 border-critter-orange p-12 text-center">
+            <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
+              Schedule a demo today
+            </h2>
+            <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
+              Meet with our team to learn what Critter can do for you today with a demo tailored to your business and your needs.
+            </p>
+            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
+                Book a Demo
+                <Calendar className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+          </div>
         </div>
       </section>
 

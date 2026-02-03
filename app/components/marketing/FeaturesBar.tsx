@@ -6,22 +6,22 @@ const features = [
   {
     icon: <Rocket className="h-6 w-6" />,
     title: "Growth accelerators",
-    description: "Proven strategies built into every feature",
+    description: "Templated programs tailored to pet care to spark creativity and drive client engagement with quick wins.",
   },
   {
     icon: <Settings className="h-6 w-6" />,
     title: "Set-it-and-forget-it",
-    description: "Automations that run while you sleep",
+    description: "Define criteria and let Critter do the work to enroll clients in programs and campaigns.",
   },
   {
     icon: <HeartHandshake className="h-6 w-6" />,
     title: "White glove support",
-    description: "Real humans who understand pet care",
+    description: "Consistent multi-channel support at your fingertips. Never feel left behind as you build your business on Critter.",
   },
   {
     icon: <GraduationCap className="h-6 w-6" />,
     title: "Onboarding included",
-    description: "We help you get set up and running",
+    description: "Up to 8 hours of hands-on onboarding working sessions included to ensure smooth sailing and speed on day one.",
   },
 ];
 
