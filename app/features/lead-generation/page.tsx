@@ -48,20 +48,20 @@ export default function LeadGenerationPage() {
       ]}
       featureSections={[
         {
-          title: "Connect your data",
-          description: "The only CRM & marketing tool integrating your booking and operational data with marketing and growth performance out of the box. Eliminate manual work and duplicate entry to keep data in sync.",
+          title: "Build & manage inbound lead flow",
+          description: "Tap your network and your presence, embedding tools across web, social, and within your client base to capture more leads where they're at.",
           layout: "image-left",
           icon: <Database className="h-6 w-6" />,
         },
         {
-          title: "Capture leads",
-          description: "Streamline the customer relationship from first contact, bringing new leads into your system with forms that embed in your website, a Meet & Greet scheduler, and unique referral links per client.",
+          title: "Vet leads to ensure fit",
+          description: "Pre-screen clients for requirements & criteria with flexible tools designed to capture the right details at the right time to qualify leads, letting you invest time and money where conversion is most likely.",
           layout: "image-right",
           icon: <ClipboardList className="h-6 w-6" />,
         },
         {
-          title: "Engage your clients",
-          description: "Surprise and delight your customers with tailored communications, rewards, and promotions based on their activity with you. Maintain the same level of personal touch with clients as when it was just you.",
+          title: "Never lose a lead again",
+          description: "Stay on top of potential new clients with automated workflows and communications that wow with fast, professional, and personalized follow up that puts your best foot forward every time.",
           layout: "image-left",
           icon: <Mail className="h-6 w-6" />,
         },

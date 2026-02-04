@@ -17,7 +17,7 @@ export default function MarketingPage() {
       cards={[
         {
           tag: "Conversion",
-          title: "Optimize for messaging that wins",
+          title: "Messaging that wins",
           icon: <TrendingUp className="h-6 w-6" />,
           bullets: [
             "Automated audience builder",
@@ -27,7 +27,7 @@ export default function MarketingPage() {
         },
         {
           tag: "Upsell",
-          title: "Optimize for profitability from within",
+          title: "Tap into your existing client base",
           icon: <Zap className="h-6 w-6" />,
           bullets: [
             "Upsell & cross-sell programs",
@@ -37,7 +37,7 @@ export default function MarketingPage() {
         },
         {
           tag: "Efficiency",
-          title: "Optimize for time & capacity",
+          title: "Streamlined operations",
           icon: <Clock className="h-6 w-6" />,
           bullets: [
             "Pet industry specific templates",
@@ -48,20 +48,20 @@ export default function MarketingPage() {
       ]}
       featureSections={[
         {
-          title: "Connect your data",
-          description: "The only CRM & marketing tool integrating your booking and operational data with marketing and growth performance out of the box. Eliminate manual work and duplicate entry to keep data in sync.",
+          title: "Convert more clients",
+          description: "Critter's automated tagging on both human and pet clients means there's more information and context about your base than ever before. Building a target audience & tailoring a message has never been easier.",
           layout: "image-left",
           icon: <Database className="h-6 w-6" />,
         },
         {
-          title: "Capture leads",
-          description: "Streamline the customer relationship from first contact, bringing new leads into your system with forms that embed in your website, a Meet & Greet scheduler, and unique referral links per client.",
+          title: "Unlock untapped revenue",
+          description: "Data-driven automation around upsell, cross-sell, and more push customer lifetime value higher by engaging your existing clients to reduce churn, increase spend, and expand service usage.",
           layout: "image-right",
           icon: <ClipboardList className="h-6 w-6" />,
         },
         {
-          title: "Engage your clients",
-          description: "Surprise and delight your customers with tailored communications, rewards, and promotions based on their activity with you. Maintain the same level of personal touch with clients as when it was just you.",
+          title: "Engage like you've got a whole team",
+          description: "With easy, criteria-based rules that drive ongoing outreach every time your data syncs, run highly targeted marketing and growth tactics that work together to tackle all of your goals, all at once.",
           layout: "image-left",
           icon: <Mail className="h-6 w-6" />,
         },

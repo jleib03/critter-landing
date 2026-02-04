@@ -50,14 +50,14 @@ export default function CRMPage() {
       featureSections={[
         {
           title: "Small business feel at big business scale",
-          description: "Maintain the personal touch that made your business special, even as you grow. Critter keeps you connected to every client with automated yet personalized communications.",
+          description: "Maintain personal touch and customer comfort, whether you're a solo operator or a team of 50+. Never lose track of a client again, scaling your capacity to stay in tune with what's happening on the ground.",
           layout: "image-left",
           icon: <Database className="h-6 w-6" />,
           imagePlaceholder: <PersonalTouchMockup />,
         },
         {
           title: "Deep automation & personalization",
-          description: "Set up automated workflows that feel personal. From onboarding sequences to birthday messages, every touchpoint is tailored to each client and their pets.",
+          description: "Build a funnel and tailor it to your business, then design rules that keep your hands out of the day-to-day while still delivering personalized communications at every stage.",
           layout: "image-right",
           icon: <ClipboardList className="h-6 w-6" />,
           imagePlaceholder: <AutomationMockup />,

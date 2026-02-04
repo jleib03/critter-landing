@@ -48,20 +48,20 @@ export default function ReferralsPage() {
       ]}
       featureSections={[
         {
-          title: "Connect your data",
-          description: "The only CRM & marketing tool integrating your booking and operational data with marketing and growth performance out of the box. Eliminate manual work and duplicate entry to keep data in sync.",
+          title: "Empower your clients to grow your business",
+          description: "Personalized links designed to capture referrals give your clients the tools to spread your reach within their communities, wherever and whenever new clients emerge.",
           layout: "image-left",
           icon: <Database className="h-6 w-6" />,
         },
         {
-          title: "Capture leads",
-          description: "Streamline the customer relationship from first contact, bringing new leads into your system with forms that embed in your website, a Meet & Greet scheduler, and unique referral links per client.",
+          title: "Incentivize ongoing, consistent growth",
+          description: "Build a rewards system that reflects your business' personality and the value placed on referrals, keeping it simple or designing tiers that reward clients more as the referrals pile up.",
           layout: "image-right",
           icon: <ClipboardList className="h-6 w-6" />,
         },
         {
-          title: "Engage your clients",
-          description: "Surprise and delight your customers with tailored communications, rewards, and promotions based on their activity with you. Maintain the same level of personal touch with clients as when it was just you.",
+          title: "Track & manage referrals with ease",
+          description: "Automated capture, follow up, onboarding, and reward tracking make it simple to implement a referral program and manage it to success on an ongoing basis with low overhead cost and effort.",
           layout: "image-left",
           icon: <Mail className="h-6 w-6" />,
         },
