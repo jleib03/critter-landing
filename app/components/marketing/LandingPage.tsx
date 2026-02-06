@@ -16,6 +16,7 @@ import FeatureDemo from "./FeatureDemo";
 import FeatureSection from "./FeatureSection";
 import AutomationBanner from "./AutomationBanner";
 import FeaturesBar from "./FeaturesBar";
+import FeaturesGrid from "./FeaturesGrid";
 import PreviewModal from "./PreviewModal";
 import { ConnectDataMockup, CaptureLeadsMockup, EngageClientsMockup, DataInsightsMockup } from "./demos/SectionMockups";
 
@@ -34,12 +35,12 @@ export default function LandingPage() {
       <section className="pt-28 pb-8 px-6">
         <div className="container mx-auto max-w-6xl text-center">
           <h1 className="font-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black mb-6 leading-[0.95] tracking-tight">
-            <span className="whitespace-nowrap">Automated growth for</span>
+            <span className="whitespace-nowrap">Growth automation engine</span>
             <br />
-            <span className="whitespace-nowrap">pet care businesses</span>
+            <span className="whitespace-nowrap">for pet care businesses</span>
           </h1>
           <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto mb-8">
-            Reimagine client engagement at scale with data-driven tools for CRM, marketing, & growth built for your business.
+            Turn insights into action with data-driven tools for CRM, marketing, & ongoing client engagement at scale
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href={`${hubUrl}/auth/signup`}>
@@ -58,6 +59,9 @@ export default function LandingPage() {
         setActiveFeature={setActiveFeature}
         setPreviewModal={setPreviewModal}
       />
+
+      {/* Features Grid */}
+      <FeaturesGrid />
 
       {/* Feature Sections - Updated copy from Figma */}
       <FeatureSection
