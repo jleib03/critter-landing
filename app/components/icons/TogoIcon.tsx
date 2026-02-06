@@ -1,23 +1,23 @@
 /**
- * BaltoIcon - Friendly Husky Face
+ * TogoIcon - Friendly Husky Face
  *
- * The visual identity for Balto, the Critter AI companion.
+ * The visual identity for Togo, the Critter AI companion.
  * Inspired by the legendary Iditarod sled dog.
  */
 
 import React from 'react';
 
-interface BaltoIconProps {
+interface TogoIconProps {
   className?: string;
   size?: number;
   color?: string;
 }
 
-export function BaltoIcon({
+export function TogoIcon({
   className = '',
   size = 24,
   color = 'currentColor'
-}: BaltoIconProps) {
+}: TogoIconProps) {
   return (
     <svg
       width={size}
@@ -90,13 +90,13 @@ export function BaltoIcon({
 }
 
 /**
- * BaltoIconFilled - Friendly dog face for small sizes
+ * TogoIconFilled - Friendly dog face for small sizes
  */
-export function BaltoIconFilled({
+export function TogoIconFilled({
   className = '',
   size = 24,
   color = 'currentColor'
-}: BaltoIconProps) {
+}: TogoIconProps) {
   return (
     <svg
       width={size}
@@ -143,22 +143,22 @@ export function BaltoIconFilled({
 }
 
 /**
- * BaltoAvatar - Larger version for chat messages
+ * TogoAvatar - Larger version for chat messages
  */
-export function BaltoAvatar({
+export function TogoAvatar({
   className = '',
   size = 40
-}: Omit<BaltoIconProps, 'color'>) {
+}: Omit<TogoIconProps, 'color'>) {
   return (
     <div
       className={`rounded-full bg-gradient-to-br from-critter-orange to-amber-500 p-1 ${className}`}
       style={{ width: size, height: size }}
     >
       <div className="w-full h-full rounded-full bg-white flex items-center justify-center">
-        <BaltoIcon size={size * 0.7} color="#E75837" />
+        <TogoIcon size={size * 0.7} color="#E75837" />
       </div>
     </div>
   );
 }
 
-export default BaltoIcon;
+export default TogoIcon;

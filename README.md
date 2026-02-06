@@ -44,7 +44,7 @@ NEXT_PUBLIC_OPS_URL=https://app.critter.pet
 |-------|-------------|
 | `/` | Main landing page |
 | `/pricing` | Pricing page with plan comparison |
-| `/balto-ai` | Balto AI assistant feature page |
+| `/togo-ai` | Togo AI assistant feature page |
 | `/blog` | Blog index page |
 | `/blog/[slug]` | Individual blog articles |
 

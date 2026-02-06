@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
+import React from "react";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
-import { Check, X, Rocket, MessageSquare, Mail, TrendingUp, UserPlus, Zap } from "lucide-react";
-import { BaltoIcon } from "@/app/components/icons/BaltoIcon";
+import { Check, X, Zap, Mail, TrendingUp, UserPlus, MessageSquare } from "lucide-react";
+import { TogoIcon } from "@/app/components/icons/TogoIcon";
+import LandingNav from "@/app/components/marketing/LandingNav";
+import LandingFooter from "@/app/components/marketing/LandingFooter";
 
 interface PricingTier {
   id: string;
@@ -23,7 +24,6 @@ interface PricingTier {
     highlight?: boolean;
   }[];
   cta: string;
-  ctaVariant: "default" | "outline" | "secondary";
   popular?: boolean;
 }
 
@@ -32,61 +32,72 @@ const pricingTiers: PricingTier[] = [
     id: "trial",
     name: "Free Trial",
     price: "Free",
-    period: "7 days",
+    period: "for 7 days",
     description: "Try everything before you commit",
     icon: <Zap className="h-6 w-6" />,
     badge: "No Credit Card",
-    badgeColor: "bg-green-500",
+    badgeColor: "bg-critter-orange",
     features: [
-      { text: "Unlimited email campaigns", included: true },
+      { text: "1,000 emails", included: true },
+      { text: "20 Togo AI chats", included: true },
       { text: "Customer segmentation & funnels", included: true },
-      { text: "Lead Generation tools", included: true, highlight: true },
-      { text: "25 Balto AI chats", included: true },
-      { text: "Automations & lifecycle comms", included: true },
       { text: "TTP & PPC integrations", included: true },
+      { text: "Lead Generation", included: false },
       { text: "SMS/Texting", included: false },
     ],
     cta: "Start Free Trial",
-    ctaVariant: "outline",
+  },
+  {
+    id: "starter",
+    name: "Starter",
+    price: 49,
+    description: "Get started with email marketing",
+    icon: <Mail className="h-6 w-6" />,
+    features: [
+      { text: "1,000 emails/month", included: true },
+      { text: "Email Campaigns", included: true },
+      { text: "Customer segmentation & funnels", included: true },
+      { text: "TTP & PPC integrations", included: true },
+      { text: "Togo AI", included: false },
+      { text: "SMS/Texting", included: false },
+      { text: "Lead Generation", included: false },
+    ],
+    cta: "Choose Starter",
   },
   {
     id: "grow",
     name: "Grow",
-    price: 89,
-    description: "Essential tools for growing businesses",
+    price: 149,
+    description: "Full-featured for growing businesses",
     icon: <TrendingUp className="h-6 w-6" />,
+    badge: "Most Popular",
+    badgeColor: "bg-critter-orange",
     features: [
-      { text: "Unlimited email campaigns", included: true },
-      { text: "Customer segmentation & funnels", included: true },
+      { text: "25,000 emails/month", included: true, highlight: true },
+      { text: "2,000 SMS messages/month", included: true, highlight: true },
+      { text: "200 Togo AI chats/month", included: true, highlight: true },
+      { text: "Lead Generation tools", included: true, highlight: true },
       { text: "Automations & lifecycle comms", included: true },
-      { text: "100 Balto AI chats/month", included: true },
       { text: "TTP & PPC integrations", included: true },
-      { text: "Lead Generation tools", included: false },
-      { text: "SMS/Texting", included: false },
     ],
     cta: "Choose Grow",
-    ctaVariant: "secondary",
-    popular: false,
+    popular: true,
   },
   {
     id: "pro",
     name: "Pro",
-    price: 249,
-    description: "Full power for established businesses",
-    icon: <Rocket className="h-6 w-6" />,
-    badge: "Most Popular",
-    badgeColor: "bg-critter-orange",
+    price: 349,
+    description: "Maximum power for established businesses",
+    icon: <UserPlus className="h-6 w-6" />,
     features: [
-      { text: "Everything in Grow", included: true },
-      { text: "Lead Generation tools", included: true, highlight: true },
-      { text: "500 Balto AI chats/month", included: true, highlight: true },
-      { text: "5,000 SMS messages/month", included: true, highlight: true },
-      { text: "SMS add-ons available ($20/1K)", included: true },
+      { text: "75,000 emails/month", included: true, highlight: true },
+      { text: "10,000 SMS messages/month", included: true, highlight: true },
+      { text: "500 Togo AI chats/month", included: true, highlight: true },
+      { text: "Lead Generation tools", included: true },
+      { text: "Advanced Automations", included: true },
       { text: "Priority support", included: true },
     ],
     cta: "Choose Pro",
-    ctaVariant: "default",
-    popular: true,
   },
 ];
 
@@ -94,7 +105,6 @@ export default function PricingPage() {
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
 
   const handleSelectPlan = (tierId: string) => {
-    // All plans redirect to hub for signup/checkout
     if (tierId === "trial") {
       window.location.href = `${hubUrl}/auth/signup`;
     } else {
@@ -104,32 +114,34 @@ export default function PricingPage() {
 
   return (
     <div className="min-h-screen bg-critter-beige">
+      <LandingNav />
+
       {/* Hero Section */}
-      <div className="container mx-auto px-6 py-10">
+      <div className="container mx-auto px-6 pt-28 pb-10">
         <div className="text-center mb-8">
-          <h1 className="font-title text-5xl text-critter-maroon mb-3">
+          <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-black mb-4">
             Simple, Transparent Pricing
           </h1>
-          <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto">
             Powerful marketing automation for pet care businesses. Start with a free trial, upgrade when you&apos;re ready.
           </p>
         </div>
 
         {/* Features Overview */}
-        <div className="grid md:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
           <FeatureHighlight
             icon={<Mail className="h-5 w-5" />}
-            title="Unlimited Emails"
-            description="Send as many as you need"
+            title="Email Campaigns"
+            description="Up to 75K emails/month"
           />
           <FeatureHighlight
             icon={<MessageSquare className="h-5 w-5" />}
             title="SMS Messaging"
-            description="Pro plan includes 5K/mo"
+            description="Starting at 2K/mo on Grow"
           />
           <FeatureHighlight
-            icon={<BaltoIcon size={20} />}
-            title="Balto AI Assistant"
+            icon={<TogoIcon size={20} />}
+            title="Togo AI Assistant"
             description="Your smart marketing helper"
           />
           <FeatureHighlight
@@ -140,7 +152,7 @@ export default function PricingPage() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pricingTiers.map((tier) => (
             <PricingCard
               key={tier.id}
@@ -172,64 +184,37 @@ export default function PricingPage() {
         </div>
 
         {/* Comparison Table */}
-        <div className="mt-16 max-w-4xl mx-auto">
-          <h2 className="font-title text-2xl text-critter-maroon text-center mb-8">
+        <div className="mt-16 max-w-5xl mx-auto">
+          <h2 className="font-title text-3xl sm:text-4xl text-black text-center mb-8">
             Compare Plans
           </h2>
-          <div className="bg-white rounded-lg border border-critter-cream overflow-hidden">
+          <div className="bg-white rounded-lg border border-critter-cream overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-critter-cream">
                   <th className="text-left p-4 font-subtitle text-critter-maroon">Feature</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Trial</th>
+                  <th className="text-center p-4 font-subtitle text-critter-maroon">Starter</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Grow</th>
-                  <th className="text-center p-4 font-subtitle text-critter-maroon bg-critter-orange/5">Pro</th>
+                  <th className="text-center p-4 font-subtitle text-critter-maroon">Pro</th>
                 </tr>
               </thead>
               <tbody className="font-body text-sm">
-                <ComparisonRow feature="Email Campaigns" trial="Unlimited" grow="Unlimited" pro="Unlimited" />
-                <ComparisonRow feature="Customer Segmentation" trial={true} grow={true} pro={true} />
-                <ComparisonRow feature="Automations" trial={true} grow={true} pro={true} />
-                <ComparisonRow feature="Funnel Management" trial={true} grow={true} pro={true} />
-                <ComparisonRow feature="Balto AI Assistant" trial="25 total" grow="100/mo" pro="500/mo" />
-                <ComparisonRow feature="Lead Generation" trial={true} grow={false} pro={true} />
-                <ComparisonRow feature="SMS Messages" trial={false} grow={false} pro="5,000/mo" />
-                <ComparisonRow feature="SMS Add-ons" trial={false} grow={false} pro="$20/1K" />
-                <ComparisonRow feature="Priority Support" trial={false} grow={false} pro={true} />
+                <ComparisonRow feature="Emails/month" trial="1,000" starter="1,000" grow="25,000" pro="75,000" />
+                <ComparisonRow feature="Customer Segmentation" trial={true} starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Automations" trial={true} starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Funnel Management" trial={true} starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Togo AI Assistant" trial="20 total" starter={false} grow="200/mo" pro="500/mo" />
+                <ComparisonRow feature="Lead Generation" trial={false} starter={false} grow={true} pro={true} />
+                <ComparisonRow feature="SMS Messages" trial={false} starter={false} grow="2,000/mo" pro="10,000/mo" />
+                <ComparisonRow feature="Priority Support" trial={false} starter={false} grow={false} pro={true} />
               </tbody>
             </table>
           </div>
         </div>
-
-        {/* FAQ */}
-        <div className="mt-16 max-w-3xl mx-auto">
-          <h2 className="font-title text-2xl text-critter-maroon text-center mb-6">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-4">
-            <FAQItem
-              question="What happens after my 7-day trial ends?"
-              answer="After your trial, you'll need to choose a paid plan to continue using Critter. Your data is preserved, and you can upgrade anytime. We'll send you reminders before your trial expires."
-            />
-            <FAQItem
-              question="Can I change plans later?"
-              answer="Absolutely! You can upgrade or downgrade at any time. Upgrades take effect immediately, and downgrades apply at your next billing cycle."
-            />
-            <FAQItem
-              question="What's included in Lead Generation?"
-              answer="Lead Generation includes customizable contact forms, online scheduling for meet & greets, meeting management, and referral programs to help grow your customer base."
-            />
-            <FAQItem
-              question="What if I exceed my SMS quota?"
-              answer="When you reach 80% of your quota, we'll notify you. You can purchase additional SMS bundles at $20 per 1,000 messages anytime from your profile."
-            />
-            <FAQItem
-              question="Do you offer refunds?"
-              answer="Yes! If you're not satisfied within the first 30 days, we'll refund your money, no questions asked."
-            />
-          </div>
-        </div>
       </div>
+
+      <LandingFooter />
     </div>
   );
 }
@@ -242,7 +227,7 @@ interface PricingCardProps {
 function PricingCard({ tier, onSelect }: PricingCardProps) {
   const iconBgColor = "bg-critter-orange/10 text-critter-orange";
   const borderColor = tier.popular
-    ? "border-2 border-critter-orange shadow-xl scale-105 z-10 bg-white"
+    ? "border-2 border-critter-orange shadow-xl bg-white"
     : "border border-critter-cream bg-white shadow-sm";
 
   return (
@@ -255,26 +240,26 @@ function PricingCard({ tier, onSelect }: PricingCardProps) {
         </div>
       )}
 
-      <CardHeader className="text-center pb-6 pt-8">
-        <div className={`mx-auto mb-4 p-3 rounded-full w-fit ${iconBgColor}`}>
+      <CardHeader className="text-center pb-4 pt-8">
+        <div className={`mx-auto mb-3 p-3 rounded-full w-fit ${iconBgColor}`}>
           {tier.icon}
         </div>
-        <CardTitle className="font-title text-2xl text-critter-maroon mb-2">{tier.name}</CardTitle>
-        <CardDescription className="font-body text-base">
+        <CardTitle className="font-title text-2xl text-critter-maroon mb-1">{tier.name}</CardTitle>
+        <CardDescription className="font-body text-sm">
           {tier.description}
         </CardDescription>
-        <div className="mt-4">
+        <div className="mt-3">
           {tier.price === "Free" ? (
             <div>
               <span className="font-title text-5xl text-critter-maroon">Free</span>
               {tier.period && (
-                <span className="font-body text-muted-foreground ml-2">for {tier.period}</span>
+                <span className="font-body text-muted-foreground ml-2">{tier.period}</span>
               )}
             </div>
           ) : (
             <>
               <span className="font-title text-5xl text-critter-maroon">${tier.price}</span>
-              <span className="font-body text-muted-foreground ml-2">/month</span>
+              <span className="font-body text-muted-foreground ml-1">/month</span>
             </>
           )}
         </div>
@@ -289,7 +274,7 @@ function PricingCard({ tier, onSelect }: PricingCardProps) {
               ) : (
                 <X className="h-4 w-4 mt-0.5 flex-shrink-0 text-gray-300" />
               )}
-              <span className={`font-body ${feature.highlight ? 'font-medium text-critter-maroon' : 'text-muted-foreground'}`}>
+              <span className={`font-body ${feature.highlight ? 'font-medium text-critter-maroon' : feature.included ? 'text-muted-foreground' : ''}`}>
                 {feature.text}
               </span>
             </li>
@@ -300,7 +285,7 @@ function PricingCard({ tier, onSelect }: PricingCardProps) {
       <CardFooter>
         <Button
           className={`w-full font-subtitle ${tier.popular ? 'bg-critter-orange hover:bg-critter-orange/90 text-white' : ''}`}
-          variant={tier.popular ? "default" : tier.ctaVariant}
+          variant={tier.popular ? "default" : "outline"}
           size="lg"
           onClick={() => onSelect(tier.id)}
         >
@@ -323,7 +308,7 @@ function FeatureHighlight({ icon, title, description }: FeatureHighlightProps) {
       <div className="mx-auto mb-3 p-3 rounded-full w-fit bg-critter-orange/10 text-critter-orange">
         {icon}
       </div>
-      <h3 className="font-subtitle text-critter-maroon mb-1">{title}</h3>
+      <h3 className="font-subtitle font-semibold text-critter-maroon mb-1">{title}</h3>
       <p className="font-body text-sm text-muted-foreground">{description}</p>
     </div>
   );
@@ -332,11 +317,12 @@ function FeatureHighlight({ icon, title, description }: FeatureHighlightProps) {
 interface ComparisonRowProps {
   feature: string;
   trial: boolean | string;
+  starter: boolean | string;
   grow: boolean | string;
   pro: boolean | string;
 }
 
-function ComparisonRow({ feature, trial, grow, pro }: ComparisonRowProps) {
+function ComparisonRow({ feature, trial, starter, grow, pro }: ComparisonRowProps) {
   const renderValue = (value: boolean | string) => {
     if (typeof value === 'string') {
       return <span className="font-medium text-critter-maroon">{value}</span>;
@@ -352,30 +338,9 @@ function ComparisonRow({ feature, trial, grow, pro }: ComparisonRowProps) {
     <tr className="border-b border-critter-cream last:border-0">
       <td className="p-4 text-muted-foreground">{feature}</td>
       <td className="p-4 text-center">{renderValue(trial)}</td>
+      <td className="p-4 text-center">{renderValue(starter)}</td>
       <td className="p-4 text-center">{renderValue(grow)}</td>
-      <td className="p-4 text-center bg-critter-orange/5">{renderValue(pro)}</td>
+      <td className="p-4 text-center">{renderValue(pro)}</td>
     </tr>
-  );
-}
-
-interface FAQItemProps {
-  question: string;
-  answer: string;
-}
-
-function FAQItem({ question, answer }: FAQItemProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="bg-white border border-critter-cream rounded-lg p-4 cursor-pointer hover:border-critter-orange transition-colors">
-      <div
-        className="flex justify-between items-center"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <h3 className="font-subtitle text-critter-maroon">{question}</h3>
-        <span className="text-xl text-critter-orange">{isOpen ? "−" : "+"}</span>
-      </div>
-      {isOpen && <p className="font-body mt-2 text-muted-foreground">{answer}</p>}
-    </div>
   );
 }

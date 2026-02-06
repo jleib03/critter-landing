@@ -84,14 +84,14 @@ export default function LandingNav({
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Balto AI Link */}
-            <Link href="/balto-ai" className="hidden sm:block">
+            {/* Togo AI Link */}
+            <Link href="/togo-ai" className="hidden sm:block">
               <Button
                 variant="ghost"
                 className="flex items-center gap-1 font-subtitle text-black hover:text-critter-orange"
               >
                 <Dog className="h-4 w-4" />
-                Balto AI
+                Togo AI
               </Button>
             </Link>
 

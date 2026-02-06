@@ -32,7 +32,7 @@ import {
 } from "lucide-react";
 
 // Preview types for navigation - matches feature tab order
-export const previewTypes = ['campaign', 'referral', 'birthday', 'funnel', 'customer', 'texting', 'balto', 'leadgen'] as const;
+export const previewTypes = ['campaign', 'referral', 'birthday', 'funnel', 'customer', 'texting', 'togo', 'leadgen'] as const;
 export type PreviewType = typeof previewTypes[number];
 
 interface PreviewModalProps {
@@ -61,7 +61,7 @@ export default function PreviewModal({
     funnel: 'Funnel',
     customer: 'Customers',
     texting: 'Texting',
-    balto: 'AI Assistant',
+    togo: 'AI Assistant',
     leadgen: 'Lead Gen',
   };
 
@@ -499,13 +499,13 @@ export default function PreviewModal({
       </div>
     ),
 
-    balto: (
+    togo: (
       <div className="space-y-6">
         <div className="text-center pb-4 border-b border-critter-cream">
           <div className="w-16 h-16 rounded-full bg-gradient-to-br from-critter-orange to-amber-500 flex items-center justify-center mx-auto mb-4">
             <Dog className="h-8 w-8 text-white" />
           </div>
-          <h3 className="font-title text-2xl text-critter-maroon">Meet Balto</h3>
+          <h3 className="font-title text-2xl text-critter-maroon">Meet Togo</h3>
           <p className="font-body text-critter-gray">Your Navigation Assistant</p>
         </div>
 
@@ -516,7 +516,7 @@ export default function PreviewModal({
               <Dog className="h-4 w-4 text-white" />
             </div>
             <div>
-              <p className="font-subtitle text-sm text-critter-maroon">Balto</p>
+              <p className="font-subtitle text-sm text-critter-maroon">Togo</p>
               <p className="font-body text-xs text-critter-gray">Navigation Assistant</p>
             </div>
             <div className="ml-auto flex items-center gap-1">

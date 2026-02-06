@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/app/components/ui/button";
 import {
-  ArrowRight,
   Database,
   ClipboardList,
   Mail,
@@ -39,14 +38,13 @@ export default function LandingPage() {
             <br />
             <span className="whitespace-nowrap">for pet care businesses</span>
           </h1>
-          <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto mb-8">
+          <p className="font-title font-light text-lg sm:text-xl text-black max-w-2xl mx-auto mb-8 leading-[1.1]">
             Turn insights into action with data-driven tools for CRM, marketing, & ongoing client engagement at scale
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href={`${hubUrl}/auth/signup`}>
-              <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">
+              <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle font-light rounded-[20px] px-8 h-12 text-xl">
                 Start 7 Day Free Trial
-                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
           </div>
@@ -92,7 +90,7 @@ export default function LandingPage() {
 
       <FeatureSection
         title="Know your business"
-        description="Talk with your data like never before. Our proprietary Balto AI knows your business inside and out, actively monitoring and learning from your data every day. Data analysis tools that have your back."
+        description="Talk with your data like never before. Our proprietary Togo AI knows your business inside and out, actively monitoring and learning from your data every day. Data analysis tools that have your back."
         layout="image-right"
         icon={<BarChart3 className="h-6 w-6" />}
         imagePlaceholder={<DataInsightsMockup />}

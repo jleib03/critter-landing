@@ -142,7 +142,7 @@ function KnowBusinessMockup() {
           <div className="w-2.5 h-2.5 rounded-full bg-white/30" />
         </div>
         <div className="flex-1 flex justify-center">
-          <div className="bg-white/20 rounded-md px-3 py-0.5 text-white/80 text-xs font-body">hub.critter.pet/balto</div>
+          <div className="bg-white/20 rounded-md px-3 py-0.5 text-white/80 text-xs font-body">hub.critter.pet/togo</div>
         </div>
       </div>
       <div className="flex-1 bg-white rounded-b-xl p-4 space-y-3">

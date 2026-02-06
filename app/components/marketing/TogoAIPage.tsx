@@ -57,7 +57,7 @@ const demoConversation = [
   },
 ];
 
-// Balto mockup components
+// Togo mockup components
 function TalkWithDataMockup() {
   return (
     <div className="w-full h-full flex flex-col justify-center p-2">
@@ -67,7 +67,7 @@ function TalkWithDataMockup() {
             <Dog className="h-4 w-4 text-white" />
           </div>
           <div>
-            <p className="font-subtitle text-sm text-critter-maroon">Balto</p>
+            <p className="font-subtitle text-sm text-critter-maroon">Togo</p>
             <div className="flex items-center gap-1">
               <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
               <span className="font-body text-xs text-critter-gray">Online</span>
@@ -141,7 +141,7 @@ function ReportingMockup() {
         ))}
         <div className="flex items-center gap-2 p-2 bg-critter-orange/5 rounded-lg">
           <MessageSquare className="h-3.5 w-3.5 text-critter-orange" />
-          <p className="font-body text-xs text-critter-gray">Ask Balto to create a new report anytime</p>
+          <p className="font-body text-xs text-critter-gray">Ask Togo to create a new report anytime</p>
         </div>
       </div>
     </div>
@@ -236,7 +236,7 @@ function ClientJourneyMockup() {
 const features = [
   {
     title: "Talk with your data",
-    description: "Ask questions like never before. Balto knows your data, knows your history, and knows the trends and insights underpinning today's performance and tomorrow's growth.",
+    description: "Ask questions like never before. Togo knows your data, knows your history, and knows the trends and insights underpinning today's performance and tomorrow's growth.",
     layout: "image-left" as const,
     icon: <Sparkles className="h-6 w-6" />,
     mockup: <TalkWithDataMockup />,
@@ -309,7 +309,7 @@ function LiveChatDemo() {
             <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-white" />
           </div>
           <div>
-            <p className="font-subtitle text-lg text-critter-maroon">Balto</p>
+            <p className="font-subtitle text-lg text-critter-maroon">Togo</p>
             <p className="font-body text-sm text-critter-gray">Your Smart Guide Dog</p>
           </div>
         </div>
@@ -403,7 +403,7 @@ function LiveChatDemo() {
         <div className="flex items-center gap-3">
           <input
             type="text"
-            placeholder="Ask Balto anything about your business..."
+            placeholder="Ask Togo anything about your business..."
             className="flex-1 bg-critter-beige/50 rounded-full px-5 py-3 font-body text-critter-maroon placeholder:text-critter-gray outline-none"
             disabled
           />
@@ -479,7 +479,7 @@ function FeatureSection({
   );
 }
 
-export default function BaltoAIPage() {
+export default function TogoAIPage() {
   const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
 
   return (
@@ -507,7 +507,7 @@ export default function BaltoAIPage() {
             </p>
             <a href={`${process.env.NEXT_PUBLIC_HUB_URL || 'https://hub.critter.pet'}/auth/signup`}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">
-                Try Balto
+                Try Togo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
@@ -520,15 +520,15 @@ export default function BaltoAIPage() {
         <FeatureSection key={i} {...feature} />
       ))}
 
-      {/* "See what Balto can do for you" Banner */}
+      {/* "See what Togo can do for you" Banner */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="bg-critter-cream rounded-2xl p-12 text-center">
             <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
-              See what Balto can do for you
+              See what Togo can do for you
             </h2>
             <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
-              Schedule time with our team to see what impact Balto can have on your business
+              Schedule time with our team to see what impact Togo can have on your business
             </p>
             <a href={demoUrl} target="_blank" rel="noopener noreferrer">
               <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">

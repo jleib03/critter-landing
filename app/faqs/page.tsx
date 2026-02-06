@@ -48,7 +48,7 @@ const faqCategories: FAQCategory[] = [
       {
         question: "Do I need a credit card to start my free trial?",
         answer:
-          "No. Your 7-day trial is completely free with no credit card required. You get access to email campaigns, customer segmentation, automations, lead generation tools, and 25 Balto AI chats to explore the platform.",
+          "No. Your 7-day trial is completely free with no credit card required. You get access to email campaigns, customer segmentation, automations, lead generation tools, and 25 Togo AI chats to explore the platform.",
       },
       {
         question: "What happens when my trial ends?",
@@ -66,9 +66,9 @@ const faqCategories: FAQCategory[] = [
     title: "Features & Product",
     items: [
       {
-        question: "What is Balto AI?",
+        question: "What is Togo AI?",
         answer:
-          "Balto is Critter's built-in AI assistant that knows your business inside and out. Ask Balto questions about revenue trends, client retention, campaign performance, or anything else — it analyzes your data in real time and surfaces actionable insights. Think of it as a smart business advisor that's always up to date.",
+          "Togo is Critter's built-in AI assistant that knows your business inside and out. Ask Togo questions about revenue trends, client retention, campaign performance, or anything else — it analyzes your data in real time and surfaces actionable insights. Think of it as a smart business advisor that's always up to date.",
       },
       {
         question: "Can I send both email and SMS campaigns?",
@@ -128,12 +128,12 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How much does Critter cost?",
         answer:
-          "Critter offers two paid plans: Grow at $89/month for essential CRM and marketing tools, and Pro at $249/month which adds lead generation, SMS messaging, expanded Balto AI access, and priority support. Both plans include unlimited email campaigns.",
+          "Critter offers two paid plans: Grow at $89/month for essential CRM and marketing tools, and Pro at $249/month which adds lead generation, SMS messaging, expanded Togo AI access, and priority support. Both plans include unlimited email campaigns.",
       },
       {
         question: "What's the difference between the Grow and Pro plans?",
         answer:
-          "Grow includes unlimited email campaigns, customer segmentation, automations, lifecycle communications, 100 Balto AI chats per month, and integrations with Time to Pet and Precise Petcare. Pro adds lead generation tools (forms, scheduling, referral programs), 5,000 SMS messages per month, 500 Balto AI chats per month, and priority support.",
+          "Grow includes unlimited email campaigns, customer segmentation, automations, lifecycle communications, 100 Togo AI chats per month, and integrations with Time to Pet and Precise Petcare. Pro adds lead generation tools (forms, scheduling, referral programs), 5,000 SMS messages per month, 500 Togo AI chats per month, and priority support.",
       },
       {
         question: "Can I change my plan later?",

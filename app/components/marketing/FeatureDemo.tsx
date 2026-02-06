@@ -48,12 +48,12 @@ export const features: Feature[] = [
     description: "Track every pet parent from first visit to loyal client with smart lifecycle rules.",
   },
   {
-    id: "balto",
-    label: "Balto",
+    id: "togo",
+    label: "Togo",
     icon: <Dog className="h-4 w-4" />,
     value: "∞",
     valueLabel: "insights at your fingertips",
-    headline: "Meet Balto, Your Navigation Assistant",
+    headline: "Meet Togo, Your Navigation Assistant",
     description: "Ask anything about your business. Get instant answers, smart recommendations, and intelligently drafted campaigns.",
   },
   {
@@ -471,7 +471,7 @@ export default function FeatureDemo({
               )}
 
               {activeFeature === 1 && (
-                /* Balto AI Assistant View */
+                /* Togo AI Assistant View */
                 <div className="grid grid-cols-12 gap-4">
                   {/* AI Chat Panel */}
                   <div className="col-span-8">
@@ -486,7 +486,7 @@ export default function FeatureDemo({
                             <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-white" />
                           </div>
                           <div>
-                            <p className="font-subtitle text-critter-maroon">Balto</p>
+                            <p className="font-subtitle text-critter-maroon">Togo</p>
                             <p className="font-body text-xs text-critter-gray">Your Navigation Assistant</p>
                           </div>
                         </div>
@@ -548,7 +548,7 @@ export default function FeatureDemo({
                         <div className="flex items-center gap-3">
                           <input
                             type="text"
-                            placeholder="Ask Balto anything about your business..."
+                            placeholder="Ask Togo anything about your business..."
                             className="flex-1 bg-critter-beige/50 rounded-full px-4 py-3 font-body text-sm text-critter-maroon placeholder:text-critter-gray outline-none focus:bg-critter-beige transition-colors"
                             readOnly
                           />
@@ -563,11 +563,11 @@ export default function FeatureDemo({
                   {/* AI Capabilities Sidebar */}
                   <div className="col-span-4 space-y-4">
                     <div
-                      onClick={() => setPreviewModal('balto')}
+                      onClick={() => setPreviewModal('togo')}
                       className="bg-white rounded-xl p-5 shadow-sm cursor-pointer hover:shadow-lg transition-shadow group border border-critter-cream"
                     >
                       <div className="flex items-center justify-between mb-4">
-                        <h4 className="font-subtitle text-sm text-critter-maroon">Balto Can...</h4>
+                        <h4 className="font-subtitle text-sm text-critter-maroon">Togo Can...</h4>
                         <span className="font-body text-xs text-critter-orange opacity-0 group-hover:opacity-100 transition-opacity">See more →</span>
                       </div>
                       <div className="space-y-3">
@@ -594,7 +594,7 @@ export default function FeatureDemo({
                         <span className="font-subtitle text-sm">Your Smart Guide Dog</span>
                       </div>
                       <p className="font-body text-sm text-white/80">
-                        Balto learns your business patterns to give you smarter recommendations over time.
+                        Togo learns your business patterns to give you smarter recommendations over time.
                       </p>
                     </div>
                   </div>
