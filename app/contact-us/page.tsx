@@ -25,23 +25,19 @@ export default function ContactUsPage() {
     };
 
     try {
-      const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
-      const res = await fetch(`${hubUrl}/api/contact`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
-      if (!res.ok) throw new Error("Failed to send");
+      if (!res.ok) {
+        const result = await res.json().catch(() => ({}));
+        throw new Error(result.error || "Failed to send");
+      }
       setSubmitted(true);
-    } catch {
-      // Fallback to mailto if API isn't available
-      const subject = encodeURIComponent(`Contact from ${data.name}`);
-      const body = encodeURIComponent(
-        `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || "N/A"}\n\nMessage:\n${data.message}`
-      );
-      window.location.href = `mailto:support@critter.pet?subject=${subject}&body=${body}`;
-      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again or email us at support@critter.pet.");
     } finally {
       setLoading(false);
     }
