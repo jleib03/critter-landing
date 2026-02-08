@@ -1,6 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import LeadGenDemo from "@/app/components/marketing/demos/LeadGenDemo";
-import { Database, ClipboardList, Mail, Users, Star, TrendingUp } from "lucide-react";
+import { ClipboardList, Shield, Bell } from "lucide-react";
 
 export const metadata = {
   title: "Lead Generation for Pet Care | Critter",
@@ -11,14 +11,14 @@ export default function LeadGenerationPage() {
   return (
     <FeaturePage
       heroTitle="The client-at-first-contact toolkit"
-      heroSubtitle="Tools, communications, and automation that surprise and delight your audience that convert 'if' to 'when'"
+      heroSubtitle="Tools, communications, and automation that surprise and delight your audience to cover 'if' to 'when'."
       heroDemo={<LeadGenDemo />}
       sectionHeadline="Attract, nurture, and convert top tier clients"
       cards={[
         {
           tag: "Quantity",
           title: "Outbound lead gen that works",
-          icon: <Users className="h-6 w-6" />,
+          icon: <ClipboardList className="h-6 w-6" />,
           bullets: [
             "Automated referral programs",
             "Multi-channel lead capture",
@@ -28,7 +28,7 @@ export default function LeadGenerationPage() {
         {
           tag: "Quality",
           title: "Qualify inbound leads",
-          icon: <Star className="h-6 w-6" />,
+          icon: <Shield className="h-6 w-6" />,
           bullets: [
             "Automated pipeline management",
             "Form builder",
@@ -38,7 +38,7 @@ export default function LeadGenerationPage() {
         {
           tag: "Conversion",
           title: "Close new clients",
-          icon: <TrendingUp className="h-6 w-6" />,
+          icon: <Bell className="h-6 w-6" />,
           bullets: [
             "Automated follow-up",
             "Targeted promotion",
@@ -51,19 +51,19 @@ export default function LeadGenerationPage() {
           title: "Build & manage inbound lead flow",
           description: "Tap your network and your presence, embedding tools across web, social, and within your client base to capture more leads where they're at.",
           layout: "image-left",
-          icon: <Database className="h-6 w-6" />,
+          icon: <ClipboardList className="h-6 w-6" />,
         },
         {
           title: "Vet leads to ensure fit",
           description: "Pre-screen clients for requirements & criteria with flexible tools designed to capture the right details at the right time to qualify leads, letting you invest time and money where conversion is most likely.",
           layout: "image-right",
-          icon: <ClipboardList className="h-6 w-6" />,
+          icon: <Shield className="h-6 w-6" />,
         },
         {
           title: "Never lose a lead again",
           description: "Stay on top of potential new clients with automated workflows and communications that wow with fast, professional, and personalized follow up that puts your best foot forward every time.",
           layout: "image-left",
-          icon: <Mail className="h-6 w-6" />,
+          icon: <Bell className="h-6 w-6" />,
         },
       ]}
     />

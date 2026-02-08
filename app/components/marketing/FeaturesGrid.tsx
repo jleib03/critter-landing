@@ -53,9 +53,9 @@ export default function FeaturesGrid() {
               <Link
                 key={feature.name}
                 href={feature.href}
-                className="group bg-white rounded-xl border border-critter-cream p-5 hover:border-critter-orange hover:shadow-md transition-all"
+                className="group bg-white rounded-xl border border-critter-cream p-5 hover:border-critter-orange hover:shadow-md transition-all text-center items-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-critter-orange/10 flex items-center justify-center mb-3 group-hover:bg-critter-orange/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-critter-orange/10 flex items-center justify-center mb-3 mx-auto group-hover:bg-critter-orange/20 transition-colors">
                   <Icon className="h-6 w-6 text-critter-orange" />
                 </div>
                 <p className="font-subtitle text-sm text-critter-maroon leading-tight">

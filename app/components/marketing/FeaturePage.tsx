@@ -46,9 +46,9 @@ export default function FeaturePage({
       <LandingNav />
 
       {/* Hero Section */}
-      <section className="pt-28 pb-16 px-6">
+      <section className="pt-36 pb-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col lg:flex-row gap-12 items-center">
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
             {/* Left text */}
             <div className="flex-1">
               <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-critter-maroon mb-6 leading-[1.1]">
@@ -58,7 +58,7 @@ export default function FeaturePage({
                 {heroSubtitle}
               </p>
               <a href={`${hubUrl}/auth/signup`}>
-                <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">
+                <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle font-light rounded-[20px] px-8 h-12 text-xl">
                   Start 7 Day Free Trial
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -79,7 +79,7 @@ export default function FeaturePage({
       </section>
 
       {/* Subheadline */}
-      <section className="py-12 px-6">
+      <section className="pt-16 pb-4 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon">
             {sectionHeadline}
@@ -88,7 +88,7 @@ export default function FeaturePage({
       </section>
 
       {/* Three-column feature cards */}
-      <section className="py-12 px-6">
+      <section className="pt-4 pb-12 px-6">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {cards.map((card, i) => (

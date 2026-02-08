@@ -44,8 +44,8 @@ export const features: Feature[] = [
     icon: <GitBranch className="h-4 w-4" />,
     value: "847",
     valueLabel: "customers in active lifecycle",
-    headline: "Never Lose a Customer",
-    description: "Track every pet parent from first visit to loyal client with smart lifecycle rules.",
+    headline: "Never lose a customer",
+    description: "Automate client relationship tracking from first contact to loyal client with smart rules to move each through your funnel.",
   },
   {
     id: "togo",
@@ -53,8 +53,8 @@ export const features: Feature[] = [
     icon: <Dog className="h-4 w-4" />,
     value: "∞",
     valueLabel: "insights at your fingertips",
-    headline: "Meet Togo, Your Navigation Assistant",
-    description: "Ask anything about your business. Get instant answers, smart recommendations, and intelligently drafted campaigns.",
+    headline: "Meet Togo, your navigation assistant",
+    description: "Ask questions about your business, get instant answers, smart recommendations, and draft campaigns from an agent trained on your business data.",
   },
   {
     id: "automations",
@@ -62,8 +62,8 @@ export const features: Feature[] = [
     icon: <Zap className="h-4 w-4" />,
     value: "6",
     valueLabel: "automations running 24/7",
-    headline: "Set It and Forget It",
-    description: "Birthday wishes, referrals, and reminders—all on autopilot.",
+    headline: "Set it and forget it",
+    description: "Birthday wishes, review requests, referral programs, win-back campaigns, and more - all on autopilot.",
   },
   {
     id: "customers",
@@ -71,8 +71,8 @@ export const features: Feature[] = [
     icon: <Users className="h-4 w-4" />,
     value: "1,247",
     valueLabel: "customers & pets organized",
-    headline: "All Your Data in One Place",
-    description: "Import from any system. Segment, tag, and personalize at scale.",
+    headline: "All your data in one place",
+    description: "Import human and pet client data from any system. Auto segmentation, tagging, and personalization at scale.",
   },
   {
     id: "leadgen",
@@ -80,7 +80,7 @@ export const features: Feature[] = [
     icon: <ClipboardList className="h-4 w-4" />,
     value: "247",
     valueLabel: "leads captured this month",
-    headline: "Turn Visitors Into Customers",
+    headline: "Turn visitors into customers",
     description: "Beautiful forms, scheduling links, and automated follow-ups that convert.",
   },
   {
@@ -89,7 +89,7 @@ export const features: Feature[] = [
     icon: <Mail className="h-4 w-4" />,
     value: "12,847",
     valueLabel: "emails sent this month",
-    headline: "Send Campaigns That Get Opened",
+    headline: "Send campaigns that get opened",
     description: "Personalized emails and texts that bring pet parents back.",
   },
   {
@@ -98,7 +98,7 @@ export const features: Feature[] = [
     icon: <MessageSquare className="h-4 w-4" />,
     value: "98%",
     valueLabel: "response rate",
-    headline: "Text Like a Pro",
+    headline: "Text like a pro",
     description: "Two-way SMS that feels personal. Reminders, confirmations, and conversations.",
   },
 ];
@@ -650,7 +650,7 @@ export default function FeatureDemo({
                               </div>
                             </div>
                             <div className="h-9 bg-critter-orange rounded-lg flex items-center justify-center">
-                              <span className="font-subtitle text-xs text-white">Get 20% Off →</span>
+                              <span className="font-subtitle text-xs text-white">Get Started →</span>
                             </div>
                           </div>
                           <div className="p-3 bg-white flex items-center justify-between border-t border-critter-cream">

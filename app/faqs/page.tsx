@@ -33,7 +33,7 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How is Critter different from generic CRM or marketing tools?",
         answer:
-          "Unlike generic platforms, Critter integrates directly with the pet care software you already use — like Time to Pet and Precise Petcare — so your customer and booking data flows in automatically. Every feature is designed around how pet care businesses actually work, from pet profiles and service-based segmentation to lifecycle communications tailored to your industry.",
+          "Unlike generic platforms, Critter pulls in data from the pet care software you already use — like Time to Pet and Precise Petcare — so your customer and booking data flows in automatically. Every feature is designed around how pet care businesses actually work, from pet profiles and service-based segmentation to lifecycle communications tailored to your industry.",
       },
     ],
   },
@@ -58,7 +58,7 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How long does it take to set up?",
         answer:
-          "Most businesses are up and running within minutes. If you use Time to Pet or Precise Petcare, connecting your data is a one-click integration. You can also import existing contacts via CSV. From there, you can start segmenting customers and sending campaigns immediately.",
+          "Most businesses are set up and exploring within their first session. If you use Time to Pet or Precise Petcare, connecting your data is a one-click process. You can also import existing contacts via CSV. From there, you can start segmenting customers and sending campaigns immediately.",
       },
     ],
   },
@@ -73,7 +73,7 @@ const faqCategories: FAQCategory[] = [
       {
         question: "Can I send both email and SMS campaigns?",
         answer:
-          "Yes. All plans include unlimited email campaigns. SMS messaging is available on the Pro plan, which includes 5,000 messages per month with additional bundles available at $20 per 1,000 messages.",
+          "Yes. Email campaigns start on the Starter plan ($49/mo) with 1,000 emails per month. SMS messaging starts on the Grow plan ($149/mo) with 2,000 messages per month. The Grow plan also includes 25,000 emails and 200 Togo AI chats. The Pro plan ($349/mo) includes 75,000 emails, 10,000 SMS messages, and 500 Togo AI chats.",
       },
       {
         question: "What marketing automations are available?",
@@ -98,12 +98,12 @@ const faqCategories: FAQCategory[] = [
     ],
   },
   {
-    title: "Integrations & Data",
+    title: "Connectors & Data",
     items: [
       {
-        question: "What software does Critter integrate with?",
+        question: "What software does Critter sync data from?",
         answer:
-          "Critter integrates with Time to Pet and Precise Petcare, with more integrations coming soon. These connections sync your customer, pet, and booking data automatically so everything stays up to date without manual entry.",
+          "Critter syncs data from Time to Pet and Precise Petcare, with more connectors coming soon. These connections sync your customer, pet, and booking data automatically so everything stays up to date without manual entry.",
       },
       {
         question: "Can I import my existing customer data?",
@@ -111,7 +111,7 @@ const faqCategories: FAQCategory[] = [
           "Yes. You can import contacts via CSV upload in addition to connecting your pet care software. Critter automatically deduplicates records so you won't end up with duplicate customer profiles.",
       },
       {
-        question: "Does Critter integrate with my website?",
+        question: "Does Critter connect with my website?",
         answer:
           "Yes. You can embed Critter's lead capture forms and Meet & Greet scheduler directly on your website. Critter also provides unique referral links for each client that work anywhere — on your site, social media, or in emails.",
       },
@@ -128,12 +128,17 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How much does Critter cost?",
         answer:
-          "Critter offers two paid plans: Grow at $89/month for essential CRM and marketing tools, and Pro at $249/month which adds lead generation, SMS messaging, expanded Togo AI access, and priority support. Both plans include unlimited email campaigns.",
+          "Critter offers three paid plans: Starter at $49/month for email marketing essentials, Grow at $149/month for full-featured CRM, marketing, SMS, and lead generation tools, and Pro at $349/month for maximum power with expanded limits and priority support. All plans include a 7-day free trial.",
       },
       {
-        question: "What's the difference between the Grow and Pro plans?",
+        question: "What's the difference between the plans?",
         answer:
-          "Grow includes unlimited email campaigns, customer segmentation, automations, lifecycle communications, 100 Togo AI chats per month, and integrations with Time to Pet and Precise Petcare. Pro adds lead generation tools (forms, scheduling, referral programs), 5,000 SMS messages per month, 500 Togo AI chats per month, and priority support.",
+          "Starter ($49/mo) includes 1,000 emails, customer segmentation, automations, and data connectors. Grow ($149/mo) adds 25,000 emails, 2,000 SMS messages, 200 Togo AI chats, and lead generation tools. Pro ($349/mo) includes 75,000 emails, 10,000 SMS messages, 500 Togo AI chats, advanced automations, and priority support.",
+      },
+      {
+        question: "Do you offer enterprise pricing?",
+        answer:
+          "Yes. If your business has needs beyond our Pro plan, reach out to our team for custom enterprise pricing tailored to your scale and requirements.",
       },
       {
         question: "Can I change my plan later?",

@@ -500,10 +500,10 @@ export default function TogoAIPage() {
             <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-critter-maroon mb-6 leading-[1.1]">
               Stay in tune with your business
               <br />
-              <span className="text-critter-orange">from client #1 to #1000</span>
+              from client #1 to #1000
             </h1>
             <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto mb-8">
-              AI trained on your most important data, delivering real insights and an all new way to engage CRM and client engagement.
+              AI trained on your most important data, delivering real insights and a new way to engage CRM and drive client engagement.
             </p>
             <a href={`${process.env.NEXT_PUBLIC_HUB_URL || 'https://hub.critter.pet'}/auth/signup`}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">

@@ -27,7 +27,7 @@ const features = [
 
 export default function FeaturesBar() {
   return (
-    <section className="py-16 px-6 bg-white">
+    <section className="py-24 px-6 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="font-title text-2xl sm:text-3xl text-critter-maroon text-center mb-12">
           Built with ease and speed in mind

@@ -31,12 +31,12 @@ export default function LandingPage() {
       <LandingNav onFeatureClick={setActiveFeature} />
 
       {/* Hero Section - Updated copy from Figma */}
-      <section className="pt-28 pb-8 px-6">
+      <section className="pt-36 pb-14 px-6">
         <div className="container mx-auto max-w-6xl text-center">
           <h1 className="font-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black mb-6 leading-[0.95] tracking-tight">
-            <span className="whitespace-nowrap">Growth automation engine</span>
+            <span className="whitespace-nowrap">Automation engine for growing</span>
             <br />
-            <span className="whitespace-nowrap">for pet care businesses</span>
+            <span className="whitespace-nowrap">pet care businesses</span>
           </h1>
           <p className="font-title font-light text-lg sm:text-xl text-black max-w-2xl mx-auto mb-8 leading-[1.1]">
             Turn insights into action with data-driven tools for CRM, marketing, & ongoing client engagement at scale

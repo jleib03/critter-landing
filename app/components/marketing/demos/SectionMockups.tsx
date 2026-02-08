@@ -57,7 +57,7 @@ export function ConnectDataMockup() {
         </div>
       </div>
       <div className="text-center">
-        <p className="font-body text-xs text-critter-gray">Real-time sync · Auto-dedup · Zero manual entry</p>
+        <p className="font-body text-xs text-critter-gray">Automatic sync · Auto-dedup · Zero manual entry</p>
       </div>
     </div>
   );
@@ -87,7 +87,7 @@ export function CaptureLeadsMockup() {
               <span className="font-body text-xs text-critter-gray/60">Pet&apos;s name</span>
             </div>
             <div className="h-7 bg-critter-orange rounded-lg flex items-center justify-center">
-              <span className="font-subtitle text-xs text-white">Get 20% Off →</span>
+              <span className="font-subtitle text-xs text-white">Get Started →</span>
             </div>
           </div>
         </div>

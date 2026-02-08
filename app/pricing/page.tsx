@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
-import { Check, X, Zap, Mail, TrendingUp, UserPlus, MessageSquare } from "lucide-react";
+import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare } from "lucide-react";
 import { TogoIcon } from "@/app/components/icons/TogoIcon";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
@@ -12,8 +12,7 @@ import LandingFooter from "@/app/components/marketing/LandingFooter";
 interface PricingTier {
   id: string;
   name: string;
-  price: number | "Free";
-  period?: string;
+  price: number;
   description: string;
   icon: React.ReactNode;
   badge?: string;
@@ -29,35 +28,17 @@ interface PricingTier {
 
 const pricingTiers: PricingTier[] = [
   {
-    id: "trial",
-    name: "Free Trial",
-    price: "Free",
-    period: "for 7 days",
-    description: "Try everything before you commit",
-    icon: <Zap className="h-6 w-6" />,
-    badge: "No Credit Card",
-    badgeColor: "bg-critter-orange",
-    features: [
-      { text: "1,000 emails", included: true },
-      { text: "20 Togo AI chats", included: true },
-      { text: "Customer segmentation & funnels", included: true },
-      { text: "TTP & PPC integrations", included: true },
-      { text: "Lead Generation", included: false },
-      { text: "SMS/Texting", included: false },
-    ],
-    cta: "Start Free Trial",
-  },
-  {
     id: "starter",
     name: "Starter",
     price: 49,
     description: "Get started with email marketing",
     icon: <Mail className="h-6 w-6" />,
     features: [
+      { text: "7-day free trial", included: true, highlight: true },
       { text: "1,000 emails/month", included: true },
       { text: "Email Campaigns", included: true },
       { text: "Customer segmentation & funnels", included: true },
-      { text: "TTP & PPC integrations", included: true },
+      { text: "TTP & PPC connectors", included: true },
       { text: "Togo AI", included: false },
       { text: "SMS/Texting", included: false },
       { text: "Lead Generation", included: false },
@@ -73,12 +54,13 @@ const pricingTiers: PricingTier[] = [
     badge: "Most Popular",
     badgeColor: "bg-critter-orange",
     features: [
+      { text: "7-day free trial", included: true, highlight: true },
       { text: "25,000 emails/month", included: true, highlight: true },
       { text: "2,000 SMS messages/month", included: true, highlight: true },
       { text: "200 Togo AI chats/month", included: true, highlight: true },
       { text: "Lead Generation tools", included: true, highlight: true },
       { text: "Automations & lifecycle comms", included: true },
-      { text: "TTP & PPC integrations", included: true },
+      { text: "TTP & PPC connectors", included: true },
     ],
     cta: "Choose Grow",
     popular: true,
@@ -90,6 +72,7 @@ const pricingTiers: PricingTier[] = [
     description: "Maximum power for established businesses",
     icon: <UserPlus className="h-6 w-6" />,
     features: [
+      { text: "7-day free trial", included: true, highlight: true },
       { text: "75,000 emails/month", included: true, highlight: true },
       { text: "10,000 SMS messages/month", included: true, highlight: true },
       { text: "500 Togo AI chats/month", included: true, highlight: true },
@@ -105,11 +88,7 @@ export default function PricingPage() {
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
 
   const handleSelectPlan = (tierId: string) => {
-    if (tierId === "trial") {
-      window.location.href = `${hubUrl}/auth/signup`;
-    } else {
-      window.location.href = `${hubUrl}/auth/signup?plan=${tierId}`;
-    }
+    window.location.href = `${hubUrl}/auth/signup?plan=${tierId}`;
   };
 
   return (
@@ -117,14 +96,21 @@ export default function PricingPage() {
       <LandingNav />
 
       {/* Hero Section */}
-      <div className="container mx-auto px-6 pt-28 pb-10">
+      <div className="container mx-auto px-6 pt-36 pb-10">
         <div className="text-center mb-8">
           <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-black mb-4">
-            Simple, Transparent Pricing
+            Software that pays for itself
           </h1>
           <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto">
-            Powerful marketing automation for pet care businesses. Start with a free trial, upgrade when you&apos;re ready.
+            Powerful automation tools that surface revenue opportunities on your behalf currently left untapped.
           </p>
+        </div>
+
+        {/* Free Trial Note */}
+        <div className="text-center mb-8">
+          <Badge className="bg-critter-orange text-white px-4 py-1 font-subtitle text-sm">
+            All plans include a 7-day free trial — no credit card required
+          </Badge>
         </div>
 
         {/* Features Overview */}
@@ -152,7 +138,7 @@ export default function PricingPage() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {pricingTiers.map((tier) => (
             <PricingCard
               key={tier.id}
@@ -193,21 +179,20 @@ export default function PricingPage() {
               <thead>
                 <tr className="border-b border-critter-cream">
                   <th className="text-left p-4 font-subtitle text-critter-maroon">Feature</th>
-                  <th className="text-center p-4 font-subtitle text-critter-maroon">Trial</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Starter</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Grow</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Pro</th>
                 </tr>
               </thead>
               <tbody className="font-body text-sm">
-                <ComparisonRow feature="Emails/month" trial="1,000" starter="1,000" grow="25,000" pro="75,000" />
-                <ComparisonRow feature="Customer Segmentation" trial={true} starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Automations" trial={true} starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Funnel Management" trial={true} starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Togo AI Assistant" trial="20 total" starter={false} grow="200/mo" pro="500/mo" />
-                <ComparisonRow feature="Lead Generation" trial={false} starter={false} grow={true} pro={true} />
-                <ComparisonRow feature="SMS Messages" trial={false} starter={false} grow="2,000/mo" pro="10,000/mo" />
-                <ComparisonRow feature="Priority Support" trial={false} starter={false} grow={false} pro={true} />
+                <ComparisonRow feature="Emails/month" starter="1,000" grow="25,000" pro="75,000" />
+                <ComparisonRow feature="Customer Segmentation" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Automations" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Funnel Management" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Togo AI Assistant" starter={false} grow="200/mo" pro="500/mo" />
+                <ComparisonRow feature="Lead Generation" starter={false} grow={true} pro={true} />
+                <ComparisonRow feature="SMS Messages" starter={false} grow="2,000/mo" pro="10,000/mo" />
+                <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} />
               </tbody>
             </table>
           </div>
@@ -249,19 +234,8 @@ function PricingCard({ tier, onSelect }: PricingCardProps) {
           {tier.description}
         </CardDescription>
         <div className="mt-3">
-          {tier.price === "Free" ? (
-            <div>
-              <span className="font-title text-5xl text-critter-maroon">Free</span>
-              {tier.period && (
-                <span className="font-body text-muted-foreground ml-2">{tier.period}</span>
-              )}
-            </div>
-          ) : (
-            <>
-              <span className="font-title text-5xl text-critter-maroon">${tier.price}</span>
-              <span className="font-body text-muted-foreground ml-1">/month</span>
-            </>
-          )}
+          <span className="font-title text-5xl text-critter-maroon">${tier.price}</span>
+          <span className="font-body text-muted-foreground ml-1">/month</span>
         </div>
       </CardHeader>
 
@@ -316,13 +290,12 @@ function FeatureHighlight({ icon, title, description }: FeatureHighlightProps) {
 
 interface ComparisonRowProps {
   feature: string;
-  trial: boolean | string;
   starter: boolean | string;
   grow: boolean | string;
   pro: boolean | string;
 }
 
-function ComparisonRow({ feature, trial, starter, grow, pro }: ComparisonRowProps) {
+function ComparisonRow({ feature, starter, grow, pro }: ComparisonRowProps) {
   const renderValue = (value: boolean | string) => {
     if (typeof value === 'string') {
       return <span className="font-medium text-critter-maroon">{value}</span>;
@@ -337,7 +310,6 @@ function ComparisonRow({ feature, trial, starter, grow, pro }: ComparisonRowProp
   return (
     <tr className="border-b border-critter-cream last:border-0">
       <td className="p-4 text-muted-foreground">{feature}</td>
-      <td className="p-4 text-center">{renderValue(trial)}</td>
       <td className="p-4 text-center">{renderValue(starter)}</td>
       <td className="p-4 text-center">{renderValue(grow)}</td>
       <td className="p-4 text-center">{renderValue(pro)}</td>

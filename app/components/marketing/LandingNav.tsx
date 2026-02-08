@@ -38,6 +38,7 @@ export default function LandingNav({
     <nav className="fixed top-0 left-0 right-0 z-50 bg-critter-beige/80 backdrop-blur-md">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          {/* Left: Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
               src="/images/critter-logo.png"
@@ -47,20 +48,22 @@ export default function LandingNav({
               className="h-8 w-auto"
             />
           </Link>
-          <div className="flex items-center gap-3">
+
+          {/* Center: Nav Items */}
+          <div className="hidden sm:flex items-center gap-1">
             {/* Features Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
+                <Button variant="ghost" className="flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
                   Features
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56 bg-white border-critter-cream">
+              <DropdownMenuContent align="start" className="w-64 bg-white border-critter-cream">
                 <DropdownMenuItem asChild>
                   <Link href="/features/crm" className="flex items-center gap-2 cursor-pointer">
                     <Users className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">Customer CRM</span>
+                    <span className="font-body">CRM</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -78,14 +81,14 @@ export default function LandingNav({
                 <DropdownMenuItem asChild>
                   <Link href="/features/referrals" className="flex items-center gap-2 cursor-pointer">
                     <GitBranch className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">Referral Management</span>
+                    <span className="font-body">Referral Program</span>
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
             {/* Togo AI Link */}
-            <Link href="/togo-ai" className="hidden sm:block">
+            <Link href="/togo-ai">
               <Button
                 variant="ghost"
                 className="flex items-center gap-1 font-subtitle text-black hover:text-critter-orange"
@@ -98,33 +101,36 @@ export default function LandingNav({
             {/* Resources Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden sm:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
+                <Button variant="ghost" className="flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
                   Resources
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-white border-critter-cream">
-                <DropdownMenuItem asChild>
-                  <Link href="/faqs" className="flex items-center gap-2 cursor-pointer">
-                    <HelpCircle className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">FAQs</span>
-                  </Link>
-                </DropdownMenuItem>
+              <DropdownMenuContent align="center" className="w-64 bg-white border-critter-cream">
                 <DropdownMenuItem asChild>
                   <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
                     <Calendar className="h-4 w-4 text-critter-orange" />
                     <span className="font-body">Schedule a Demo</span>
                   </a>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/faqs" className="flex items-center gap-2 cursor-pointer">
+                    <HelpCircle className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">FAQs</span>
+                  </Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link href="/pricing" className="hidden sm:block">
+            <Link href="/pricing">
               <Button variant="ghost" className="font-subtitle text-black hover:text-critter-orange">
                 Pricing
               </Button>
             </Link>
+          </div>
 
+          {/* Right: Log In + Free Trial */}
+          <div className="flex items-center gap-3">
             {/* Log In - Product Selector Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -133,7 +139,7 @@ export default function LandingNav({
                   <ChevronDown className="h-4 w-4" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-64 bg-white border-critter-cream">
+              <DropdownMenuContent align="end" className="w-72 bg-white border-critter-cream">
                 <DropdownMenuLabel className="font-subtitle text-critter-gray text-xs">Choose your product</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>

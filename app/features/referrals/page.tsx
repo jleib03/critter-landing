@@ -1,9 +1,9 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import ReferralDemo from "@/app/components/marketing/demos/ReferralDemo";
-import { Database, ClipboardList, Mail, Gift, Users, BarChart3 } from "lucide-react";
+import { Link2, Gift, PieChart } from "lucide-react";
 
 export const metadata = {
-  title: "Referral Management for Pet Care | Critter",
+  title: "Referral Program for Pet Care | Critter",
   description: "Reward clients for referrals at scale. Empower clients with unique referral links and customized referral programs.",
 };
 
@@ -18,7 +18,7 @@ export default function ReferralsPage() {
         {
           tag: "Personalization",
           title: "Design a program your clients love",
-          icon: <Gift className="h-6 w-6" />,
+          icon: <Link2 className="h-6 w-6" />,
           bullets: [
             "Unique referral links",
             "Criteria-based enrollment",
@@ -28,7 +28,7 @@ export default function ReferralsPage() {
         {
           tag: "Quantity",
           title: "Incentivize consistent outreach",
-          icon: <Users className="h-6 w-6" />,
+          icon: <Gift className="h-6 w-6" />,
           bullets: [
             "Tiered rewards",
             "Automated reminders",
@@ -38,7 +38,7 @@ export default function ReferralsPage() {
         {
           tag: "Tracking",
           title: "Referrals at scale with ease",
-          icon: <BarChart3 className="h-6 w-6" />,
+          icon: <PieChart className="h-6 w-6" />,
           bullets: [
             "Referral tracking",
             "Reward tracking",
@@ -51,19 +51,19 @@ export default function ReferralsPage() {
           title: "Empower your clients to grow your business",
           description: "Personalized links designed to capture referrals give your clients the tools to spread your reach within their communities, wherever and whenever new clients emerge.",
           layout: "image-left",
-          icon: <Database className="h-6 w-6" />,
+          icon: <Link2 className="h-6 w-6" />,
         },
         {
           title: "Incentivize ongoing, consistent growth",
           description: "Build a rewards system that reflects your business' personality and the value placed on referrals, keeping it simple or designing tiers that reward clients more as the referrals pile up.",
           layout: "image-right",
-          icon: <ClipboardList className="h-6 w-6" />,
+          icon: <Gift className="h-6 w-6" />,
         },
         {
           title: "Track & manage referrals with ease",
           description: "Automated capture, follow up, onboarding, and reward tracking make it simple to implement a referral program and manage it to success on an ongoing basis with low overhead cost and effort.",
           layout: "image-left",
-          icon: <Mail className="h-6 w-6" />,
+          icon: <PieChart className="h-6 w-6" />,
         },
       ]}
     />

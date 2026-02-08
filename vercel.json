@@ -3,6 +3,9 @@
     { "source": "/dashboard/:path*", "destination": "https://hub.critter.pet/dashboard/:path*", "permanent": true },
     { "source": "/auth/:path*", "destination": "https://hub.critter.pet/auth/:path*", "permanent": true },
     { "source": "/api/:path*", "destination": "https://hub.critter.pet/api/:path*", "permanent": true },
-    { "source": "/admin/:path*", "destination": "https://hub.critter.pet/admin/:path*", "permanent": true }
+    { "source": "/admin/:path*", "destination": "https://hub.critter.pet/admin/:path*", "permanent": true },
+    { "source": "/features", "destination": "/features/crm", "permanent": false },
+    { "source": "/apps", "destination": "/", "permanent": false },
+    { "source": "/terms", "destination": "/terms-of-use", "permanent": false }
   ]
 }
