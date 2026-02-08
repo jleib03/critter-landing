@@ -170,7 +170,7 @@ export default function LandingNav({
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <a
-                    href={`${opsUrl}/auth/signin`}
+                    href={opsUrl}
                     className="flex items-center gap-3 cursor-pointer py-3"
                   >
                     <div className="w-10 h-10 rounded-lg bg-critter-blue/20 flex items-center justify-center">
