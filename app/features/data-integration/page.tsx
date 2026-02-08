@@ -1,73 +1,77 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import { ConnectDataMockup } from "@/app/components/marketing/demos/SectionMockups";
-import { Database, RefreshCw, Shield } from "lucide-react";
+import { ConnectDisconnectedMockup, AutomateInsightsMockup, OutOfBoxKPIsMockup } from "@/app/components/marketing/demos/SectionMockups";
+import { Database, Layers, BarChart3 } from "lucide-react";
 
 export const metadata = {
   title: "Data Integration for Pet Care | Critter",
-  description: "Connect your pet care software to Critter in one click. Sync customer, pet, and booking data automatically from Time to Pet, Precise Petcare, and more.",
+  description: "Finally tap into the rich dataset your business generates. Industry leading data connectors for Time to Pet, Precise Petcare, and more.",
 };
 
 export default function DataIntegrationPage() {
   return (
     <FeaturePage
-      heroTitle="Connect your data, unlock your potential"
-      heroSubtitle="Out-of-the-box connectors for leading pet care software bring your customer, pet, and booking data into one place automatically."
+      heroTitle="The access to your data you've always deserved"
+      heroSubtitle="Finally tap into the rich dataset your business generates that's been blocked behind your booking software's ancient tech."
       heroDemo={
         <div className="bg-white rounded-2xl shadow-lg border border-critter-cream p-6">
           <ConnectDataMockup />
         </div>
       }
-      sectionHeadline="Your operational data, powering your growth engine"
+      sectionHeadline="Your data, unleashed & synced across systems, no manual or duplicate effort required"
       cards={[
         {
-          tag: "Connectors",
-          title: "One-click data sync",
+          tag: "Integration",
+          title: "Industry leading data connectors",
           icon: <Database className="h-6 w-6" />,
           bullets: [
-            "Time to Pet connector",
-            "Precise Petcare connector",
-            "CSV import support",
+            "Time to Pet",
+            "Precise Pet Care",
+            "Google / Apple Calendar",
           ],
         },
         {
-          tag: "Automation",
-          title: "Always in sync",
-          icon: <RefreshCw className="h-6 w-6" />,
+          tag: "Flexibility",
+          title: "Custom imports expand context",
+          icon: <Layers className="h-6 w-6" />,
           bullets: [
-            "Automatic data sync",
-            "Auto-deduplication",
-            "Zero manual entry",
+            "Flexible data loading",
+            "System/tool agnostic",
+            "Templates & accelerators",
           ],
         },
         {
-          tag: "Reliability",
-          title: "Data you can trust",
-          icon: <Shield className="h-6 w-6" />,
+          tag: "Utility",
+          title: "Put your data to work",
+          icon: <BarChart3 className="h-6 w-6" />,
           bullets: [
-            "Industry-standard encryption",
-            "No third-party data sharing",
-            "Export your data anytime",
+            "AI agent trained on your data",
+            "Automated reporting & analytics",
+            "ROI & performance tracking",
           ],
         },
       ]}
       featureSections={[
         {
-          title: "Plug in your existing tools",
-          description: "Critter connects directly to the pet care software you already use. Your customer, pet, and booking data flows in automatically so everything stays up to date without manual entry.",
+          title: "Connect the disconnected",
+          description: "Pet industry tools have a history of limiting access to data and making robust reporting and analytics difficult. Our connectors unite datasets, make the data accessible, and deliver key insights.",
           layout: "image-left",
           icon: <Database className="h-6 w-6" />,
+          imagePlaceholder: <ConnectDisconnectedMockup />,
         },
         {
-          title: "Clean, deduplicated records",
-          description: "Import from multiple sources without worrying about duplicates. Critter automatically deduplicates records and merges profiles so you have one clean view of every customer.",
+          title: "Automate insights in your inbox",
+          description: "Ask questions to understand your business, then set reports to be delivered on a regular cadence to your inbox with key insights highlighted and actionable.",
           layout: "image-right",
-          icon: <RefreshCw className="h-6 w-6" />,
+          icon: <Layers className="h-6 w-6" />,
+          imagePlaceholder: <AutomateInsightsMockup />,
         },
         {
-          title: "Secure and private by default",
-          description: "Your data is protected with industry-standard encryption and security practices. Customer information is never shared with third parties, and you can export your data at any time.",
+          title: "Out of the box KPIs",
+          description: "From ROI tracking to marketing performance and customer lifetime value, Critter calculates key metrics every business should know so you avoid manual work and hours slaving over spreadsheets.",
           layout: "image-left",
-          icon: <Shield className="h-6 w-6" />,
+          icon: <BarChart3 className="h-6 w-6" />,
+          imagePlaceholder: <OutOfBoxKPIsMockup />,
         },
       ]}
     />

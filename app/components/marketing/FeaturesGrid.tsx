@@ -36,7 +36,7 @@ const features = [
   { name: "Custom Reports & Analytics", icon: BarChart3, href: "/togo-ai" },
   { name: "Customer Lifetime Value Analysis", icon: DollarSign, href: "/features/crm" },
   { name: "ROI Tracking", icon: PieChart, href: "/features/marketing" },
-  { name: "Industry Data Connectors", icon: Database, href: "/features/crm" },
+  { name: "Industry Data Connectors", icon: Database, href: "/features/data-integration" },
 ];
 
 export default function FeaturesGrid() {

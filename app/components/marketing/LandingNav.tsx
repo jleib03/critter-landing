@@ -84,6 +84,18 @@ export default function LandingNav({
                     <span className="font-body">Referral Program</span>
                   </Link>
                 </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/features/data-integration" className="flex items-center gap-2 cursor-pointer">
+                    <Database className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">Data Integration</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/features/scheduling" className="flex items-center gap-2 cursor-pointer">
+                    <Calendar className="h-4 w-4 text-critter-orange" />
+                    <span className="font-body">Schedule & Operations</span>
+                  </Link>
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 

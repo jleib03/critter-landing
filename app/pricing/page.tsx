@@ -113,8 +113,19 @@ export default function PricingPage() {
           </Badge>
         </div>
 
+        {/* Pricing Cards */}
+        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {pricingTiers.map((tier) => (
+            <PricingCard
+              key={tier.id}
+              tier={tier}
+              onSelect={handleSelectPlan}
+            />
+          ))}
+        </div>
+
         {/* Features Overview */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           <FeatureHighlight
             icon={<Mail className="h-5 w-5" />}
             title="Email Campaigns"
@@ -135,17 +146,6 @@ export default function PricingPage() {
             title="Lead Generation"
             description="Forms, scheduling & more"
           />
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {pricingTiers.map((tier) => (
-            <PricingCard
-              key={tier.id}
-              tier={tier}
-              onSelect={handleSelectPlan}
-            />
-          ))}
         </div>
 
         {/* Trust Indicators */}

@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import MarketingDemo from "@/app/components/marketing/demos/MarketingDemo";
+import { ConvertClientsMockup, UnlockRevenueMockup, EngageTeamMockup } from "@/app/components/marketing/demos/SectionMockups";
 import { Target, DollarSign, Users } from "lucide-react";
 
 export const metadata = {
@@ -52,18 +53,21 @@ export default function MarketingPage() {
           description: "Critter's automated tagging on both human and pet clients means there's more information and context about your base than ever before. Building a target audience & tailoring a message has never been easier.",
           layout: "image-left",
           icon: <Target className="h-6 w-6" />,
+          imagePlaceholder: <ConvertClientsMockup />,
         },
         {
           title: "Unlock untapped revenue",
           description: "Data-driven automation around upsell, cross-sell, and more push customer lifetime value higher by engaging your existing clients to reduce churn, increase spend, and expand service usage.",
           layout: "image-right",
           icon: <DollarSign className="h-6 w-6" />,
+          imagePlaceholder: <UnlockRevenueMockup />,
         },
         {
           title: "Engage like you've got a whole team",
           description: "With easy, criteria-based rules that drive ongoing outreach every time your data syncs, run highly targeted marketing and growth tactics that work together to tackle all of your goals, all at once.",
           layout: "image-left",
           icon: <Users className="h-6 w-6" />,
+          imagePlaceholder: <EngageTeamMockup />,
         },
       ]}
     />

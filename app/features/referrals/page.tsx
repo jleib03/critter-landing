@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import ReferralDemo from "@/app/components/marketing/demos/ReferralDemo";
+import { EmpowerClientsMockup, IncentivizeGrowthMockup, TrackReferralsMockup } from "@/app/components/marketing/demos/SectionMockups";
 import { Link2, Gift, PieChart } from "lucide-react";
 
 export const metadata = {
@@ -52,18 +53,21 @@ export default function ReferralsPage() {
           description: "Personalized links designed to capture referrals give your clients the tools to spread your reach within their communities, wherever and whenever new clients emerge.",
           layout: "image-left",
           icon: <Link2 className="h-6 w-6" />,
+          imagePlaceholder: <EmpowerClientsMockup />,
         },
         {
           title: "Incentivize ongoing, consistent growth",
           description: "Build a rewards system that reflects your business' personality and the value placed on referrals, keeping it simple or designing tiers that reward clients more as the referrals pile up.",
           layout: "image-right",
           icon: <Gift className="h-6 w-6" />,
+          imagePlaceholder: <IncentivizeGrowthMockup />,
         },
         {
           title: "Track & manage referrals with ease",
           description: "Automated capture, follow up, onboarding, and reward tracking make it simple to implement a referral program and manage it to success on an ongoing basis with low overhead cost and effort.",
           layout: "image-left",
           icon: <PieChart className="h-6 w-6" />,
+          imagePlaceholder: <TrackReferralsMockup />,
         },
       ]}
     />

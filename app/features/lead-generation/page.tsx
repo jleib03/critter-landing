@@ -1,5 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import LeadGenDemo from "@/app/components/marketing/demos/LeadGenDemo";
+import { InboundLeadFlowMockup, VetLeadsMockup, NeverLoseLeadMockup } from "@/app/components/marketing/demos/SectionMockups";
 import { ClipboardList, Shield, Bell } from "lucide-react";
 
 export const metadata = {
@@ -52,18 +53,21 @@ export default function LeadGenerationPage() {
           description: "Tap your network and your presence, embedding tools across web, social, and within your client base to capture more leads where they're at.",
           layout: "image-left",
           icon: <ClipboardList className="h-6 w-6" />,
+          imagePlaceholder: <InboundLeadFlowMockup />,
         },
         {
           title: "Vet leads to ensure fit",
           description: "Pre-screen clients for requirements & criteria with flexible tools designed to capture the right details at the right time to qualify leads, letting you invest time and money where conversion is most likely.",
           layout: "image-right",
           icon: <Shield className="h-6 w-6" />,
+          imagePlaceholder: <VetLeadsMockup />,
         },
         {
           title: "Never lose a lead again",
           description: "Stay on top of potential new clients with automated workflows and communications that wow with fast, professional, and personalized follow up that puts your best foot forward every time.",
           layout: "image-left",
           icon: <Bell className="h-6 w-6" />,
+          imagePlaceholder: <NeverLoseLeadMockup />,
         },
       ]}
     />

@@ -2,27 +2,49 @@
 
 import { useState } from "react";
 import { Button } from "@/app/components/ui/button";
-import { Mail } from "lucide-react";
+import { Mail, Check, Loader2 } from "lucide-react";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
 
 export default function ContactUsPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
-    const message = formData.get("message");
+    setLoading(true);
+    setError("");
 
-    const subject = encodeURIComponent(`Contact from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nPhone: ${phone || "N/A"}\n\nMessage:\n${message}`
-    );
-    window.location.href = `mailto:support@critter.pet?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      phone: formData.get("phone") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
+      const res = await fetch(`${hubUrl}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+      setSubmitted(true);
+    } catch {
+      // Fallback to mailto if API isn't available
+      const subject = encodeURIComponent(`Contact from ${data.name}`);
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone || "N/A"}\n\nMessage:\n${data.message}`
+      );
+      window.location.href = `mailto:support@critter.pet?subject=${subject}&body=${body}`;
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -43,13 +65,16 @@ export default function ContactUsPage() {
           {submitted ? (
             <div className="bg-white rounded-2xl border border-critter-cream p-12 text-center">
               <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">
-                <Mail className="h-8 w-8 text-green-600" />
+                <Check className="h-8 w-8 text-green-600" />
               </div>
               <h2 className="font-title text-2xl text-critter-maroon mb-2">
                 Thank you!
               </h2>
               <p className="font-body text-critter-gray">
-                Your email client should have opened with a pre-filled message. If not, you can reach us directly at support@critter.pet.
+                We&apos;ve received your message and will get back to you shortly. You can also reach us directly at{" "}
+                <a href="mailto:support@critter.pet" className="text-critter-orange hover:underline">
+                  support@critter.pet
+                </a>.
               </p>
             </div>
           ) : (
@@ -105,12 +130,23 @@ export default function ContactUsPage() {
                   placeholder="How can we help?"
                 />
               </div>
+              {error && (
+                <p className="font-body text-sm text-red-600">{error}</p>
+              )}
               <Button
                 type="submit"
                 size="lg"
+                disabled={loading}
                 className="w-full bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle"
               >
-                Send Message
+                {loading ? (
+                  <>
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </Button>
             </form>
           )}
