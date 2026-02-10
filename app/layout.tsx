@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Critter - CRM & Marketing Automation for Pet Care Businesses",
-  description: "Critter helps pet sitters, dog walkers, groomers, and pet care businesses grow with powerful CRM, automated marketing campaigns, and AI-powered insights.",
+  title: "Critter - Automation Engine for Growing Pet Care Businesses",
+  description: "Turn insights into action with data-driven tools for CRM, marketing, and ongoing client engagement at scale. Email campaigns, SMS, AI-powered analytics, lead generation, and referral programs built for pet care.",
   keywords: [
     "pet care CRM",
     "pet business marketing",
@@ -11,11 +11,13 @@ export const metadata: Metadata = {
     "pet sitting management",
     "grooming business software",
     "pet care automation",
+    "pet care lead generation",
+    "pet business AI",
   ],
   authors: [{ name: "Critter" }],
   openGraph: {
-    title: "Critter - CRM & Marketing Automation for Pet Care Businesses",
-    description: "Grow your pet care business with automated marketing, customer management, and AI-powered insights.",
+    title: "Critter - Automation Engine for Growing Pet Care Businesses",
+    description: "Turn insights into action with data-driven tools for CRM, marketing, and ongoing client engagement at scale.",
     url: "https://critter.pet",
     siteName: "Critter",
     locale: "en_US",
@@ -23,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Critter - CRM & Marketing Automation for Pet Care Businesses",
-    description: "Grow your pet care business with automated marketing, customer management, and AI-powered insights.",
+    title: "Critter - Automation Engine for Growing Pet Care Businesses",
+    description: "Turn insights into action with data-driven tools for CRM, marketing, and ongoing client engagement at scale.",
   },
   icons: {
     icon: "/images/critter-favicon-circle.png",
