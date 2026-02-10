@@ -434,11 +434,11 @@ function FeatureSection({
     <div className="flex-1">
       <div className="bg-white rounded-2xl shadow-lg border border-critter-cream overflow-hidden">
         {mockup ? (
-          <div className="aspect-[4/3]">
+          <div className="lg:aspect-[4/3]">
             {mockup}
           </div>
         ) : (
-          <div className="p-8 aspect-[4/3] flex items-center justify-center">
+          <div className="p-8 lg:aspect-[4/3] flex items-center justify-center">
             <div className="w-full h-full bg-gradient-to-br from-critter-beige to-critter-cream rounded-xl flex items-center justify-center">
               <BarChart3 className="h-16 w-16 text-critter-orange/40" />
             </div>

@@ -67,7 +67,7 @@ export default function FeaturePage({
             {/* Right demo / image */}
             <div className="flex-1 w-full">
               {heroDemo || (
-                <div className="bg-white rounded-2xl shadow-lg border border-critter-cream p-8 aspect-[4/3] flex items-center justify-center">
+                <div className="bg-white rounded-2xl shadow-lg border border-critter-cream p-8 lg:aspect-[4/3] flex items-center justify-center">
                   <div className="w-full h-full bg-gradient-to-br from-critter-beige to-critter-cream rounded-xl flex items-center justify-center">
                     <div className="text-critter-orange/30 font-body text-sm">Image placeholder</div>
                   </div>
