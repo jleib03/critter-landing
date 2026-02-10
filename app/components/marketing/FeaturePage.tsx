@@ -48,10 +48,10 @@ export default function FeaturePage({
       {/* Hero Section */}
       <section className="pt-36 pb-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
             {/* Left text */}
             <div className="flex-1">
-              <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-critter-maroon mb-6 leading-[1.1]">
+              <h1 className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-critter-maroon mb-6 leading-[1.1]">
                 {heroTitle}
               </h1>
               <p className="font-body text-lg sm:text-xl text-critter-gray mb-8 max-w-xl">
@@ -131,11 +131,11 @@ export default function FeaturePage({
       {/* Schedule a Demo CTA */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-5xl">
-          <div className="bg-white rounded-2xl border-2 border-critter-orange p-12 text-center">
-            <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
+          <div className="bg-white rounded-2xl border-2 border-critter-orange p-6 sm:p-12 text-center">
+            <h2 className="font-title text-2xl sm:text-3xl md:text-4xl text-critter-maroon mb-4">
               Schedule a demo today
             </h2>
-            <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
+            <p className="font-body text-sm sm:text-base text-critter-gray mb-8 max-w-xl mx-auto">
               Meet with our team to learn what Critter can do for you today with a demo tailored to your business and your needs.
             </p>
             <a href={demoUrl} target="_blank" rel="noopener noreferrer">

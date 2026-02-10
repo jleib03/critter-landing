@@ -67,7 +67,7 @@ export function ConnectDataMockup() {
 export function CaptureLeadsMockup() {
   return (
     <div className="w-full h-full flex flex-col justify-center p-2">
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {/* Lead Form */}
         <div className="border-2 border-critter-orange rounded-xl overflow-hidden">
           <div className="bg-critter-orange px-3 py-1.5">

@@ -32,13 +32,13 @@ export default function FeaturesBar() {
         <h2 className="font-title text-2xl sm:text-3xl text-critter-maroon text-center mb-12">
           Built with ease and speed in mind
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, i) => (
             <div key={i} className="text-center">
               <div className="w-14 h-14 rounded-xl bg-critter-orange/10 flex items-center justify-center mx-auto mb-4 text-critter-orange">
                 {feature.icon}
               </div>
-              <h3 className="font-subtitle text-lg text-critter-maroon mb-2">
+              <h3 className="font-subtitle text-base sm:text-lg text-critter-maroon mb-2">
                 {feature.title}
               </h3>
               <p className="font-body text-sm text-critter-gray">

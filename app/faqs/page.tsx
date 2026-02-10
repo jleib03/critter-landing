@@ -197,7 +197,7 @@ export default function FAQsPage() {
         <div className="container mx-auto px-6 max-w-3xl">
           {/* Header */}
           <div className="text-center mb-12">
-            <h1 className="font-title text-4xl sm:text-5xl text-critter-maroon mb-4">
+            <h1 className="font-title text-3xl sm:text-4xl md:text-5xl text-critter-maroon mb-4">
               Frequently Asked Questions
             </h1>
             <p className="font-body text-lg text-critter-gray max-w-2xl mx-auto">
@@ -227,7 +227,7 @@ export default function FAQsPage() {
           </div>
 
           {/* CTA */}
-          <div className="mt-16 bg-white rounded-2xl border-2 border-critter-orange p-10 text-center">
+          <div className="mt-16 bg-white rounded-2xl border-2 border-critter-orange p-6 sm:p-10 text-center">
             <h2 className="font-title text-2xl sm:text-3xl text-critter-maroon mb-3">
               Still have questions?
             </h2>

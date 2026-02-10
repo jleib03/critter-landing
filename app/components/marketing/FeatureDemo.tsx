@@ -118,12 +118,12 @@ export default function FeatureDemo({
     <section id="demo" className="pb-20 px-6">
       <div className="container mx-auto max-w-6xl">
         {/* Feature Toggle */}
-        <div className="flex items-center justify-center gap-2 mb-6 flex-wrap">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 mb-6 flex-wrap">
           {features.map((feature, i) => (
             <button
               key={feature.id}
               onClick={() => setActiveFeature(i)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full font-subtitle text-sm transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-4 py-2 rounded-full font-subtitle text-xs sm:text-sm transition-all ${
                 activeFeature === i
                   ? "bg-critter-orange text-white"
                   : "bg-white text-critter-maroon hover:bg-critter-cream"
@@ -160,11 +160,11 @@ export default function FeatureDemo({
             </div>
 
             {/* App Content - Changes based on active feature */}
-            <div className="bg-critter-beige p-6 min-h-[420px]">
+            <div className="bg-critter-beige p-3 sm:p-6 min-h-[300px] sm:min-h-[420px]">
               {activeFeature === 5 && (
                 /* Campaigns View */
-                <div className="grid grid-cols-12 gap-4">
-                  <div className="col-span-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                  <div className="lg:col-span-8">
                     <div className="bg-white rounded-xl p-6 shadow-sm h-full">
                       <div className="flex items-center justify-between mb-6">
                         <h3 className="font-subtitle text-lg text-critter-maroon">Active Campaigns</h3>
@@ -202,7 +202,7 @@ export default function FeatureDemo({
                       </div>
                     </div>
                   </div>
-                  <div className="col-span-4 space-y-4">
+                  <div className="lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4">
                     <div className="bg-white rounded-xl p-5 shadow-sm">
                       <div className="flex items-center gap-2 mb-3">
                         <TrendingUp className="h-4 w-4 text-critter-orange" />
@@ -225,11 +225,11 @@ export default function FeatureDemo({
 
               {activeFeature === 2 && (
                 /* Programs/Automations View */
-                <div className="grid grid-cols-12 gap-4">
+                <div className="grid grid-cols-1 gap-4">
                   <div className="col-span-12">
                     <div className="bg-white rounded-xl p-6 shadow-sm">
                       <h3 className="font-subtitle text-lg text-critter-maroon mb-6">Program Library</h3>
-                      <div className="grid grid-cols-3 gap-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                         {[
                           { name: "Pet Birthday", icon: <Gift className="h-6 w-6" />, desc: "Automatic birthday wishes", active: true, preview: "birthday" },
                           { name: "Referral Program", icon: <Users className="h-6 w-6" />, desc: "Reward loyal customers", active: true, preview: "referral" },
@@ -268,8 +268,8 @@ export default function FeatureDemo({
 
               {activeFeature === 0 && (
                 /* Funnel/Lifecycle View */
-                <div className="grid grid-cols-12 gap-4">
-                  <div className="col-span-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                  <div className="lg:col-span-8">
                     <div className="bg-white rounded-xl p-6 shadow-sm">
                       <div className="flex items-center justify-between mb-6">
                         <h3 className="font-subtitle text-lg text-critter-maroon">Customer Lifecycle</h3>
@@ -310,7 +310,7 @@ export default function FeatureDemo({
                       </div>
                     </div>
                   </div>
-                  <div className="col-span-4">
+                  <div className="lg:col-span-4">
                     <div className="bg-white rounded-xl p-5 shadow-sm">
                       <h4 className="font-subtitle text-sm text-critter-maroon mb-4">Active Rules</h4>
                       <div className="space-y-3">
@@ -339,8 +339,8 @@ export default function FeatureDemo({
 
               {activeFeature === 3 && (
                 /* Customers View */
-                <div className="grid grid-cols-12 gap-4">
-                  <div className="col-span-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                  <div className="lg:col-span-8">
                     <div className="bg-white rounded-xl p-6 shadow-sm">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-subtitle text-lg text-critter-maroon">Customer Hub</h3>
@@ -385,7 +385,7 @@ export default function FeatureDemo({
                       </div>
                     </div>
                   </div>
-                  <div className="col-span-4">
+                  <div className="lg:col-span-4">
                     <div className="bg-white rounded-xl p-5 shadow-sm">
                       <h4 className="font-subtitle text-sm text-critter-maroon mb-4">Import From Anywhere</h4>
                       <div className="space-y-3">
@@ -412,8 +412,8 @@ export default function FeatureDemo({
 
               {activeFeature === 6 && (
                 /* Texting View */
-                <div className="grid grid-cols-12 gap-4">
-                  <div className="col-span-4 bg-white rounded-xl shadow-sm overflow-hidden">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
+                  <div className="lg:col-span-4 bg-white rounded-xl shadow-sm overflow-hidden">
                     <div className="p-4 border-b border-critter-cream">
                       <h3 className="font-subtitle text-sm text-critter-maroon">Conversations</h3>
                     </div>
@@ -433,7 +433,7 @@ export default function FeatureDemo({
                       ))}
                     </div>
                   </div>
-                  <div className="col-span-8 bg-white rounded-xl shadow-sm flex flex-col">
+                  <div className="lg:col-span-8 bg-white rounded-xl shadow-sm flex flex-col">
                     <div className="p-4 border-b border-critter-cream flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-critter-maroon text-white flex items-center justify-center font-subtitle text-xs">SJ</div>
                       <div>
@@ -472,9 +472,9 @@ export default function FeatureDemo({
 
               {activeFeature === 1 && (
                 /* Togo AI Assistant View */
-                <div className="grid grid-cols-12 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                   {/* AI Chat Panel */}
-                  <div className="col-span-8">
+                  <div className="lg:col-span-8">
                     <div className="bg-white rounded-xl shadow-sm overflow-hidden h-full border border-critter-cream">
                       {/* Chat Header */}
                       <div className="px-5 py-4 border-b border-critter-cream flex items-center justify-between bg-critter-beige/30">
@@ -561,7 +561,7 @@ export default function FeatureDemo({
                   </div>
 
                   {/* AI Capabilities Sidebar */}
-                  <div className="col-span-4 space-y-4">
+                  <div className="lg:col-span-4 space-y-4">
                     <div
                       onClick={() => setPreviewModal('togo')}
                       className="bg-white rounded-xl p-5 shadow-sm cursor-pointer hover:shadow-lg transition-shadow group border border-critter-cream"
@@ -603,9 +603,9 @@ export default function FeatureDemo({
 
               {activeFeature === 4 && (
                 /* Lead Gen View */
-                <div className="grid grid-cols-12 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
                   {/* Lead Forms Panel */}
-                  <div className="col-span-8">
+                  <div className="lg:col-span-8">
                     <div className="bg-white rounded-xl shadow-sm overflow-hidden border border-critter-cream">
                       <div className="p-5 border-b border-critter-cream flex items-center justify-between">
                         <div>
@@ -615,7 +615,7 @@ export default function FeatureDemo({
                         <Badge className="bg-green-100 text-green-700 font-body">3 Active</Badge>
                       </div>
 
-                      <div className="p-5 grid grid-cols-2 gap-4">
+                      <div className="p-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {/* Form Preview 1 - New Client Special */}
                         <div
                           onClick={() => setPreviewModal('leadgen')}
@@ -749,7 +749,7 @@ export default function FeatureDemo({
                   </div>
 
                   {/* Lead Stats Sidebar */}
-                  <div className="col-span-4 space-y-4">
+                  <div className="lg:col-span-4 space-y-4">
                     <div className="bg-white rounded-xl p-5 shadow-sm border border-critter-cream">
                       <h4 className="font-subtitle text-sm text-critter-maroon mb-4">This Month&apos;s Performance</h4>
                       <div className="space-y-4">

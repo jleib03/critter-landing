@@ -13,7 +13,7 @@ export default function AutomationBanner() {
           <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
             Real automation requires good data
           </h2>
-          <p className="font-body text-lg text-critter-gray max-w-2xl mx-auto mb-8">
+          <p className="font-body text-base sm:text-lg text-critter-gray max-w-2xl mx-auto mb-8">
             Critter&apos;s proprietary data tools make it simple to integrate external data to drive automation across your pipeline, operational communications, and marketing efforts. With out of the box data connectors for leading industry booking softwares like Time to Pet and Precise Pet Care, it&apos;s never been easier to get data out of your operational tools and leverage it for insights into your client base as your scale.
           </p>
           <a href={demoUrl} target="_blank" rel="noopener noreferrer">

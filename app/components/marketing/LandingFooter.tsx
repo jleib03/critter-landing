@@ -40,7 +40,7 @@ export default function LandingFooter() {
           {/* Bottom row: Links + Copyright */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/20 pt-6">
             {/* Navigation Links */}
-            <div className="flex items-center gap-6 flex-wrap justify-center">
+            <div className="flex items-center gap-x-6 gap-y-2 flex-wrap justify-center">
               <Link
                 href="/pricing"
                 className="font-body text-sm text-white/90 hover:text-white transition-colors"

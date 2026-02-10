@@ -319,7 +319,7 @@ function LiveChatDemo() {
       </div>
 
       {/* Chat Messages */}
-      <div ref={chatRef} className="p-6 space-y-4 bg-critter-beige/20 min-h-[400px] max-h-[500px] overflow-y-auto">
+      <div ref={chatRef} className="p-4 sm:p-6 space-y-4 bg-critter-beige/20 min-h-[300px] sm:min-h-[400px] max-h-[500px] overflow-y-auto">
         {demoConversation.slice(0, visibleMessages).map((message, i) => (
           <div key={i}>
             {message.role === "user" ? (
@@ -456,7 +456,7 @@ function FeatureSection({
       <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
         {title}
       </h2>
-      <p className="font-body text-lg text-critter-gray leading-relaxed mb-6">
+      <p className="font-body text-base lg:text-lg text-critter-gray leading-relaxed mb-6">
         {description}
       </p>
       <a href={`${process.env.NEXT_PUBLIC_HUB_URL || 'https://hub.critter.pet'}/auth/signup`}>
@@ -470,7 +470,7 @@ function FeatureSection({
   return (
     <section className="py-16 px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className={`flex flex-col ${layout === "image-left" ? "lg:flex-row" : "lg:flex-row-reverse"} gap-12 items-center`}>
+        <div className={`flex flex-col ${layout === "image-left" ? "lg:flex-row" : "lg:flex-row-reverse"} gap-8 lg:gap-12 items-center`}>
           {imageContent}
           {textContent}
         </div>
@@ -497,7 +497,7 @@ export default function TogoAIPage() {
 
           {/* Hero Text */}
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-critter-maroon mb-6 leading-[1.1]">
+            <h1 className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-critter-maroon mb-6 leading-[1.1]">
               Stay in tune with your business
               <br />
               from client #1 to #1000
@@ -523,7 +523,7 @@ export default function TogoAIPage() {
       {/* "See what Togo can do for you" Banner */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-5xl">
-          <div className="bg-critter-cream rounded-2xl p-12 text-center">
+          <div className="bg-critter-cream rounded-2xl p-6 sm:p-12 text-center">
             <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
               See what Togo can do for you
             </h2>
@@ -548,7 +548,7 @@ export default function TogoAIPage() {
       {/* Schedule a Demo CTA */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-5xl">
-          <div className="bg-white rounded-2xl border-2 border-critter-orange p-12 text-center">
+          <div className="bg-white rounded-2xl border-2 border-critter-orange p-6 sm:p-12 text-center">
             <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
               Schedule a demo today
             </h2>

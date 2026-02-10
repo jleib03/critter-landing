@@ -223,7 +223,7 @@ export default function FeatureSection({
       <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
         {title}
       </h2>
-      <p className="font-body text-lg text-critter-gray leading-relaxed mb-6">
+      <p className="font-body text-base lg:text-lg text-critter-gray leading-relaxed mb-6">
         {description}
       </p>
       <a href={`${hubUrl}/auth/signup`}>
@@ -237,7 +237,7 @@ export default function FeatureSection({
   return (
     <section className="py-16 px-6">
       <div className="container mx-auto max-w-6xl">
-        <div className={`flex flex-col ${layout === 'image-left' ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 items-center`}>
+        <div className={`flex flex-col ${layout === 'image-left' ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 lg:gap-12 items-center`}>
           {imageContent}
           {textContent}
         </div>

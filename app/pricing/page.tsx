@@ -98,7 +98,7 @@ export default function PricingPage() {
       {/* Hero Section */}
       <div className="container mx-auto px-6 pt-36 pb-10">
         <div className="text-center mb-8">
-          <h1 className="font-title text-4xl sm:text-5xl md:text-6xl text-black mb-4">
+          <h1 className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-black mb-4">
             Software that pays for itself
           </h1>
           <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto">
@@ -125,7 +125,7 @@ export default function PricingPage() {
         </div>
 
         {/* Features Overview */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           <FeatureHighlight
             icon={<Mail className="h-5 w-5" />}
             title="Email Campaigns"

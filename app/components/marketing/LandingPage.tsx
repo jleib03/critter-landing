@@ -33,10 +33,10 @@ export default function LandingPage() {
       {/* Hero Section - Updated copy from Figma */}
       <section className="pt-36 pb-14 px-6">
         <div className="container mx-auto max-w-6xl text-center">
-          <h1 className="font-title text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-black mb-6 leading-[0.95] tracking-tight">
-            <span className="whitespace-nowrap">Automation engine for growing</span>
+          <h1 className="font-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black mb-6 leading-[0.95] tracking-tight">
+            <span className="sm:whitespace-nowrap">Automation engine for growing</span>
             <br />
-            <span className="whitespace-nowrap">pet care businesses</span>
+            <span className="sm:whitespace-nowrap">pet care businesses</span>
           </h1>
           <p className="font-title font-light text-lg sm:text-xl text-black max-w-2xl mx-auto mb-8 leading-[1.1]">
             Turn insights into action with data-driven tools for CRM, marketing, & ongoing client engagement at scale
@@ -102,11 +102,11 @@ export default function LandingPage() {
       {/* Final CTA */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-5xl">
-          <div className="bg-white rounded-2xl border-2 border-critter-orange p-12 text-center">
-            <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
+          <div className="bg-white rounded-2xl border-2 border-critter-orange p-6 sm:p-12 text-center">
+            <h2 className="font-title text-2xl sm:text-3xl md:text-4xl text-critter-maroon mb-4">
               Schedule a demo today
             </h2>
-            <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
+            <p className="font-body text-sm sm:text-base text-critter-gray mb-8 max-w-xl mx-auto">
               Meet with our team to learn what Critter can do for you today with a demo tailored to your business and your needs.
             </p>
             <a href={demoUrl} target="_blank" rel="noopener noreferrer">

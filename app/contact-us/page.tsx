@@ -50,7 +50,7 @@ export default function ContactUsPage() {
       <div className="pt-36 pb-16">
         <div className="container mx-auto px-6 max-w-2xl">
           <div className="text-center mb-12">
-            <h1 className="font-title text-4xl sm:text-5xl text-critter-maroon mb-4">
+            <h1 className="font-title text-3xl sm:text-4xl md:text-5xl text-critter-maroon mb-4">
               Contact Us
             </h1>
             <p className="font-body text-lg text-critter-gray max-w-xl mx-auto">
@@ -74,7 +74,7 @@ export default function ContactUsPage() {
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-critter-cream p-8 space-y-6">
+            <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-critter-cream p-5 sm:p-8 space-y-6">
               <div>
                 <label htmlFor="name" className="block font-subtitle text-sm text-critter-maroon mb-2">
                   Name *
