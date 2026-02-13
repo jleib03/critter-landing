@@ -34,6 +34,40 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Critter",
+  url: "https://critter.pet",
+  logo: "https://critter.pet/images/critter-favicon-circle.png",
+  description:
+    "CRM and marketing automation platform built for pet care businesses.",
+  sameAs: [],
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "support@critter.pet",
+    contactType: "customer support",
+  },
+};
+
+const softwareJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Critter",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  url: "https://critter.pet",
+  description:
+    "Automation engine for growing pet care businesses. CRM, email and SMS marketing, AI analytics, lead generation, and referral programs.",
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "49",
+    highPrice: "349",
+    priceCurrency: "USD",
+    offerCount: 3,
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -42,6 +76,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased font-body">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(softwareJsonLd),
+          }}
+        />
         {children}
       </body>
     </html>
