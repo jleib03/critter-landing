@@ -11,7 +11,15 @@ const ses = new SESClient({
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, phone, message } = await request.json();
+    const { name, email, phone, message, _t } = await request.json();
+
+    // Bot detection: reject submissions faster than 2 seconds after page load
+    if (_t) {
+      const elapsed = Date.now() - parseInt(_t, 10);
+      if (elapsed < 2000) {
+        return NextResponse.json({ success: true }); // Silent reject
+      }
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json(

@@ -17,11 +17,19 @@ export default function ContactUsPage() {
     setError("");
 
     const formData = new FormData(e.currentTarget);
+
+    // Honeypot: if this hidden field has a value, it's a bot
+    if (formData.get("website")) {
+      setSubmitted(true);
+      return;
+    }
+
     const data = {
       name: formData.get("name") as string,
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
       message: formData.get("message") as string,
+      _t: formData.get("_t") as string,
     };
 
     try {
@@ -75,6 +83,13 @@ export default function ContactUsPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="bg-white rounded-2xl border border-critter-cream p-5 sm:p-8 space-y-6">
+              {/* Honeypot - hidden from humans, bots auto-fill it */}
+              <div className="absolute opacity-0 -z-10" aria-hidden="true" tabIndex={-1}>
+                <label htmlFor="website">Website</label>
+                <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+              </div>
+              {/* Timestamp for bot timing detection */}
+              <input type="hidden" name="_t" value={Date.now().toString()} />
               <div>
                 <label htmlFor="name" className="block font-subtitle text-sm text-critter-maroon mb-2">
                   Name *
