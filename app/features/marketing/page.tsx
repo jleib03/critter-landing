@@ -5,7 +5,19 @@ import { Target, DollarSign, Users } from "lucide-react";
 
 export const metadata = {
   title: "Marketing Automation for Pet Care | Critter",
-  description: "Set-it-and-forget-it marketing tailored to your pet care business. Drive higher ROI with data-driven automation tools.",
+  description:
+    "Set-it-and-forget-it marketing tailored to your pet care business. Drive higher ROI with data-driven automation tools.",
+  openGraph: {
+    title: "Marketing Automation for Pet Care | Critter",
+    description:
+      "Set-it-and-forget-it marketing tailored to your pet care business. Drive higher ROI with data-driven automation tools.",
+    url: "https://critter.pet/features/marketing",
+  },
+  twitter: {
+    title: "Marketing Automation for Pet Care | Critter",
+    description:
+      "Set-it-and-forget-it marketing tailored to your pet care business. Drive higher ROI with data-driven automation tools.",
+  },
 };
 
 export default function MarketingPage() {

@@ -5,7 +5,19 @@ import { Heart, Zap, BarChart3 } from "lucide-react";
 
 export const metadata = {
   title: "CRM for Pet Care Businesses | Critter",
-  description: "Know every customer at every stage. Build deep, lasting, and profitable relationships with a CRM built for pet care businesses.",
+  description:
+    "Know every customer at every stage. Build deep, lasting, and profitable relationships with a CRM built for pet care businesses.",
+  openGraph: {
+    title: "CRM for Pet Care Businesses | Critter",
+    description:
+      "Know every customer at every stage. Build deep, lasting, and profitable relationships with a CRM built for pet care businesses.",
+    url: "https://critter.pet/features/crm",
+  },
+  twitter: {
+    title: "CRM for Pet Care Businesses | Critter",
+    description:
+      "Know every customer at every stage. Build deep, lasting, and profitable relationships with a CRM built for pet care businesses.",
+  },
 };
 
 export default function CRMPage() {

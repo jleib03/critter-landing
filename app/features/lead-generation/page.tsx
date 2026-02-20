@@ -5,7 +5,19 @@ import { ClipboardList, Shield, Bell } from "lucide-react";
 
 export const metadata = {
   title: "Lead Generation for Pet Care | Critter",
-  description: "The client-at-first-contact toolkit. Tools, communications, and automation that attract, nurture, and convert top tier clients.",
+  description:
+    "The client-at-first-contact toolkit. Tools, communications, and automation that attract, nurture, and convert top tier clients.",
+  openGraph: {
+    title: "Lead Generation for Pet Care | Critter",
+    description:
+      "The client-at-first-contact toolkit. Tools, communications, and automation that attract, nurture, and convert top tier clients.",
+    url: "https://critter.pet/features/lead-generation",
+  },
+  twitter: {
+    title: "Lead Generation for Pet Care | Critter",
+    description:
+      "The client-at-first-contact toolkit. Tools, communications, and automation that attract, nurture, and convert top tier clients.",
+  },
 };
 
 export default function LeadGenerationPage() {

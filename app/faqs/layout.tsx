@@ -10,6 +10,11 @@ export const metadata: Metadata = {
       "Get answers to common questions about Critter's pet care CRM, marketing automation, pricing, integrations, and data security.",
     url: "https://critter.pet/faqs",
   },
+  twitter: {
+    title: "FAQs - Frequently Asked Questions | Critter",
+    description:
+      "Get answers to common questions about Critter's pet care CRM, marketing automation, pricing, integrations, and data security.",
+  },
 };
 
 const faqJsonLd = {

@@ -10,6 +10,11 @@ export const metadata: Metadata = {
       "Powerful automation tools that surface revenue opportunities on your behalf. Starter, Grow, and Pro plans starting at $49/mo.",
     url: "https://critter.pet/pricing",
   },
+  twitter: {
+    title: "Pricing - Plans for Every Stage of Growth | Critter",
+    description:
+      "Powerful automation tools that surface revenue opportunities on your behalf. Starter, Grow, and Pro plans starting at $49/mo.",
+  },
 };
 
 export default function PricingLayout({

@@ -3,6 +3,19 @@ import LandingFooter from "@/app/components/marketing/LandingFooter";
 
 export const metadata = {
   title: "Terms of Use | Critter",
+  description:
+    "Review the terms and conditions for using Critter's pet care CRM and marketing automation platform.",
+  openGraph: {
+    title: "Terms of Use | Critter",
+    description:
+      "Review the terms and conditions for using Critter's pet care CRM and marketing automation platform.",
+    url: "https://critter.pet/terms-of-use",
+  },
+  twitter: {
+    title: "Terms of Use | Critter",
+    description:
+      "Review the terms and conditions for using Critter's pet care CRM and marketing automation platform.",
+  },
 };
 
 export default function TermsOfUsePage() {

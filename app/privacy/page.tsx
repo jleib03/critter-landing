@@ -3,6 +3,19 @@ import LandingFooter from "@/app/components/marketing/LandingFooter";
 
 export const metadata = {
   title: "Privacy Policy | Critter",
+  description:
+    "Learn how Critter collects, uses, and protects your personal information. Our privacy policy covers data handling for our pet care business platform.",
+  openGraph: {
+    title: "Privacy Policy | Critter",
+    description:
+      "Learn how Critter collects, uses, and protects your personal information.",
+    url: "https://critter.pet/privacy",
+  },
+  twitter: {
+    title: "Privacy Policy | Critter",
+    description:
+      "Learn how Critter collects, uses, and protects your personal information.",
+  },
 };
 
 export default function PrivacyPage() {

@@ -5,7 +5,19 @@ import { Link2, Gift, PieChart } from "lucide-react";
 
 export const metadata = {
   title: "Referral Program for Pet Care | Critter",
-  description: "Reward clients for referrals at scale. Empower clients with unique referral links and customized referral programs.",
+  description:
+    "Reward clients for referrals at scale. Empower clients with unique referral links and customized referral programs.",
+  openGraph: {
+    title: "Referral Program for Pet Care | Critter",
+    description:
+      "Reward clients for referrals at scale. Empower clients with unique referral links and customized referral programs.",
+    url: "https://critter.pet/features/referrals",
+  },
+  twitter: {
+    title: "Referral Program for Pet Care | Critter",
+    description:
+      "Reward clients for referrals at scale. Empower clients with unique referral links and customized referral programs.",
+  },
 };
 
 export default function ReferralsPage() {

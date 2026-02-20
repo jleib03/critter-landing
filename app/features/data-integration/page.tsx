@@ -5,7 +5,19 @@ import { Database, Layers, BarChart3 } from "lucide-react";
 
 export const metadata = {
   title: "Data Integration for Pet Care | Critter",
-  description: "Finally tap into the rich dataset your business generates. Industry leading data connectors for Time to Pet, Precise Petcare, and more.",
+  description:
+    "Finally tap into the rich dataset your business generates. Industry leading data connectors for Time to Pet, Precise Petcare, and more.",
+  openGraph: {
+    title: "Data Integration for Pet Care | Critter",
+    description:
+      "Finally tap into the rich dataset your business generates. Industry leading data connectors for Time to Pet, Precise Petcare, and more.",
+    url: "https://critter.pet/features/data-integration",
+  },
+  twitter: {
+    title: "Data Integration for Pet Care | Critter",
+    description:
+      "Finally tap into the rich dataset your business generates. Industry leading data connectors for Time to Pet, Precise Petcare, and more.",
+  },
 };
 
 export default function DataIntegrationPage() {

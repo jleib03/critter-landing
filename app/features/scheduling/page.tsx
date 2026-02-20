@@ -4,7 +4,19 @@ import { Heart, GitBranch, TrendingUp } from "lucide-react";
 
 export const metadata = {
   title: "Schedule & Operations for Pet Care | Critter",
-  description: "Fully integrated booking and communications. From marketing and lead generation through service delivery, unite your tools under one roof.",
+  description:
+    "Fully integrated booking and communications. From marketing and lead generation through service delivery, unite your tools under one roof.",
+  openGraph: {
+    title: "Schedule & Operations for Pet Care | Critter",
+    description:
+      "Fully integrated booking and communications. From marketing and lead generation through service delivery, unite your tools under one roof.",
+    url: "https://critter.pet/features/scheduling",
+  },
+  twitter: {
+    title: "Schedule & Operations for Pet Care | Critter",
+    description:
+      "Fully integrated booking and communications. From marketing and lead generation through service delivery, unite your tools under one roof.",
+  },
 };
 
 export default function SchedulingPage() {

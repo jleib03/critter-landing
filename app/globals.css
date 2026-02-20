@@ -90,16 +90,16 @@
     --ring: 16 76% 56%;
     --radius: 0.5rem;
 
-    /* Critter brand colors */
-    --critter-orange: 14 80% 55%;
-    --critter-beige: 35 39% 93%;
-    --critter-blue: 204 70% 53%;
-    --critter-green: 145 38% 54%;
-    --critter-pink: 349 74% 87%;
-    --critter-maroon: 358 61% 31%;
-    --critter-dark-blue: 212 40% 44%;
-    --critter-gray: 0 0% 47%;
-    --critter-cream: 40 33% 94%;
+    /* Critter brand colors (Camellia style guide) */
+    --critter-orange: 11 79% 56%;
+    --critter-beige: 38 57% 97%;
+    --critter-blue: 219 42% 71%;
+    --critter-green: 43 52% 30%;
+    --critter-pink: 310 72% 84%;
+    --critter-maroon: 332 100% 12%;
+    --critter-dark-blue: 331 100% 5%;
+    --critter-gray: 203 8% 54%;
+    --critter-cream: 38 57% 97%;
   }
 
   .dark {
@@ -123,16 +123,16 @@
     --input: 30 26% 88%;
     --ring: 16 76% 56%;
 
-    /* Critter brand colors (same in dark mode) */
-    --critter-orange: 14 80% 55%;
-    --critter-beige: 35 39% 93%;
-    --critter-blue: 204 70% 53%;
-    --critter-green: 145 38% 54%;
-    --critter-pink: 349 74% 87%;
-    --critter-maroon: 358 61% 31%;
-    --critter-dark-blue: 212 40% 44%;
-    --critter-gray: 0 0% 47%;
-    --critter-cream: 40 33% 94%;
+    /* Critter brand colors (Camellia style guide, same in dark mode) */
+    --critter-orange: 11 79% 56%;
+    --critter-beige: 38 57% 97%;
+    --critter-blue: 219 42% 71%;
+    --critter-green: 43 52% 30%;
+    --critter-pink: 310 72% 84%;
+    --critter-maroon: 332 100% 12%;
+    --critter-dark-blue: 331 100% 5%;
+    --critter-gray: 203 8% 54%;
+    --critter-cream: 38 57% 97%;
   }
 }
 
