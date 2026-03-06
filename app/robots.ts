@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/activate", "/redirect", "/reset-password", "/payment-success", "/payment-canceled", "/unsubscribe"],
+        disallow: ["/api/", "/activate", "/redirect", "/reset-password", "/payment-success", "/payment-canceled", "/unsubscribe", "/ads"],
       },
     ],
     sitemap: "https://critter.pet/sitemap.xml",
