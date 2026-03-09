@@ -4,6 +4,7 @@ import { Check } from "lucide-react";
 
 export const metadata = {
   title: "Payment Complete | Critter",
+  robots: { index: false, follow: false },
 };
 
 export default function PaymentSuccessPage() {
