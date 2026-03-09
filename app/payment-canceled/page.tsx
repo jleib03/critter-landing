@@ -4,6 +4,7 @@ import { X } from "lucide-react";
 
 export const metadata = {
   title: "Payment Canceled | Critter",
+  robots: { index: false, follow: false },
 };
 
 export default function PaymentCanceledPage() {
