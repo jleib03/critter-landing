@@ -36,7 +36,7 @@ export default function LandingNav({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
   const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-critter-beige/80 backdrop-blur-md">

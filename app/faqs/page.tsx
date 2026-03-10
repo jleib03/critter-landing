@@ -187,7 +187,7 @@ function FAQAccordionItem({ question, answer }: FAQItem) {
 export default function FAQsPage() {
   const demoUrl =
     process.env.NEXT_PUBLIC_DEMO_URL ||
-    "https://calendly.com/jordy-johm/critter-crm-demo";
+    "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
 
   return (
     <div className="min-h-screen bg-critter-beige">

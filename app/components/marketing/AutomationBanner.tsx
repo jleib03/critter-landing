@@ -4,7 +4,7 @@ import { Button } from "@/app/components/ui/button";
 import { Calendar } from "lucide-react";
 
 export default function AutomationBanner() {
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
 
   return (
     <section className="py-20 px-6">

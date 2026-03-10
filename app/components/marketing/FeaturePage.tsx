@@ -39,7 +39,7 @@ export default function FeaturePage({
   featureSections,
 }: FeaturePageProps) {
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://calendly.com/jordy-johm/critter-crm-demo";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
 
   return (
     <div className="min-h-screen bg-critter-beige">
