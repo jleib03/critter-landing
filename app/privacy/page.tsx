@@ -78,6 +78,13 @@ export default function PrivacyPage() {
             </section>
 
             <section>
+              <h2 className="font-title text-2xl text-critter-maroon mb-3">Artificial Intelligence</h2>
+              <p>
+                Critter uses Anthropic&apos;s Claude AI to power features including our conversational assistant (Togo), campaign content generation, and business intelligence. AI-generated content is clearly identified where applicable. Your data is processed in accordance with this Privacy Policy and is not used to train third-party AI models.
+              </p>
+            </section>
+
+            <section>
               <h2 className="font-title text-2xl text-critter-maroon mb-3">Contact</h2>
               <p>
                 For privacy-related questions, contact us at{" "}
