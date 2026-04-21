@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
-import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare } from "lucide-react";
+import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare, BarChart3, MapPin } from "lucide-react";
 import { TogoIcon } from "@/app/components/icons/TogoIcon";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
@@ -76,6 +76,9 @@ const pricingTiers: PricingTier[] = [
       { text: "75,000 emails/month", included: true, highlight: true },
       { text: "10,000 SMS messages/month", included: true, highlight: true },
       { text: "500 Togo AI chats/month", included: true, highlight: true },
+      { text: "Reporting & dashboards", included: true, highlight: true },
+      { text: "Website chat widget", included: true, highlight: true },
+      { text: "Multi-location (up to 2)", included: true, highlight: true },
       { text: "Lead Generation tools", included: true },
       { text: "Advanced Automations", included: true },
       { text: "Priority support", included: true },
@@ -128,13 +131,8 @@ export default function PricingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           <FeatureHighlight
             icon={<Mail className="h-5 w-5" />}
-            title="Email Campaigns"
-            description="Up to 75K emails/month"
-          />
-          <FeatureHighlight
-            icon={<MessageSquare className="h-5 w-5" />}
-            title="SMS Messaging"
-            description="Starting at 2K/mo on Grow"
+            title="Email & SMS"
+            description="Up to 75K emails, 10K SMS"
           />
           <FeatureHighlight
             icon={<TogoIcon size={20} />}
@@ -142,9 +140,14 @@ export default function PricingPage() {
             description="Your smart marketing helper"
           />
           <FeatureHighlight
-            icon={<UserPlus className="h-5 w-5" />}
-            title="Lead Generation"
-            description="Forms, scheduling & more"
+            icon={<BarChart3 className="h-5 w-5" />}
+            title="Reporting & Dashboards"
+            description="Deep analytics (Pro)"
+          />
+          <FeatureHighlight
+            icon={<MessageSquare className="h-5 w-5" />}
+            title="Website Chat Widget"
+            description="Customer-facing AI chat (Pro)"
           />
         </div>
 
@@ -187,14 +190,41 @@ export default function PricingPage() {
               <tbody className="font-body text-sm">
                 <ComparisonRow feature="Emails/month" starter="1,000" grow="25,000" pro="75,000" />
                 <ComparisonRow feature="Customer Segmentation" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Automations" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Funnel Management" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Automations & Lifecycle Rules" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Customer Journey Builder" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Task Management & Lists" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Notifications Center" starter={true} grow={true} pro={true} />
                 <ComparisonRow feature="Togo AI Assistant" starter={false} grow="200/mo" pro="500/mo" />
                 <ComparisonRow feature="Lead Generation" starter={false} grow={true} pro={true} />
                 <ComparisonRow feature="SMS Messages" starter={false} grow="2,000/mo" pro="10,000/mo" />
+                <ComparisonRow feature="Reporting & Dashboards" starter={false} grow={false} pro={true} />
+                <ComparisonRow feature="Website Chat Widget" starter={false} grow={false} pro={true} />
+                <ComparisonRow feature="Multi-location Support" starter={false} grow={false} pro="Up to 2" />
                 <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} />
               </tbody>
             </table>
+          </div>
+        </div>
+
+        {/* Enterprise Callout */}
+        <div className="mt-12 max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl border-2 border-critter-maroon/20 p-6 sm:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
+            <div className="w-14 h-14 rounded-xl bg-critter-maroon/10 flex items-center justify-center text-critter-maroon flex-shrink-0">
+              <MapPin className="h-7 w-7" />
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <h3 className="font-title text-2xl sm:text-3xl text-critter-maroon mb-2">
+                Running more than 2 locations?
+              </h3>
+              <p className="font-body text-sm sm:text-base text-critter-gray">
+                Enterprise plans support unlimited locations, per-location team access, location-scoped campaigns and rules, and dedicated onboarding. Perfect for franchises and multi-region operators.
+              </p>
+            </div>
+            <a href="/contact-us" className="flex-shrink-0">
+              <Button size="lg" className="bg-critter-maroon hover:bg-critter-maroon/90 text-white font-subtitle">
+                Talk to Sales
+              </Button>
+            </a>
           </div>
         </div>
       </div>
