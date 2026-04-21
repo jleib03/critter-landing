@@ -1,6 +1,6 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import CRMDemo from "@/app/components/marketing/demos/CRMDemo";
-import { PersonalTouchMockup, AutomationMockup, DataInsightsMockup } from "@/app/components/marketing/demos/SectionMockups";
+import { PersonalTouchMockup, AutomationMockup, DataInsightsMockup, MultiLocationMockup } from "@/app/components/marketing/demos/SectionMockups";
 import { Heart, Zap, BarChart3, MapPin } from "lucide-react";
 
 export const metadata = {
@@ -86,6 +86,7 @@ export default function CRMPage() {
           description: "Pro supports up to 2 locations with per-location team access and location-scoped campaigns, rules, and forms. Running a franchise or a multi-region operation? Our Enterprise plan unlocks unlimited locations with dedicated onboarding.",
           layout: "image-right",
           icon: <MapPin className="h-6 w-6" />,
+          imagePlaceholder: <MultiLocationMockup />,
         },
       ]}
     />
