@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
-import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare, BarChart3, MapPin } from "lucide-react";
+import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare, BarChart3, MapPin, Zap, ArrowRight } from "lucide-react";
 import { TogoIcon } from "@/app/components/icons/TogoIcon";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
@@ -127,6 +127,37 @@ export default function PricingPage() {
           ))}
         </div>
 
+        {/* Enterprise Callout */}
+        <div className="mt-10 max-w-5xl mx-auto">
+          <div className="bg-critter-maroon rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-lg">
+            <div className="flex-shrink-0 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
+                <MapPin className="h-6 w-6" />
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
+                <Zap className="h-6 w-6" />
+              </div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
+                <Badge className="bg-critter-orange text-white font-subtitle text-xs w-fit mx-auto md:mx-0">Enterprise</Badge>
+                <h3 className="font-title text-xl sm:text-2xl text-white">
+                  Running more than 2 locations or outgrowing Pro volume?
+                </h3>
+              </div>
+              <p className="font-body text-sm sm:text-base text-white/80">
+                Enterprise unlocks unlimited locations, higher email, SMS, and Togo AI limits, per-location team access, and dedicated onboarding. Built for franchises, multi-region operators, and high-volume businesses.
+              </p>
+            </div>
+            <a href="/contact-us" className="flex-shrink-0">
+              <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
+                Talk to Sales
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+          </div>
+        </div>
+
         {/* Features Overview */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           <FeatureHighlight
@@ -203,28 +234,6 @@ export default function PricingPage() {
                 <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} />
               </tbody>
             </table>
-          </div>
-        </div>
-
-        {/* Enterprise Callout */}
-        <div className="mt-12 max-w-5xl mx-auto">
-          <div className="bg-white rounded-2xl border-2 border-critter-maroon/20 p-6 sm:p-10 flex flex-col md:flex-row items-center gap-6 md:gap-10">
-            <div className="w-14 h-14 rounded-xl bg-critter-maroon/10 flex items-center justify-center text-critter-maroon flex-shrink-0">
-              <MapPin className="h-7 w-7" />
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <h3 className="font-title text-2xl sm:text-3xl text-critter-maroon mb-2">
-                Running more than 2 locations?
-              </h3>
-              <p className="font-body text-sm sm:text-base text-critter-gray">
-                Enterprise plans support unlimited locations, per-location team access, location-scoped campaigns and rules, and dedicated onboarding. Perfect for franchises and multi-region operators.
-              </p>
-            </div>
-            <a href="/contact-us" className="flex-shrink-0">
-              <Button size="lg" className="bg-critter-maroon hover:bg-critter-maroon/90 text-white font-subtitle">
-                Talk to Sales
-              </Button>
-            </a>
           </div>
         </div>
       </div>
