@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
-import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare } from "lucide-react";
+import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare, BarChart3, MapPin, Zap, ArrowRight } from "lucide-react";
 import { TogoIcon } from "@/app/components/icons/TogoIcon";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
@@ -76,6 +76,9 @@ const pricingTiers: PricingTier[] = [
       { text: "75,000 emails/month", included: true, highlight: true },
       { text: "10,000 SMS messages/month", included: true, highlight: true },
       { text: "500 Togo AI chats/month", included: true, highlight: true },
+      { text: "Reporting & dashboards", included: true, highlight: true },
+      { text: "Website chat widget", included: true, highlight: true },
+      { text: "Multi-location (up to 2)", included: true, highlight: true },
       { text: "Lead Generation tools", included: true },
       { text: "Advanced Automations", included: true },
       { text: "Priority support", included: true },
@@ -124,17 +127,43 @@ export default function PricingPage() {
           ))}
         </div>
 
+        {/* Enterprise Callout */}
+        <div className="mt-10 max-w-5xl mx-auto">
+          <div className="bg-critter-maroon rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-lg">
+            <div className="flex-shrink-0 flex items-center gap-3">
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
+                <MapPin className="h-6 w-6" />
+              </div>
+              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
+                <Zap className="h-6 w-6" />
+              </div>
+            </div>
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
+                <Badge className="bg-critter-orange text-white font-subtitle text-xs w-fit mx-auto md:mx-0">Enterprise</Badge>
+                <h3 className="font-title text-xl sm:text-2xl text-white">
+                  Running more than 2 locations or outgrowing Pro volume?
+                </h3>
+              </div>
+              <p className="font-body text-sm sm:text-base text-white/80">
+                Enterprise unlocks unlimited locations, higher email, SMS, and Togo AI limits, per-location team access, and dedicated onboarding. Built for franchises, multi-region operators, and high-volume businesses.
+              </p>
+            </div>
+            <a href="/contact-us" className="flex-shrink-0">
+              <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
+                Talk to Sales
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+          </div>
+        </div>
+
         {/* Features Overview */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           <FeatureHighlight
             icon={<Mail className="h-5 w-5" />}
-            title="Email Campaigns"
-            description="Up to 75K emails/month"
-          />
-          <FeatureHighlight
-            icon={<MessageSquare className="h-5 w-5" />}
-            title="SMS Messaging"
-            description="Starting at 2K/mo on Grow"
+            title="Email & SMS"
+            description="Up to 75K emails, 10K SMS"
           />
           <FeatureHighlight
             icon={<TogoIcon size={20} />}
@@ -142,9 +171,14 @@ export default function PricingPage() {
             description="Your smart marketing helper"
           />
           <FeatureHighlight
-            icon={<UserPlus className="h-5 w-5" />}
-            title="Lead Generation"
-            description="Forms, scheduling & more"
+            icon={<BarChart3 className="h-5 w-5" />}
+            title="Reporting & Dashboards"
+            description="Deep analytics (Pro)"
+          />
+          <FeatureHighlight
+            icon={<MessageSquare className="h-5 w-5" />}
+            title="Website Chat Widget"
+            description="Customer-facing AI chat (Pro)"
           />
         </div>
 
@@ -187,11 +221,16 @@ export default function PricingPage() {
               <tbody className="font-body text-sm">
                 <ComparisonRow feature="Emails/month" starter="1,000" grow="25,000" pro="75,000" />
                 <ComparisonRow feature="Customer Segmentation" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Automations" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Funnel Management" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Automations & Lifecycle Rules" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Customer Journey Builder" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Task Management & Lists" starter={true} grow={true} pro={true} />
+                <ComparisonRow feature="Notifications Center" starter={true} grow={true} pro={true} />
                 <ComparisonRow feature="Togo AI Assistant" starter={false} grow="200/mo" pro="500/mo" />
                 <ComparisonRow feature="Lead Generation" starter={false} grow={true} pro={true} />
                 <ComparisonRow feature="SMS Messages" starter={false} grow="2,000/mo" pro="10,000/mo" />
+                <ComparisonRow feature="Reporting & Dashboards" starter={false} grow={false} pro={true} />
+                <ComparisonRow feature="Website Chat Widget" starter={false} grow={false} pro={true} />
+                <ComparisonRow feature="Multi-location Support" starter={false} grow={false} pro="Up to 2" />
                 <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} />
               </tbody>
             </table>

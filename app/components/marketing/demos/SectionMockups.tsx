@@ -18,6 +18,8 @@ import {
   TrendingUp,
   Send,
   Gift,
+  MapPin,
+  Plus,
 } from "lucide-react";
 
 /* ─── Connect Your Data ─── */
@@ -737,6 +739,93 @@ export function DataInsightsMockup() {
         <div className="flex items-center gap-2 p-2 bg-green-50 rounded-lg">
           <Zap className="h-4 w-4 text-green-600" />
           <p className="font-body text-xs text-green-700">Revenue trending 12% above last month</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function MultiLocationMockup() {
+  const locations = [
+    {
+      name: "Downtown",
+      address: "Milwaukee, WI",
+      team: 6,
+      campaigns: 4,
+      bookings: 128,
+      initial: "D",
+    },
+    {
+      name: "Eastside",
+      address: "Shorewood, WI",
+      team: 4,
+      campaigns: 3,
+      bookings: 96,
+      initial: "E",
+    },
+  ];
+
+  return (
+    <div className="w-full h-full flex flex-col justify-center p-2">
+      <div className="bg-white rounded-xl p-4 border border-critter-cream shadow-sm space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-critter-orange" />
+            <h4 className="font-subtitle text-sm text-critter-maroon">Your Locations</h4>
+          </div>
+          <Badge className="bg-critter-orange/10 text-critter-orange font-body text-xs">2 of 2 on Pro</Badge>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          {locations.map((loc, i) => (
+            <div key={i} className="p-3 rounded-xl border border-critter-cream bg-critter-beige/40">
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-8 h-8 rounded-lg bg-critter-maroon text-white flex items-center justify-center font-subtitle text-sm">
+                  {loc.initial}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-subtitle text-xs text-critter-maroon truncate">{loc.name}</p>
+                  <p className="font-body text-[10px] text-critter-gray truncate">{loc.address}</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-3 gap-1">
+                <div className="text-center">
+                  <p className="font-title text-sm text-critter-orange leading-none">{loc.team}</p>
+                  <p className="font-body text-[10px] text-critter-gray">Team</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-title text-sm text-critter-orange leading-none">{loc.campaigns}</p>
+                  <p className="font-body text-[10px] text-critter-gray">Camps</p>
+                </div>
+                <div className="text-center">
+                  <p className="font-title text-sm text-critter-orange leading-none">{loc.bookings}</p>
+                  <p className="font-body text-[10px] text-critter-gray">Bookings</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="rounded-lg border border-dashed border-critter-maroon/30 bg-critter-maroon/5 p-2 flex items-center gap-2">
+          <div className="w-6 h-6 rounded-md bg-critter-maroon/10 text-critter-maroon flex items-center justify-center flex-shrink-0">
+            <Plus className="h-3 w-3" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-subtitle text-xs text-critter-maroon">Add another location</p>
+            <p className="font-body text-[10px] text-critter-gray">Unlimited with Enterprise</p>
+          </div>
+          <Badge className="bg-critter-maroon text-white font-body text-[10px]">Enterprise</Badge>
+        </div>
+
+        <div className="flex items-center justify-between pt-1">
+          <div className="flex items-center gap-1">
+            <Check className="h-3 w-3 text-green-600" />
+            <span className="font-body text-[10px] text-critter-gray">Per-location team access</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Check className="h-3 w-3 text-green-600" />
+            <span className="font-body text-[10px] text-critter-gray">Scoped campaigns & rules</span>
+          </div>
         </div>
       </div>
     </div>

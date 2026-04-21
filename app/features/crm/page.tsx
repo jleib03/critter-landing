@@ -1,7 +1,7 @@
 import FeaturePage from "@/app/components/marketing/FeaturePage";
 import CRMDemo from "@/app/components/marketing/demos/CRMDemo";
-import { PersonalTouchMockup, AutomationMockup, DataInsightsMockup } from "@/app/components/marketing/demos/SectionMockups";
-import { Heart, Zap, BarChart3 } from "lucide-react";
+import { PersonalTouchMockup, AutomationMockup, DataInsightsMockup, MultiLocationMockup } from "@/app/components/marketing/demos/SectionMockups";
+import { Heart, Zap, BarChart3, MapPin } from "lucide-react";
 
 export const metadata = {
   title: "CRM for Pet Care Businesses | Critter",
@@ -33,7 +33,7 @@ export default function CRMPage() {
           title: "Build deep relationships",
           icon: <Heart className="h-6 w-6" />,
           bullets: [
-            "Activity tracking",
+            "Activity tracking & notification center",
             "Detailed client & pet profiles",
             "Automated segmentation",
           ],
@@ -43,8 +43,8 @@ export default function CRMPage() {
           title: "Build long relationships",
           icon: <Zap className="h-6 w-6" />,
           bullets: [
-            "Custom funnel",
-            "Data-driven stage tracking",
+            "Visual customer journey builder",
+            "Task lists & team assignments",
             "Trigger based communications",
           ],
         },
@@ -54,32 +54,39 @@ export default function CRMPage() {
           icon: <BarChart3 className="h-6 w-6" />,
           bullets: [
             "Customer lifetime value tracking",
-            "Customer journey mapping",
-            "Automated reporting & analytics",
+            "Reporting dashboards & scheduled exports (Pro)",
+            "Customer-facing website chat widget (Pro)",
           ],
         },
       ]}
       featureSections={[
         {
           title: "Small business feel at big business scale",
-          description: "Maintain personal touch and customer comfort, whether you're a solo operator or a team of 50+. Never lose track of a client again, scaling your capacity to stay in tune with what's happening on the ground.",
+          description: "Maintain personal touch and customer comfort, whether you're a solo operator or a team of 50+. Task lists, assignments, and a built-in notification center keep everyone accountable — so nothing falls through the cracks, even as you scale.",
           layout: "image-left",
           icon: <Heart className="h-6 w-6" />,
           imagePlaceholder: <PersonalTouchMockup />,
         },
         {
-          title: "Deep automation & personalization",
-          description: "Build a funnel and tailor it to your business, then design rules that keep your hands out of the day-to-day while still delivering personalized communications at every stage.",
+          title: "Design the journey, not just the rules",
+          description: "See your entire customer lifecycle as a visual journey — from first contact to loyal regular. Build, edit, and iterate on your stages in a workspace built for clarity, with lifecycle rules and task-driven transitions working quietly in the background.",
           layout: "image-right",
           icon: <Zap className="h-6 w-6" />,
           imagePlaceholder: <AutomationMockup />,
         },
         {
-          title: "Leverage your data to save time (and pain)",
-          description: "Let your data work for you. Critter analyzes client behavior, identifies trends, and surfaces actionable insights so you can make smarter decisions faster.",
+          title: "Reporting dashboards built for operators",
+          description: "Available on Pro — build custom dashboards, schedule recurring reports to your inbox, and export to CSV. Track LTV, funnel health, and campaign ROI in one place, without bolting on a separate BI tool.",
           layout: "image-left",
           icon: <BarChart3 className="h-6 w-6" />,
           imagePlaceholder: <DataInsightsMockup />,
+        },
+        {
+          title: "Built to scale across locations",
+          description: "Pro supports up to 2 locations with per-location team access and location-scoped campaigns, rules, and forms. Running a franchise or a multi-region operation? Our Enterprise plan unlocks unlimited locations with dedicated onboarding.",
+          layout: "image-right",
+          icon: <MapPin className="h-6 w-6" />,
+          imagePlaceholder: <MultiLocationMockup />,
         },
       ]}
     />
