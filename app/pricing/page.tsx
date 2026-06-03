@@ -59,6 +59,7 @@ const pricingTiers: PricingTier[] = [
       { text: "2,000 SMS messages/month", included: true, highlight: true },
       { text: "200 Togo AI chats/month", included: true, highlight: true },
       { text: "Lead Generation tools", included: true, highlight: true },
+      { text: "Reporting & dashboards", included: true, highlight: true },
       { text: "Automations & lifecycle comms", included: true },
       { text: "TTP & PPC connectors", included: true },
     ],
@@ -173,7 +174,7 @@ export default function PricingPage() {
           <FeatureHighlight
             icon={<BarChart3 className="h-5 w-5" />}
             title="Reporting & Dashboards"
-            description="Deep analytics (Pro)"
+            description="Deep analytics (Grow & Pro)"
           />
           <FeatureHighlight
             icon={<MessageSquare className="h-5 w-5" />}
@@ -228,7 +229,7 @@ export default function PricingPage() {
                 <ComparisonRow feature="Togo AI Assistant" starter={false} grow="200/mo" pro="500/mo" />
                 <ComparisonRow feature="Lead Generation" starter={false} grow={true} pro={true} />
                 <ComparisonRow feature="SMS Messages" starter={false} grow="2,000/mo" pro="10,000/mo" />
-                <ComparisonRow feature="Reporting & Dashboards" starter={false} grow={false} pro={true} />
+                <ComparisonRow feature="Reporting & Dashboards" starter={false} grow={true} pro={true} />
                 <ComparisonRow feature="Website Chat Widget" starter={false} grow={false} pro={true} />
                 <ComparisonRow feature="Multi-location Support" starter={false} grow={false} pro="Up to 2" />
                 <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} />
