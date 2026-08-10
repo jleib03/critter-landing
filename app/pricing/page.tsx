@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
-import { Check, X, Mail, TrendingUp, UserPlus, MessageSquare, BarChart3, MapPin, Zap, ArrowRight } from "lucide-react";
+import { Check, X, Mail, TrendingUp, UserPlus, Rocket, Building2, MessageSquare, BarChart3 } from "lucide-react";
 import { TogoIcon } from "@/app/components/icons/TogoIcon";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
@@ -24,24 +24,37 @@ interface PricingTier {
   }[];
   cta: string;
   popular?: boolean;
+  /** Enterprise = sales-assisted, not a self-serve signup. Routes to /contact-us. */
+  contactSales?: boolean;
+  /** Shown instead of "$price/month" for sales-priced tiers (e.g. "Custom"). */
+  priceLabel?: string;
 }
 
+// Mirrors hub.critter.pet/pricing (critter-comms-hub app/pricing/page.tsx).
+// 2026-07-30 automation pivot: Starter leads with lead generation (capped)
+// and builds its own funnel (structure authoring is free on every tier)
+// with manual stage moves — funnel automation (rules + task lists),
+// lifecycle emails, Togo, and SMS are the Grow differentiators.
 const pricingTiers: PricingTier[] = [
   {
     id: "starter",
     name: "Starter",
     price: 49,
-    description: "Get started with email marketing",
-    icon: <Mail className="h-6 w-6" />,
+    description: "Capture leads and automate the basics",
+    icon: <UserPlus className="h-6 w-6" />,
     features: [
-      { text: "7-day free trial", included: true, highlight: true },
-      { text: "1,000 emails/month", included: true },
-      { text: "Email Campaigns", included: true },
-      { text: "Customer segmentation & funnels", included: true },
-      { text: "TTP & PPC connectors", included: true },
+      { text: "7-day free trial", included: true },
+      { text: "1 external lead form + 1 booking schedule", included: true, highlight: true },
+      { text: "Build your own customer funnel (manual stage moves)", included: true },
+      { text: "Up to 4 automated programs (any type, our templates)", included: true },
+      { text: "One-time email campaigns", included: true },
+      { text: "500 emails/month", included: true },
+      { text: "TTP & PPC integrations", included: true },
+      { text: "1 business, solo user", included: true },
+      { text: "Automated funnel rules & task lists", included: false },
+      { text: "Lifecycle emails", included: false },
       { text: "Togo AI", included: false },
       { text: "SMS/Texting", included: false },
-      { text: "Lead Generation", included: false },
     ],
     cta: "Choose Starter",
   },
@@ -54,14 +67,17 @@ const pricingTiers: PricingTier[] = [
     badge: "Most Popular",
     badgeColor: "bg-critter-orange",
     features: [
-      { text: "7-day free trial", included: true, highlight: true },
-      { text: "25,000 emails/month", included: true, highlight: true },
-      { text: "2,000 SMS messages/month", included: true, highlight: true },
+      { text: "7-day free trial", included: true },
+      { text: "Unlimited lead forms & booking schedules", included: true, highlight: true },
+      { text: "Automate your funnel with transition rules", included: true, highlight: true },
+      { text: "Task lists & lifecycle emails", included: true, highlight: true },
       { text: "200 Togo AI chats/month", included: true, highlight: true },
-      { text: "Lead Generation tools", included: true, highlight: true },
-      { text: "Reporting & dashboards", included: true, highlight: true },
-      { text: "Automations & lifecycle comms", included: true },
-      { text: "TTP & PPC connectors", included: true },
+      { text: "2,000 SMS messages/month", included: true, highlight: true },
+      { text: "BI reporting suite + CSV export", included: true, highlight: true },
+      { text: "Website chat widget", included: true, highlight: true },
+      { text: "25,000 emails/month", included: true },
+      { text: "TTP & PPC integrations", included: true },
+      { text: "1 business", included: true },
     ],
     cta: "Choose Grow",
     popular: true,
@@ -71,28 +87,48 @@ const pricingTiers: PricingTier[] = [
     name: "Pro",
     price: 349,
     description: "Maximum power for established businesses",
-    icon: <UserPlus className="h-6 w-6" />,
+    icon: <Rocket className="h-6 w-6" />,
     features: [
-      { text: "7-day free trial", included: true, highlight: true },
+      { text: "7-day free trial", included: true },
+      { text: "Everything in Grow", included: true },
       { text: "75,000 emails/month", included: true, highlight: true },
       { text: "10,000 SMS messages/month", included: true, highlight: true },
       { text: "500 Togo AI chats/month", included: true, highlight: true },
-      { text: "Reporting & dashboards", included: true, highlight: true },
-      { text: "Website chat widget", included: true, highlight: true },
-      { text: "Multi-location (up to 2)", included: true, highlight: true },
-      { text: "Lead Generation tools", included: true },
-      { text: "Advanced Automations", included: true },
+      { text: "Manage up to 2 businesses centrally", included: true, highlight: true },
       { text: "Priority support", included: true },
     ],
     cta: "Choose Pro",
+  },
+  {
+    id: "enterprise",
+    name: "Enterprise",
+    price: 0,
+    priceLabel: "Custom",
+    description: "For franchises & multi-business operators",
+    icon: <Building2 className="h-6 w-6" />,
+    features: [
+      { text: "Everything in Pro", included: true },
+      { text: "Manage 3+ businesses (unlimited)", included: true, highlight: true },
+      { text: "Franchise network + portfolio roll-up", included: true, highlight: true },
+      { text: "Central billing across businesses", included: true },
+      { text: "Volume email & SMS", included: true },
+      { text: "Dedicated support", included: true },
+    ],
+    cta: "Contact Sales",
+    contactSales: true,
   },
 ];
 
 export default function PricingPage() {
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
 
-  const handleSelectPlan = (tierId: string) => {
-    window.location.href = `${hubUrl}/auth/signup?plan=${tierId}`;
+  const handleSelectPlan = (tier: PricingTier) => {
+    // Enterprise is sales-assisted — no self-serve Stripe checkout to send them to.
+    if (tier.contactSales) {
+      window.location.href = "/contact-us";
+      return;
+    }
+    window.location.href = `${hubUrl}/auth/signup?plan=${tier.id}`;
   };
 
   return (
@@ -118,7 +154,7 @@ export default function PricingPage() {
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pricingTiers.map((tier) => (
             <PricingCard
               key={tier.id}
@@ -128,58 +164,27 @@ export default function PricingPage() {
           ))}
         </div>
 
-        {/* Enterprise Callout */}
-        <div className="mt-10 max-w-5xl mx-auto">
-          <div className="bg-critter-maroon rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-6 md:gap-8 shadow-lg">
-            <div className="flex-shrink-0 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
-                <MapPin className="h-6 w-6" />
-              </div>
-              <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-white">
-                <Zap className="h-6 w-6" />
-              </div>
-            </div>
-            <div className="flex-1 text-center md:text-left">
-              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-3 mb-2">
-                <Badge className="bg-critter-orange text-white font-subtitle text-xs w-fit mx-auto md:mx-0">Enterprise</Badge>
-                <h3 className="font-title text-xl sm:text-2xl text-white">
-                  Running more than 2 locations or outgrowing Pro volume?
-                </h3>
-              </div>
-              <p className="font-body text-sm sm:text-base text-white/80">
-                Enterprise unlocks unlimited locations, higher email, SMS, and Togo AI limits, per-location team access, and dedicated onboarding. Built for franchises, multi-region operators, and high-volume businesses.
-              </p>
-            </div>
-            <a href="/contact-us" className="flex-shrink-0">
-              <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Talk to Sales
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </a>
-          </div>
-        </div>
-
         {/* Features Overview */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-10">
           <FeatureHighlight
             icon={<Mail className="h-5 w-5" />}
             title="Email & SMS"
-            description="Up to 75K emails, 10K SMS"
+            description="Up to 75K emails, 10K SMS on Pro"
           />
           <FeatureHighlight
             icon={<TogoIcon size={20} />}
             title="Togo AI Assistant"
-            description="Your smart marketing helper"
+            description="Your smart marketing helper (Grow & up)"
           />
           <FeatureHighlight
             icon={<BarChart3 className="h-5 w-5" />}
             title="Reporting & Dashboards"
-            description="Deep analytics (Grow & Pro)"
+            description="BI suite + CSV export (Grow & up)"
           />
           <FeatureHighlight
             icon={<MessageSquare className="h-5 w-5" />}
             title="Website Chat Widget"
-            description="Customer-facing AI chat (Pro)"
+            description="Customer-facing AI chat (Grow & up)"
           />
         </div>
 
@@ -205,34 +210,40 @@ export default function PricingPage() {
         </div>
 
         {/* Comparison Table */}
-        <div className="mt-16 max-w-5xl mx-auto">
+        <div className="mt-16 max-w-6xl mx-auto">
           <h2 className="font-title text-3xl sm:text-4xl text-black text-center mb-8">
             Compare Plans
           </h2>
           <div className="bg-white rounded-lg border border-critter-cream overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[680px]">
               <thead>
                 <tr className="border-b border-critter-cream">
                   <th className="text-left p-4 font-subtitle text-critter-maroon">Feature</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Starter</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Grow</th>
                   <th className="text-center p-4 font-subtitle text-critter-maroon">Pro</th>
+                  <th className="text-center p-4 font-subtitle text-critter-maroon">Enterprise</th>
                 </tr>
               </thead>
               <tbody className="font-body text-sm">
-                <ComparisonRow feature="Emails/month" starter="1,000" grow="25,000" pro="75,000" />
-                <ComparisonRow feature="Customer Segmentation" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Automations & Lifecycle Rules" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Customer Journey Builder" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Task Management & Lists" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Notifications Center" starter={true} grow={true} pro={true} />
-                <ComparisonRow feature="Togo AI Assistant" starter={false} grow="200/mo" pro="500/mo" />
-                <ComparisonRow feature="Lead Generation" starter={false} grow={true} pro={true} />
-                <ComparisonRow feature="SMS Messages" starter={false} grow="2,000/mo" pro="10,000/mo" />
-                <ComparisonRow feature="Reporting & Dashboards" starter={false} grow={true} pro={true} />
-                <ComparisonRow feature="Website Chat Widget" starter={false} grow={false} pro={true} />
-                <ComparisonRow feature="Multi-location Support" starter={false} grow={false} pro="Up to 2" />
-                <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} />
+                <ComparisonRow feature="Emails/month" starter="500" grow="25,000" pro="75,000" enterprise="Custom" />
+                <ComparisonRow feature="SMS Messages" starter={false} grow="2,000/mo" pro="10,000/mo" enterprise="Custom" />
+                <ComparisonRow feature="Togo AI Assistant" starter={false} grow="200/mo" pro="500/mo" enterprise="Custom" />
+                <ComparisonRow feature="Lead forms & booking schedules" starter="1 + 1" grow="Unlimited" pro="Unlimited" enterprise="Unlimited" />
+                <ComparisonRow feature="Customer funnel builder" starter="Manual moves" grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Automated funnel transition rules" starter={false} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Task lists" starter={false} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Lifecycle emails" starter={false} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Automated programs" starter="Up to 4" grow="Unlimited" pro="Unlimited" enterprise="Unlimited" />
+                <ComparisonRow feature="One-time email campaigns" starter={true} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Customer Segmentation" starter={true} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Notifications Center" starter={true} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="BI reporting + CSV export" starter={false} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Website Chat Widget" starter={false} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="TTP & PPC integrations" starter={true} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature="Team members" starter="Solo (1)" grow="Unlimited" pro="Unlimited" enterprise="Unlimited" />
+                <ComparisonRow feature="Businesses managed" starter="1" grow="1" pro="Up to 2" enterprise="3+ (unlimited)" />
+                <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} enterprise="Dedicated" />
               </tbody>
             </table>
           </div>
@@ -246,7 +257,7 @@ export default function PricingPage() {
 
 interface PricingCardProps {
   tier: PricingTier;
-  onSelect: (tierId: string) => void;
+  onSelect: (tier: PricingTier) => void;
 }
 
 function PricingCard({ tier, onSelect }: PricingCardProps) {
@@ -274,8 +285,14 @@ function PricingCard({ tier, onSelect }: PricingCardProps) {
           {tier.description}
         </CardDescription>
         <div className="mt-3">
-          <span className="font-title text-5xl text-critter-maroon">${tier.price}</span>
-          <span className="font-body text-muted-foreground ml-1">/month</span>
+          {tier.priceLabel ? (
+            <span className="font-title text-5xl text-critter-maroon">{tier.priceLabel}</span>
+          ) : (
+            <>
+              <span className="font-title text-5xl text-critter-maroon">${tier.price}</span>
+              <span className="font-body text-muted-foreground ml-1">/month</span>
+            </>
+          )}
         </div>
       </CardHeader>
 
@@ -301,7 +318,7 @@ function PricingCard({ tier, onSelect }: PricingCardProps) {
           className={`w-full font-subtitle ${tier.popular ? 'bg-critter-orange hover:bg-critter-orange/90 text-white' : ''}`}
           variant={tier.popular ? "default" : "outline"}
           size="lg"
-          onClick={() => onSelect(tier.id)}
+          onClick={() => onSelect(tier)}
         >
           {tier.cta}
         </Button>
@@ -333,9 +350,10 @@ interface ComparisonRowProps {
   starter: boolean | string;
   grow: boolean | string;
   pro: boolean | string;
+  enterprise: boolean | string;
 }
 
-function ComparisonRow({ feature, starter, grow, pro }: ComparisonRowProps) {
+function ComparisonRow({ feature, starter, grow, pro, enterprise }: ComparisonRowProps) {
   const renderValue = (value: boolean | string) => {
     if (typeof value === 'string') {
       return <span className="font-medium text-critter-maroon">{value}</span>;
@@ -353,6 +371,7 @@ function ComparisonRow({ feature, starter, grow, pro }: ComparisonRowProps) {
       <td className="p-4 text-center">{renderValue(starter)}</td>
       <td className="p-4 text-center">{renderValue(grow)}</td>
       <td className="p-4 text-center">{renderValue(pro)}</td>
+      <td className="p-4 text-center">{renderValue(enterprise)}</td>
     </tr>
   );
 }

@@ -73,7 +73,7 @@ const faqCategories: FAQCategory[] = [
       {
         question: "Can I send both email and SMS campaigns?",
         answer:
-          "Yes. Email campaigns start on the Starter plan ($49/mo) with 1,000 emails per month. SMS messaging starts on the Grow plan ($149/mo) with 2,000 messages per month. The Grow plan also includes 25,000 emails and 200 Togo AI chats. The Pro plan ($349/mo) includes 75,000 emails, 10,000 SMS messages, and 500 Togo AI chats.",
+          "Yes. Email campaigns start on the Starter plan ($49/mo) with 500 emails per month. SMS messaging starts on the Grow plan ($149/mo) with 2,000 messages per month. The Grow plan also includes 25,000 emails and 200 Togo AI chats. The Pro plan ($349/mo) includes 75,000 emails, 10,000 SMS messages, and 500 Togo AI chats.",
       },
       {
         question: "What marketing automations are available?",
@@ -128,17 +128,17 @@ const faqCategories: FAQCategory[] = [
       {
         question: "How much does Critter cost?",
         answer:
-          "Critter offers three paid plans: Starter at $49/month for email marketing essentials, Grow at $149/month for full-featured CRM, marketing, SMS, and lead generation tools, and Pro at $349/month for maximum power with expanded limits and priority support. All plans include a 7-day free trial.",
+          "Critter offers three self-serve plans plus Enterprise: Starter at $49/month to capture leads and automate the basics, Grow at $149/month for full funnel automation, SMS, and Togo AI, and Pro at $349/month for maximum power with expanded limits and priority support. Enterprise is custom-priced for franchises and multi-business operators. All self-serve plans include a 7-day free trial.",
       },
       {
         question: "What's the difference between the plans?",
         answer:
-          "Starter ($49/mo) includes 1,000 emails, customer segmentation, automations, and data connectors. Grow ($149/mo) adds 25,000 emails, 2,000 SMS messages, 200 Togo AI chats, and lead generation tools. Pro ($349/mo) includes 75,000 emails, 10,000 SMS messages, 500 Togo AI chats, advanced automations, and priority support.",
+          "Starter ($49/mo) includes 1 external lead form and 1 booking schedule, your own customer funnel with manual stage moves, up to 4 automated programs, one-time email campaigns, and 500 emails — automated funnel rules, task lists, lifecycle emails, Togo AI, and SMS are not included. Grow ($149/mo) unlocks the automation: unlimited lead forms and schedules, funnel transition rules, task lists and lifecycle emails, 25,000 emails, 2,000 SMS messages, 200 Togo AI chats, the BI reporting suite, and the website chat widget. Pro ($349/mo) adds 75,000 emails, 10,000 SMS messages, 500 Togo AI chats, central management of up to 2 businesses, and priority support.",
       },
       {
         question: "Do you offer enterprise pricing?",
         answer:
-          "Yes. If your business has needs beyond our Pro plan, reach out to our team for custom enterprise pricing tailored to your scale and requirements.",
+          "Yes. Enterprise is custom-priced for franchises and multi-business operators — it covers 3+ businesses (unlimited), franchise network and portfolio roll-up, central billing across businesses, volume email and SMS, and dedicated support. Reach out to our team for pricing tailored to your scale.",
       },
       {
         question: "Can I change my plan later?",
