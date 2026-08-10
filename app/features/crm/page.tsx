@@ -54,8 +54,8 @@ export default function CRMPage() {
           icon: <BarChart3 className="h-6 w-6" />,
           bullets: [
             "Customer lifetime value tracking",
-            "Reporting dashboards & scheduled exports (Grow & Pro)",
-            "Customer-facing website chat widget (Pro)",
+            "Reporting dashboards & scheduled exports (Grow & up)",
+            "Customer-facing website chat widget (Grow & up)",
           ],
         },
       ]}

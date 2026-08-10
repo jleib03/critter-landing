@@ -42,7 +42,7 @@ const faqJsonLd = {
       name: "How much does Critter cost?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Critter offers three paid plans: Starter at $49/month, Grow at $149/month, and Pro at $349/month. All plans include a 7-day free trial.",
+        text: "Critter offers three self-serve plans plus Enterprise: Starter at $49/month, Grow at $149/month, and Pro at $349/month, with custom Enterprise pricing for franchises and multi-business operators. All self-serve plans include a 7-day free trial.",
       },
     },
     {
@@ -58,7 +58,7 @@ const faqJsonLd = {
       name: "Can I send both email and SMS campaigns?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Email campaigns start on the Starter plan ($49/mo) with 1,000 emails per month. SMS messaging starts on the Grow plan ($149/mo) with 2,000 messages per month.",
+        text: "Yes. Email campaigns start on the Starter plan ($49/mo) with 500 emails per month. SMS messaging starts on the Grow plan ($149/mo) with 2,000 messages per month.",
       },
     },
     {
