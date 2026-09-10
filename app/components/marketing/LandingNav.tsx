@@ -105,8 +105,6 @@ export default function LandingNav({
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link href="/ttp" className="px-3 py-2 font-subtitle text-sm text-black hover:text-critter-orange">Time To Pet</Link>
-
             {/* Togo AI Link */}
             <Link href="/togo-ai">
               <Button
@@ -224,7 +222,6 @@ export default function LandingNav({
               { href: "/features/marketing", icon: <Mail className="h-4 w-4 text-critter-orange" />, label: "Marketing Automation" },
               { href: "/features/lead-generation", icon: <ClipboardList className="h-4 w-4 text-critter-orange" />, label: "Lead Generation" },
               { href: "/features/referrals", icon: <GitBranch className="h-4 w-4 text-critter-orange" />, label: "Referral Program" },
-              { href: "/ttp", icon: <Database className="h-4 w-4 text-critter-orange" />, label: "Time To Pet + Critter" },
               { href: "/features/data-integration", icon: <Database className="h-4 w-4 text-critter-orange" />, label: "Data Integration" },
               { href: "/features/scheduling", icon: <Calendar className="h-4 w-4 text-critter-orange" />, label: "Schedule & Operations" },
             ].map((item) => (

@@ -83,6 +83,8 @@ for (const base of ['https://hub.critter.pet', 'https://preview.example.test/'])
 const ttp = render('app/ttp/page.tsx');
 check(!ttp.includes('<nav'), 'TTP acquisition page omits header/navigation');
 check(pricing.includes('<nav'), 'Generic pricing retains website navigation');
+check(!pricing.match(/<nav[\s\S]*?<\/nav>/)[0].includes('href="/ttp"'), 'Website header omits the direct-acquisition TTP link');
+check(pricing.includes('href="/ttp"'), 'TTP landing page remains linked outside the header');
 check(ttp.includes('aria-label="Explore Critter capabilities"'), 'TTP includes labeled capability showcase');
 for (const label of ['Snapshot', 'Journey', 'Lead capture', 'Programs', 'Task lists', 'Togo']) {
   check(ttp.includes('Show ' + label), 'Showcase includes direct choice: ' + label);

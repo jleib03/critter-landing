@@ -110,9 +110,11 @@ async function main() {
       check(new URL(page.url()).searchParams.get('callbackUrl') === '/dashboard/home?source=ttp', 'Actual trial click reaches synthetic signup boundary with context');
       await page.goto(origin + '/pricing');
       check(await page.getByRole('navigation').count() === 1, 'Generic pricing retains navigation');
+      check(await page.getByRole('navigation').locator('a[href="/ttp"]').count() === 0, 'Desktop header excludes Time To Pet');
       if (width < 1024) {
         await page.getByRole('button', { name: 'Toggle menu' }).click();
         check(await page.getByRole('link', { name: 'Hub Login' }).isVisible(), 'Generic mobile navigation still works');
+        check(await page.getByRole('navigation').locator('a[href="/ttp"]').count() === 0, 'Expanded mobile header excludes Time To Pet');
         check(!new URL(await page.getByRole('link', { name: 'Hub Login' }).getAttribute('href')).search, 'Generic mobile login remains context-free');
         await page.getByRole('button', { name: 'Toggle menu' }).click();
       } else {
