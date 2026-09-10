@@ -36,6 +36,14 @@ function load(file) {
 let checks = 0;
 function check(condition, reason) { assert.ok(condition, reason); checks++; }
 function render(file, props) { return renderToStaticMarkup(React.createElement(load(file).default, props)); }
+const iconModule = load('app/components/icons/TogoIcon.tsx');
+for (const name of ['TogoIcon', 'TogoIconFilled']) {
+  const markup = renderToStaticMarkup(React.createElement(iconModule[name], { size: 32, color: '#123456', 'aria-label': 'Togo' }));
+  check(markup.includes('lucide-dog') && !markup.includes('<ellipse'), name + ' uses current Hub dog glyph');
+  check(markup.includes('width="32"') && markup.includes('#123456'), name + ' preserves size/color contract');
+  check(markup.includes('aria-label="Togo"') && markup.includes('role="img"'), name + ' supports an accessible label');
+}
+check(renderToStaticMarkup(React.createElement(iconModule.TogoIcon)).includes('aria-hidden="true"'), 'Unlabeled inline Togo glyph is decorative');
 const pricing = render('app/pricing/page.tsx');
 check(pricing.includes('$79'), 'Starter renders approved $79 offer');
 check(pricing.includes('1,500 base emails/month'), 'Starter renders approved base allowance');
@@ -73,12 +81,21 @@ for (const base of ['https://hub.critter.pet', 'https://preview.example.test/'])
   check(!links.getHubLinks(undefined, base).signup.includes('?'), 'Generic signup unchanged');
 }
 const ttp = render('app/ttp/page.tsx');
+check(!ttp.includes('<nav'), 'TTP acquisition page omits header/navigation');
+check(pricing.includes('<nav'), 'Generic pricing retains website navigation');
+check(ttp.includes('aria-label="Explore Critter capabilities"'), 'TTP includes labeled capability showcase');
+for (const label of ['Snapshot', 'Journey', 'Lead capture', 'Programs', 'Task lists', 'Togo']) {
+  check(ttp.includes('Show ' + label), 'Showcase includes direct choice: ' + label);
+}
+for (const label of ['Previous capability', 'Next capability']) {
+  check(ttp.includes(label), 'Showcase includes accessible manual control: ' + label);
+}
 const anchors = [...ttp.matchAll(/href="([^"]+)"/g)].map(x => x[1].replaceAll('&amp;', '&'));
 const authLinks = anchors.filter(x => /\/auth\/(signup|signin)/.test(x));
-check(authLinks.length >= 4, 'TTP hero, final, header, footer auth CTAs render');
+check(authLinks.length >= 4, 'TTP hero, final, footer trial and footer sign-in CTAs render');
 check(authLinks.every(x => new URL(x).searchParams.get('source') === 'ttp'), 'Every rendered TTP auth CTA retains source');
 check(authLinks.every(x => new URL(x).searchParams.get('callbackUrl') === links.TTP_DESTINATION), 'Every rendered TTP auth CTA retains callback');
-check(ttp.includes('Illustrative overview') && !ttp.includes('98%'), 'No fabricated snapshot metric claim');
+check(ttp.includes('Illustrative product highlights') && !ttp.includes('98%'), 'No fabricated snapshot metric claim');
 check(ttp.includes('critter-favicon-circle.png') && !ttp.includes('lucide-paw-print'), 'Snapshot uses Critter mark');
 check(ttp.includes('read-only Insights') && ttp.includes('No SMS on Starter'), 'TTP post-trial and paid boundaries render');
 check(load('app/sitemap.ts').default().some(x => x.url === 'https://critter.pet/ttp'), 'TTP discoverable in sitemap');

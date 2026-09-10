@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Check, ChevronRight, GitBranch, Heart, Mail, ShieldCheck, Users } from 'lucide-react';
-import LandingNav from '@/app/components/marketing/LandingNav';
+import { ArrowRight, Check, ChevronRight, GitBranch, Heart, Mail, ShieldCheck } from 'lucide-react';
+import TtpCapabilityShowcase from '@/app/components/marketing/TtpCapabilityShowcase';
 import LandingFooter from '@/app/components/marketing/LandingFooter';
 import { TogoIcon } from '@/app/components/icons/TogoIcon';
 import { CRM_OFFERS, TTP_INSIGHTS_COPY, formatAllowance } from '@/lib/marketing-offers';
@@ -35,15 +35,14 @@ function TrialLink({ secondary = false }: { secondary?: boolean }) {
 
 export default function TtpPage() {
   return <div className="min-h-screen bg-critter-beige text-critter-maroon">
-    <LandingNav acquisitionSource="ttp" />
     <main>
-      <section className="px-6 pb-16 pt-32 lg:pt-40 lg:pb-24">
+      <section className="px-6 pb-16 pt-10 sm:pt-16 lg:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
           <div>
-            <div className="mb-9 flex items-center gap-4" aria-label="Critter and Time To Pet">
-              <Image src="/images/critter-logo.png" alt="Critter" width={120} height={40} className="h-9 w-auto" priority />
+            <div className="mb-9 flex items-center gap-3 sm:gap-4" aria-label="Critter and Time To Pet">
+              <Image src="/images/critter-logo.png" alt="Critter" width={120} height={40} className="h-7 w-auto sm:h-9" priority />
               <span className="font-body text-xl text-critter-gray" aria-hidden>×</span>
-              <img src="https://www.timetopet.com/images/logo-ttp-color.svg" alt="Time To Pet" width="150" height="40" className="h-9 w-auto max-w-[150px]" />
+              <img src="https://www.timetopet.com/images/logo-ttp-color.svg" alt="Time To Pet" width="150" height="40" className="h-7 w-auto max-w-[120px] sm:h-9 sm:max-w-[150px]" />
             </div>
             <h1 className="font-title text-4xl leading-[1.12] sm:text-5xl lg:text-6xl">Your Time To Pet data.<br /><span className="text-critter-orange">A clearer plan for what comes next.</span></h1>
             <p className="mt-6 max-w-xl font-body text-lg leading-relaxed text-critter-gray">You already know your clients. Critter helps you see the patterns behind their visits, organize your customer journey, and choose the next useful follow-up.</p>
@@ -53,25 +52,7 @@ export default function TtpPage() {
             </div>
             <p className="mt-5 font-body text-sm text-critter-gray">No credit card required. Keep the scheduling tools you use.</p>
           </div>
-          <div className="relative rounded-[28px] border border-critter-orange/20 bg-[#FBEBDD] p-5 sm:p-7">
-            <div className="rounded-2xl bg-white p-5 shadow-sm sm:p-7">
-              <div className="flex items-center gap-3"><span className="rounded-full bg-critter-orange/10 p-2"><Image src="/images/critter-favicon-circle.png" alt="" width={24} height={24} /></span><span className="font-subtitle text-xs uppercase tracking-widest text-critter-orange">Your business snapshot</span></div>
-              <h2 className="mt-5 font-title text-2xl sm:text-3xl">A little clarity.<br />A useful next step.</h2>
-              <div className="mt-6 grid grid-cols-3 gap-2">
-                {['Clients', 'Services', 'Revenue'].map((label, i) => <div key={label} className={`rounded-xl px-2 py-3 text-center font-subtitle text-sm ${i === 0 ? 'bg-critter-maroon text-white' : 'bg-critter-beige text-critter-gray'}`}>{label}</div>)}
-              </div>
-              <div className="mt-5 flex items-center gap-5 rounded-xl border border-critter-cream p-4">
-                <div className="relative flex h-20 w-20 shrink-0 items-center justify-center rounded-full border-[10px] border-critter-orange/70 border-r-critter-blue border-t-critter-maroon"><Users aria-hidden className="h-6 w-6 text-critter-gray" /></div>
-                <div className="space-y-2 font-body text-sm text-critter-gray"><p>Who comes back</p><p>What clients book</p><p>Where to follow up</p></div>
-              </div>
-              <div className="mt-5 rounded-xl bg-critter-beige p-4">
-                <div className="flex items-center gap-2 font-subtitle text-sm"><TogoIcon size={22} /> What this means for you</div>
-                <p className="mt-2 font-body text-sm leading-relaxed text-critter-gray">Connect what you learn to a customer group, a journey rule, or a follow-up worth reviewing.</p>
-                <span className="mt-3 inline-flex items-center gap-2 font-subtitle text-sm text-critter-orange">Review your next step <ArrowRight aria-hidden className="h-4 w-4" /></span>
-              </div>
-            </div>
-            <p className="mt-4 text-center font-body text-xs leading-relaxed text-critter-gray">Illustrative overview. Your snapshot uses your connected data.</p>
-          </div>
+          <TtpCapabilityShowcase />
         </div>
       </section>
 
