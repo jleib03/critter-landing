@@ -44,6 +44,12 @@ async function waitForObservedVisibility(region, visible) {
 async function waitForCapabilityChange(region, previous) {
   await region.locator(`button[aria-current="true"]:not([aria-label=${JSON.stringify(previous)}])`).waitFor({ timeout: 2000 });
 }
+async function checkRotationHitTarget(region) {
+  check(await region.locator('[data-rotation-control]').evaluate(button => {
+    const rect = button.getBoundingClientRect();
+    return document.elementFromPoint(rect.x + rect.width / 2, rect.y + rect.height / 2) === button;
+  }), 'Play/Pause keeps a stable button pointer target when its icon changes');
+}
 async function main() {
   await fs.mkdir(artifacts, { recursive: true });
   const browser = await chromium.launch({ headless: true });
@@ -57,7 +63,23 @@ async function main() {
       await page.goto(origin + '/ttp');
       await page.getByRole('heading', { level: 1 }).waitFor();
       check((await page.title()).includes('Time To Pet + Critter'), 'TTP metadata rendered');
-      check(await page.getByRole('navigation').count() === 0, 'TTP has no header/navigation');
+      const ttpNav = page.getByRole('navigation');
+      check(await ttpNav.count() === 1, 'TTP retains the shared header/navigation');
+      check(await ttpNav.locator('a[href="/ttp"]').count() === 0, 'TTP header has no redundant Time To Pet menu item');
+      check(await page.locator('footer a[href="/ttp"]').count() === 0, 'TTP footer has no partner callout');
+      check((await page.locator('main > section').first().boundingBox()).y >= (await ttpNav.boundingBox()).height, 'TTP hero clears the fixed header');
+      if (width < 1024) {
+        await ttpNav.getByRole('button', { name: 'Toggle menu' }).click();
+        const login = new URL(await ttpNav.getByRole('link', { name: 'Hub Login' }).getAttribute('href'));
+        check(login.searchParams.get('source') === 'ttp' && login.searchParams.get('callbackUrl') === '/dashboard/home?source=ttp', 'TTP mobile login retains acquisition context');
+        check(await ttpNav.locator('a[href="/ttp"]').count() === 0, 'TTP mobile menu has no redundant partner entry');
+        await ttpNav.getByRole('button', { name: 'Toggle menu' }).click();
+      } else {
+        await ttpNav.getByRole('button', { name: 'Log In', exact: true }).click();
+        const login = new URL(await page.getByRole('menuitem').filter({ hasText: 'Critter Hub CRM' }).getAttribute('href'));
+        check(login.searchParams.get('source') === 'ttp' && login.searchParams.get('callbackUrl') === '/dashboard/home?source=ttp', 'TTP desktop login retains acquisition context');
+        await page.keyboard.press('Escape');
+      }
       if (!await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)) {
         await page.screenshot({ path: path.join(artifacts, 'ttp-overflow-' + width + '.png'), fullPage: true });
         console.log('Overflow diagnostics', await page.evaluate(() => Array.from(document.querySelectorAll('main *')).filter(element => { const box = element.getBoundingClientRect(); return box.right > innerWidth + 1 || box.left < -1; }).slice(0, 12).map(element => ({ tag: element.tagName, className: element.getAttribute('class'), text: element.textContent.slice(0, 80), width: element.getBoundingClientRect().width }))));
@@ -110,6 +132,7 @@ async function main() {
       check(new URL(page.url()).searchParams.get('callbackUrl') === '/dashboard/home?source=ttp', 'Actual trial click reaches synthetic signup boundary with context');
       await page.goto(origin + '/pricing');
       check(await page.getByRole('navigation').count() === 1, 'Generic pricing retains navigation');
+      check(await page.locator('footer a[href="/ttp"]').count() === 0, 'Generic footer has no partner callout');
       check(await page.getByRole('navigation').locator('a[href="/ttp"]').count() === 0, 'Desktop header excludes Time To Pet');
       if (width < 1024) {
         await page.getByRole('button', { name: 'Toggle menu' }).click();
@@ -149,6 +172,7 @@ async function main() {
     const showcase = motionPage.getByRole('region', { name: 'Explore Critter capabilities' });
     await showcase.getByRole('button', { name: 'Pause highlights' }).waitFor();
     await showcase.scrollIntoViewIfNeeded();
+    await checkRotationHitTarget(showcase);
     await moveOutsideShowcase(motionPage);
     await motionPage.clock.runFor(100);
     await motionPage.clock.runFor(6800);
@@ -156,6 +180,8 @@ async function main() {
     await motionPage.clock.runFor(200);
     check(await currentCapability(showcase) === 'Show Journey', 'Autoplay advances after seven seconds');
     await showcase.getByRole('button', { name: 'Pause highlights' }).focus();
+    await showcase.getByRole('button', { name: 'Play highlights' }).waitFor();
+    await checkRotationHitTarget(showcase);
     const rotationFocus = await currentCapability(showcase);
     await motionPage.clock.runFor(15000);
     check(await currentCapability(showcase) === rotationFocus, 'Keyboard focus on rotation control also stops autoplay');

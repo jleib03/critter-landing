@@ -114,7 +114,9 @@ export default function TtpCapabilityShowcase() {
         onPointerCancel={() => { rotationPointerFocus.current = false; }}
         onBlur={() => { rotationPointerFocus.current = false; }}
         onClick={() => { rotationPointerFocus.current = false; setPlaying(value => !value); }} className={control}>
-        {playing ? <Pause size={15} aria-hidden="true" /> : <Play size={15} aria-hidden="true" />}
+        <span className="pointer-events-none" aria-hidden="true">
+          {playing ? <Pause size={15} /> : <Play size={15} />}
+        </span>
       </button>
     </div>
     <div id={id} aria-live={playing ? 'off' : 'polite'} aria-atomic="true">

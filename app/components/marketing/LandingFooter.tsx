@@ -37,7 +37,6 @@ export default function LandingFooter({ acquisitionSource }: { acquisitionSource
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/20 pt-6">
             {/* Navigation Links */}
             <div className="flex items-center gap-x-6 gap-y-2 flex-wrap justify-center">
-              <Link href="/ttp" className="font-body text-sm text-white/90 hover:text-white transition-colors">Time To Pet + Critter</Link>
               <Link
                 href="/pricing"
                 className="font-body text-sm text-white/90 hover:text-white transition-colors"

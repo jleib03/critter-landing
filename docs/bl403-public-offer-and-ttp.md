@@ -9,9 +9,9 @@ Human owner: Jacob. Agent owner: interactive lane. Implementation follows the ex
 - New CRM businesses start with the same 7-day Critter trial, without a credit card. A pricing selection remains a signup preference, not a different trial or an immediate checkout.
 - A qualifying active Time To Pet connection can retain read-only Insights after trial expiry. Sending and automation require an eligible paid plan. No free-forever CRM, instant import, guaranteed growth, or automatic draft-activation claim is made.
 - `/ttp` explains connection, a high-level introduction during loading, and the personal snapshot/journey/draft review afterward. Illustrations are labeled; they contain no invented outcome metrics.
-- `getHubLinks('ttp')` supplies `/auth/signup?source=ttp&callbackUrl=%2Fdashboard%2Fhome%3Fsource%3Dttp` for trial entry and the corresponding `/auth/signin` URL for existing users. The fixed direct `/dashboard/home?source=ttp` destination remains available through `.start`. Hero, final, and footer trial links on `/ttp` use `.signup`. This acquisition page has no top navigation; its Critter/Time To Pet brand pair and footer remain. Generic routes retain their navigation and context-free signup/sign-in links. The Hub's auth continuation is a separately tested companion change, not implemented here.
+- `getHubLinks('ttp')` supplies `/auth/signup?source=ttp&callbackUrl=%2Fdashboard%2Fhome%3Fsource%3Dttp` for trial entry and the corresponding `/auth/signin` URL for existing users. The fixed direct `/dashboard/home?source=ttp` destination remains available through `.start`. Header, hero, final, and footer trial links on `/ttp` use `.signup`. This acquisition page retains the shared top navigation, with TTP-aware signup/sign-in links, as well as its Critter/Time To Pet hero brand pair. The fixed header has reserved space above the hero. Generic routes retain context-free signup/sign-in links. The Hub's auth continuation is a separately tested companion change, not implemented here.
 - Release sequencing: deploy the tested companion Hub TTP-auth continuation before or together with the public `/ttp` acquisition rollout. Website links alone cannot guarantee that an older Hub verification flow retains the source and callback.
-- FAQ visible answers and FAQPage structured data share `lib/marketing-faqs.ts`; pricing search/social metadata and AggregateOffer use the approved offer source. `/ttp` has canonical metadata, inbound footer/integration links from other pages, and a sitemap entry. It is intentionally absent from the shared desktop and mobile header navigation.
+- FAQ visible answers and FAQPage structured data share `lib/marketing-faqs.ts`; pricing search/social metadata and AggregateOffer use the approved offer source. `/ttp` retains canonical metadata, an integration-page link, and a sitemap entry. The shared desktop/mobile menus and footer intentionally have no Time To Pet + Critter navigation item.
 
 ## Copy and product boundaries
 
@@ -53,3 +53,16 @@ The browser harness uses the real built Next page, real pointer/keyboard/touch e
 ## Shared-header follow-up
 
 Removed the Time To Pet link from both the desktop header and the expanded mobile menu at Jacob's request. The `/ttp` route, partner branding, footer/integration links, and TTP signup callbacks remain unchanged. The new actual-render assertion failed before the removal. Afterward, `npm test` passed 111 checks, the production build passed all 28 routes, and the actual built-site browser suite passed 265 checks across 320, 390, 768, and 1440px, including the opened mobile menu. Remote browser requests remain blocked or synthetic; no Hub account or billing action was performed.
+
+## Navigation and footer refinement after PR #7
+
+Jacob's latest direction supersedes the earlier headerless `/ttp` layout: retain the standard top navigation on `/ttp`, but keep the redundant Time To Pet menu item absent. Remove the Time To Pet + Critter link from the shared orange footer. The hero partner branding remains. The restored header uses TTP-aware signup/sign-in URLs on `/ttp`, with reserved space above the hero; generic pages remain context-free.
+
+Browser verification exposed an intermittent carousel hold after Play: swapping the decorative SVG under the pointer could leave React's hover state set after the pointer left. The icon now ignores pointer events, keeping the button as the stable event target. Regression checks cover both icon hit targets and actual Play/Pause, focus, hover, visibility, reduced-motion and touch behavior. No debug logging or React-internal inspection is retained.
+
+- `npm test`: **112 actual-render checks passed**.
+- `npm run build`: **passed**, including type/lint validation and all 28 generated routes; only existing Browserslist advice remains.
+- `npm run test:browser`: **290 checks passed** against the built local site at 320, 390, 768 and 1440px. Includes desktop/mobile TTP-aware login, retained navigation, header clearance, removed footer link, layout and carousel regressions. External requests remain blocked or locally fulfilled, including a synthetic partner logo and signup boundary.
+- `git diff --check`: **passed**. Current screenshots remain in `/private/tmp/bl403-website-browser/`; the desktop hero was visually inspected.
+
+This follow-up is for a new website PR against `main`, not an authorized production merge. Earlier offers, pricing, auth mechanisms, billing and Hub runtime are unchanged by this refinement.
