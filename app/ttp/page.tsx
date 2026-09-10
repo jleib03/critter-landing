@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Check, ChevronRight, GitBranch, Heart, Mail, ShieldCheck } from 'lucide-react';
 import TtpCapabilityShowcase from '@/app/components/marketing/TtpCapabilityShowcase';
+import LandingNav from '@/app/components/marketing/LandingNav';
 import LandingFooter from '@/app/components/marketing/LandingFooter';
 import { TogoIcon } from '@/app/components/icons/TogoIcon';
 import { CRM_OFFERS, TTP_INSIGHTS_COPY, formatAllowance } from '@/lib/marketing-offers';
@@ -35,7 +36,8 @@ function TrialLink({ secondary = false }: { secondary?: boolean }) {
 
 export default function TtpPage() {
   return <div className="min-h-screen bg-critter-beige text-critter-maroon">
-    <main>
+    <LandingNav acquisitionSource="ttp" />
+    <main className="pt-20">
       <section className="px-6 pb-16 pt-10 sm:pt-16 lg:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
           <div>

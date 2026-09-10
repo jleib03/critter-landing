@@ -81,10 +81,12 @@ for (const base of ['https://hub.critter.pet', 'https://preview.example.test/'])
   check(!links.getHubLinks(undefined, base).signup.includes('?'), 'Generic signup unchanged');
 }
 const ttp = render('app/ttp/page.tsx');
-check(!ttp.includes('<nav'), 'TTP acquisition page omits header/navigation');
+check(ttp.includes('<nav'), 'TTP acquisition page retains the shared header/navigation');
 check(pricing.includes('<nav'), 'Generic pricing retains website navigation');
 check(!pricing.match(/<nav[\s\S]*?<\/nav>/)[0].includes('href="/ttp"'), 'Website header omits the direct-acquisition TTP link');
-check(pricing.includes('href="/ttp"'), 'TTP landing page remains linked outside the header');
+for (const markup of [pricing, ttp]) {
+  check(!markup.match(/<footer[\s\S]*?<\/footer>/)[0].includes('href="/ttp"'), 'Shared footer omits the Time To Pet + Critter callout');
+}
 check(ttp.includes('aria-label="Explore Critter capabilities"'), 'TTP includes labeled capability showcase');
 for (const label of ['Snapshot', 'Journey', 'Lead capture', 'Programs', 'Task lists', 'Togo']) {
   check(ttp.includes('Show ' + label), 'Showcase includes direct choice: ' + label);
@@ -94,7 +96,7 @@ for (const label of ['Previous capability', 'Next capability']) {
 }
 const anchors = [...ttp.matchAll(/href="([^"]+)"/g)].map(x => x[1].replaceAll('&amp;', '&'));
 const authLinks = anchors.filter(x => /\/auth\/(signup|signin)/.test(x));
-check(authLinks.length >= 4, 'TTP hero, final, footer trial and footer sign-in CTAs render');
+check(authLinks.length >= 5, 'TTP header, hero, final, footer trial and footer sign-in CTAs render');
 check(authLinks.every(x => new URL(x).searchParams.get('source') === 'ttp'), 'Every rendered TTP auth CTA retains source');
 check(authLinks.every(x => new URL(x).searchParams.get('callbackUrl') === links.TTP_DESTINATION), 'Every rendered TTP auth CTA retains callback');
 check(ttp.includes('Illustrative product highlights') && !ttp.includes('98%'), 'No fabricated snapshot metric claim');
