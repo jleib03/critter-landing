@@ -4,6 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://critter.pet";
 
   return [
+    { url: `${baseUrl}/ttp`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     {
       url: baseUrl,
       lastModified: new Date(),

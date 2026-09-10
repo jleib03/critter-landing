@@ -44,7 +44,7 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href={`${hubUrl}/auth/signup`}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle font-light rounded-[20px] px-8 h-12 text-xl">
-                Start 7 Day Free Trial
+                Start your 7-day Critter trial
               </Button>
             </a>
           </div>
@@ -64,7 +64,7 @@ export default function LandingPage() {
       {/* Feature Sections - Updated copy from Figma */}
       <FeatureSection
         title="Connect your data"
-        description="The only CRM & marketing tool integrating your booking and operational data with marketing and growth performance out of the box. Eliminate manual work and duplicate entry to keep data in sync."
+        description="Connect your booking data to customer insights and marketing tools. Keep the scheduling software you use, and bring the bigger picture into Critter."
         layout="image-left"
         icon={<Database className="h-6 w-6" />}
         imagePlaceholder={<ConnectDataMockup />}
@@ -90,7 +90,7 @@ export default function LandingPage() {
 
       <FeatureSection
         title="Know your business"
-        description="Talk with your data like never before. Our proprietary Togo AI knows your business inside and out, actively monitoring and learning from your data every day. Data analysis tools that have your back."
+        description="Ask Togo about the data you have connected. Talk through a finding, understand a journey rule, or draft a thoughtful follow-up for your review."
         layout="image-right"
         icon={<BarChart3 className="h-6 w-6" />}
         imagePlaceholder={<DataInsightsMockup />}

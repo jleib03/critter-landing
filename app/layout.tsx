@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CRM_OFFERS } from "@/lib/marketing-offers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -71,8 +72,8 @@ const softwareJsonLd = {
     "Automation engine for growing pet care businesses. CRM, email and SMS marketing, AI analytics, lead generation, and referral programs.",
   offers: {
     "@type": "AggregateOffer",
-    lowPrice: "49",
-    highPrice: "349",
+    lowPrice: String(CRM_OFFERS.starter.monthlyUsd),
+    highPrice: String(CRM_OFFERS.pro.monthlyUsd),
     priceCurrency: "USD",
     offerCount: 3,
   },

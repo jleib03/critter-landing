@@ -14,7 +14,7 @@ export default function AutomationBanner() {
             Real automation requires good data
           </h2>
           <p className="font-body text-base sm:text-lg text-critter-gray max-w-2xl mx-auto mb-8">
-            Critter&apos;s proprietary data tools make it simple to integrate external data to drive automation across your pipeline, operational communications, and marketing efforts. With out of the box data connectors for leading industry booking softwares like Time to Pet and Precise Pet Care, it&apos;s never been easier to get data out of your operational tools and leverage it for insights into your client base as your scale.
+            Connect Time To Pet or Precise Pet Care to bring your customer and booking data into Critter. Explore the patterns, review your customer journey, and choose the follow-ups that make sense for your business.
           </p>
           <a href={demoUrl} target="_blank" rel="noopener noreferrer">
             <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">

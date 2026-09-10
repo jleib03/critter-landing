@@ -22,6 +22,7 @@ interface FeatureSectionData {
 }
 
 interface FeaturePageProps {
+  relatedLink?: { href: string; label: string };
   heroTitle: string;
   heroSubtitle: string;
   heroDemo?: React.ReactNode;
@@ -31,6 +32,7 @@ interface FeaturePageProps {
 }
 
 export default function FeaturePage({
+  relatedLink,
   heroTitle,
   heroSubtitle,
   heroDemo,
@@ -59,17 +61,19 @@ export default function FeaturePage({
               </p>
               <a href={`${hubUrl}/auth/signup`}>
                 <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle font-light rounded-[20px] px-8 h-12 text-xl">
-                  Start 7 Day Free Trial
+                  Start your 7-day Critter trial
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>
+              {relatedLink && <a href={relatedLink.href} className="mt-5 block font-subtitle text-sm text-critter-orange underline underline-offset-4">{relatedLink.label}</a>}
             </div>
             {/* Right demo / image */}
             <div className="flex-1 w-full">
+              <p className="mb-3 text-center font-body text-xs text-critter-gray">Illustrative product preview with sample data.</p>
               {heroDemo || (
                 <div className="bg-white rounded-2xl shadow-lg border border-critter-cream p-8 lg:aspect-[4/3] flex items-center justify-center">
                   <div className="w-full h-full bg-gradient-to-br from-critter-beige to-critter-cream rounded-xl flex items-center justify-center">
-                    <div className="text-critter-orange/30 font-body text-sm">Image placeholder</div>
+                    <div className="text-critter-orange/30 font-body text-sm">A clearer view of your business</div>
                   </div>
                 </div>
               )}

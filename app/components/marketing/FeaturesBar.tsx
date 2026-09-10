@@ -10,8 +10,8 @@ const features = [
   },
   {
     icon: <Settings className="h-6 w-6" />,
-    title: "Set-it-and-forget-it",
-    description: "Define criteria and let Critter do the work to enroll clients in programs and campaigns.",
+    title: "Review, then automate",
+    description: "Review criteria, copy, and timing before activating your customer follow-ups.",
   },
   {
     icon: <HeartHandshake className="h-6 w-6" />,

@@ -54,8 +54,8 @@ export default function CRMPage() {
           icon: <BarChart3 className="h-6 w-6" />,
           bullets: [
             "Customer lifetime value tracking",
-            "Reporting dashboards & scheduled exports (Grow & up)",
-            "Customer-facing website chat widget (Grow & up)",
+            "Reporting dashboards & scheduled exports",
+            "Customer-facing website chat widget",
           ],
         },
       ]}
@@ -76,7 +76,7 @@ export default function CRMPage() {
         },
         {
           title: "Reporting dashboards built for operators",
-          description: "Available on Grow and Pro — build custom dashboards, schedule recurring reports to your inbox, and export to CSV. Track LTV, funnel health, and campaign ROI in one place, without bolting on a separate BI tool.",
+          description: "Included from Starter — build custom dashboards, schedule recurring reports to your inbox, and export to CSV. Track LTV, funnel health, and campaign ROI in one place, without bolting on a separate BI tool.",
           layout: "image-left",
           icon: <BarChart3 className="h-6 w-6" />,
           imagePlaceholder: <DataInsightsMockup />,
