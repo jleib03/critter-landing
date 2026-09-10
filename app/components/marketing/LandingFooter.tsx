@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { AcquisitionSource, getHubLinks } from "@/lib/marketing-links";
 import Image from "next/image";
 import { Button } from "@/app/components/ui/button";
 
-export default function LandingFooter() {
-  const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
+export default function LandingFooter({ acquisitionSource }: { acquisitionSource?: AcquisitionSource }) {
+  const hubLinks = getHubLinks(acquisitionSource);
 
   return (
     <footer className="py-12 px-6 bg-critter-orange">
@@ -16,21 +17,16 @@ export default function LandingFooter() {
             {/* Logo */}
             <div className="flex items-center">
               <Image
-                src="/images/critter-logo-white.png"
+                src="/images/critter-logo.png"
                 alt="Critter"
                 width={120}
                 height={40}
-                className="h-8 w-auto"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.filter = 'brightness(0) invert(1)';
-                  target.src = '/images/critter-logo.png';
-                }}
+                className="h-8 w-auto brightness-0 invert"
               />
             </div>
 
             {/* Start Free Trial button */}
-            <a href={`${hubUrl}/auth/signup`}>
+            <a href={hubLinks.signup}>
               <Button className="bg-white text-critter-orange hover:bg-white/90 font-subtitle px-6">
                 Start Free Trial
               </Button>
@@ -41,6 +37,7 @@ export default function LandingFooter() {
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/20 pt-6">
             {/* Navigation Links */}
             <div className="flex items-center gap-x-6 gap-y-2 flex-wrap justify-center">
+              <Link href="/ttp" className="font-body text-sm text-white/90 hover:text-white transition-colors">Time To Pet + Critter</Link>
               <Link
                 href="/pricing"
                 className="font-body text-sm text-white/90 hover:text-white transition-colors"
@@ -60,7 +57,7 @@ export default function LandingFooter() {
                 Support
               </Link>
               <a
-                href={`${hubUrl}/auth/signin`}
+                href={hubLinks.signin}
                 className="font-body text-sm text-white/90 hover:text-white transition-colors"
               >
                 Sign In

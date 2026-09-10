@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { AcquisitionSource, getHubLinks } from "@/lib/marketing-links";
 import Image from "next/image";
 import { Button } from "@/app/components/ui/button";
 import {
@@ -27,14 +28,15 @@ import {
 } from "lucide-react";
 
 interface LandingNavProps {
+  acquisitionSource?: AcquisitionSource;
   onFeatureClick?: (featureIndex: number) => void;
 }
 
 export default function LandingNav({
-  onFeatureClick
+  onFeatureClick, acquisitionSource
 }: LandingNavProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
+  const hubLinks = getHubLinks(acquisitionSource);
   const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
   const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
 
@@ -54,7 +56,7 @@ export default function LandingNav({
           </Link>
 
           {/* Center: Nav Items (Desktop) */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {/* Features Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -103,6 +105,8 @@ export default function LandingNav({
               </DropdownMenuContent>
             </DropdownMenu>
 
+            <Link href="/ttp" className="px-3 py-2 font-subtitle text-sm text-black hover:text-critter-orange">Time To Pet</Link>
+
             {/* Togo AI Link */}
             <Link href="/togo-ai">
               <Button
@@ -150,7 +154,7 @@ export default function LandingNav({
             {/* Log In - Product Selector Dropdown (Desktop) */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden md:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
+                <Button variant="ghost" className="hidden lg:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
                   Log In
                   <ChevronDown className="h-4 w-4" />
                 </Button>
@@ -160,7 +164,7 @@ export default function LandingNav({
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
                   <a
-                    href={`${hubUrl}/auth/signin`}
+                    href={hubLinks.signin}
                     className="flex items-center gap-3 cursor-pointer py-3"
                   >
                     <div className="w-10 h-10 rounded-lg bg-critter-orange/10 flex items-center justify-center">
@@ -190,7 +194,7 @@ export default function LandingNav({
             </DropdownMenu>
 
             {/* Free Trial - Direct link to Hub signup */}
-            <a href={`${hubUrl}/auth/signup`} className="hidden sm:block">
+            <a href={hubLinks.signup} className="hidden sm:block">
               <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                 Free Trial
               </Button>
@@ -199,8 +203,9 @@ export default function LandingNav({
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-critter-maroon"
+              className="lg:hidden p-2 text-critter-maroon"
               aria-label="Toggle menu"
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -210,7 +215,7 @@ export default function LandingNav({
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-critter-beige/95 backdrop-blur-md border-t border-critter-cream">
+        <div className="lg:hidden bg-critter-beige/95 backdrop-blur-md border-t border-critter-cream">
           <div className="container mx-auto px-6 py-4 space-y-1">
             {/* Features */}
             <p className="font-subtitle text-xs text-critter-gray uppercase tracking-wider px-3 pt-2 pb-1">Features</p>
@@ -219,6 +224,7 @@ export default function LandingNav({
               { href: "/features/marketing", icon: <Mail className="h-4 w-4 text-critter-orange" />, label: "Marketing Automation" },
               { href: "/features/lead-generation", icon: <ClipboardList className="h-4 w-4 text-critter-orange" />, label: "Lead Generation" },
               { href: "/features/referrals", icon: <GitBranch className="h-4 w-4 text-critter-orange" />, label: "Referral Program" },
+              { href: "/ttp", icon: <Database className="h-4 w-4 text-critter-orange" />, label: "Time To Pet + Critter" },
               { href: "/features/data-integration", icon: <Database className="h-4 w-4 text-critter-orange" />, label: "Data Integration" },
               { href: "/features/scheduling", icon: <Calendar className="h-4 w-4 text-critter-orange" />, label: "Schedule & Operations" },
             ].map((item) => (
@@ -275,7 +281,7 @@ export default function LandingNav({
             <div className="border-t border-critter-cream pt-3 mt-2 space-y-2">
               <div className="flex gap-2">
                 <a
-                  href={`${hubUrl}/auth/signin`}
+                  href={hubLinks.signin}
                   className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-critter-cream font-subtitle text-sm text-critter-maroon hover:bg-critter-cream transition-colors"
                 >
                   <Database className="h-4 w-4 text-critter-orange" />
@@ -289,7 +295,7 @@ export default function LandingNav({
                   Ops Login
                 </a>
               </div>
-              <a href={`${hubUrl}/auth/signup`} className="block">
+              <a href={hubLinks.signup} className="block">
                 <Button className="w-full bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                   Start Free Trial
                 </Button>

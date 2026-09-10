@@ -1,87 +1,38 @@
-import FeaturePage from "@/app/components/marketing/FeaturePage";
-import { ConnectDataMockup } from "@/app/components/marketing/demos/SectionMockups";
-import { Heart, GitBranch, TrendingUp } from "lucide-react";
+import LandingNav from "@/app/components/marketing/LandingNav";
+import LandingFooter from "@/app/components/marketing/LandingFooter";
+import Link from "next/link";
+import { ArrowRight, Calendar, Database } from "lucide-react";
 
 export const metadata = {
-  title: "Schedule & Operations for Pet Care | Critter",
-  description:
-    "Fully integrated booking and communications. From marketing and lead generation through service delivery, unite your tools under one roof.",
-  openGraph: {
-    title: "Schedule & Operations for Pet Care | Critter",
-    description:
-      "Fully integrated booking and communications. From marketing and lead generation through service delivery, unite your tools under one roof.",
-    url: "https://critter.pet/features/scheduling",
-  },
-  twitter: {
-    title: "Schedule & Operations for Pet Care | Critter",
-    description:
-      "Fully integrated booking and communications. From marketing and lead generation through service delivery, unite your tools under one roof.",
-  },
+  title: "Critter Ops | Scheduling & Operations for Pet Care",
+  description: "Critter Ops is the scheduling and operations product. Explore Critter Hub separately for CRM, customer insights, and marketing.",
+  alternates: { canonical: "https://critter.pet/features/scheduling" },
 };
 
 export default function SchedulingPage() {
-  return (
-    <FeaturePage
-      heroTitle="Fully integrated booking & communications"
-      heroSubtitle="From marketing and lead generation through service delivery, unite your tools under one roof."
-      heroDemo={
-        <div className="bg-white rounded-2xl shadow-lg border border-critter-cream p-6">
-          <ConnectDataMockup />
-        </div>
-      }
-      sectionHeadline="Operational tools..."
-      cards={[
-        {
-          tag: "Personalization",
-          title: "Build deep relationships",
-          icon: <Heart className="h-6 w-6" />,
-          bullets: [
-            "Activity tracking",
-            "Detailed client & pet profiles",
-            "Automated segmentation",
-          ],
-        },
-        {
-          tag: "Retention",
-          title: "Build long relationships",
-          icon: <GitBranch className="h-6 w-6" />,
-          bullets: [
-            "Custom funnel",
-            "Data-driven stage tracking",
-            "Trigger based communications",
-          ],
-        },
-        {
-          tag: "Profitability",
-          title: "Build profitable relationships",
-          icon: <TrendingUp className="h-6 w-6" />,
-          bullets: [
-            "Customer lifetime value tracking",
-            "Customer journey mapping",
-            "Automated reporting & analytics",
-          ],
-        },
-      ]}
-      featureSections={[
-        {
-          title: "Connect your data",
-          description: "The only CRM & marketing tool integrating your booking and operational data with marketing and growth performance out of the box. Eliminate manual work and duplicate entry to keep data in sync.",
-          layout: "image-left",
-          icon: <Heart className="h-6 w-6" />,
-        },
-        {
-          title: "Capture leads",
-          description: "Streamline the customer relationship from first contact, bringing new leads into your system with forms that embed in your website, a Meet & Greet scheduler, and unique referral links per client.",
-          layout: "image-right",
-          icon: <GitBranch className="h-6 w-6" />,
-        },
-        {
-          title: "Engage your clients",
-          description: "Surprise and delight your customers with tailored communications, rewards, and promotions based on their activity with you. Maintain the same level of personal touch with clients as when it was just you.",
-          layout: "image-left",
-          icon: <TrendingUp className="h-6 w-6" />,
-        },
-      ]}
-    />
-  );
+  const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
+  return <div className="min-h-screen bg-critter-beige">
+    <LandingNav />
+    <main className="mx-auto max-w-5xl px-6 pb-20 pt-36">
+      <p className="font-subtitle text-sm uppercase tracking-widest text-critter-orange">Two products, different jobs</p>
+      <h1 className="mt-4 max-w-3xl font-title text-4xl leading-tight text-critter-maroon sm:text-5xl">Scheduling and operations.<br />Customer relationships and marketing.</h1>
+      <p className="mt-6 max-w-2xl font-body text-lg leading-relaxed text-critter-gray">Choose the product you need. Critter Ops handles scheduling and operations; Critter Hub is the CRM and marketing platform featured on this site.</p>
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <section className="rounded-2xl border border-critter-cream bg-white p-8">
+          <Calendar className="h-7 w-7 text-critter-blue" />
+          <h2 className="mt-5 font-title text-3xl text-critter-maroon">Critter Ops</h2>
+          <p className="mt-4 font-body leading-relaxed text-critter-gray">For scheduling and day-to-day pet care operations. Visit Critter Ops for its product details and account access.</p>
+          <a href={opsUrl} className="mt-6 inline-flex items-center gap-2 font-subtitle text-critter-orange">Explore Critter Ops <ArrowRight className="h-4 w-4" /></a>
+        </section>
+        <section className="rounded-2xl border border-critter-cream bg-white p-8">
+          <Database className="h-7 w-7 text-critter-orange" />
+          <h2 className="mt-5 font-title text-3xl text-critter-maroon">Critter Hub CRM</h2>
+          <p className="mt-4 font-body leading-relaxed text-critter-gray">For understanding your clients, building a customer journey, and reviewing marketing follow-ups. The CRM plans and 7-day Critter trial on this site apply to Hub.</p>
+          <Link href="/features/crm" className="mt-6 inline-flex items-center gap-2 font-subtitle text-critter-orange">Explore Critter Hub <ArrowRight className="h-4 w-4" /></Link>
+        </section>
+      </div>
+      <p className="mt-8 font-body text-sm text-critter-gray">Already using Time To Pet for scheduling? <Link href="/ttp" className="text-critter-orange underline underline-offset-4">See how Critter fits alongside it.</Link></p>
+    </main>
+    <LandingFooter />
+  </div>;
 }

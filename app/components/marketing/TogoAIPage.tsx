@@ -51,7 +51,7 @@ const demoConversation = [
     content: "I've drafted a VIP appreciation email:",
     draft: {
       subject: "You're One of Our Favorites! 🌟",
-      preview: "Thank you for being such an amazing customer this month. As a token of our appreciation, here's 15% off your next visit...",
+      preview: "Thank you for choosing us to care for your pet. It means a lot to see you back, and we look forward to your next visit...",
     },
     followUp: "Want me to adjust the tone or add a specific offer?",
   },
@@ -236,7 +236,7 @@ function ClientJourneyMockup() {
 const features = [
   {
     title: "Talk with your data",
-    description: "Ask questions like never before. Togo knows your data, knows your history, and knows the trends and insights underpinning today's performance and tomorrow's growth.",
+    description: "Ask about the business data you have connected. Explore past activity, understand a trend, and talk through a useful next step.",
     layout: "image-left" as const,
     icon: <Sparkles className="h-6 w-6" />,
     mockup: <TalkWithDataMockup />,
@@ -314,7 +314,7 @@ function LiveChatDemo() {
           </div>
         </div>
         <Badge className="bg-critter-orange/10 text-critter-orange font-body">
-          <Sparkles className="h-3 w-3 mr-1" /> Live Demo
+          <Sparkles className="h-3 w-3 mr-1" /> Illustrative Preview
         </Badge>
       </div>
 
@@ -487,7 +487,7 @@ export default function TogoAIPage() {
       {/* Navigation */}
       <LandingNav />
 
-      {/* Hero Section with Live Demo */}
+      {/* Hero Section with Illustrative Preview */}
       <section className="pt-28 pb-16 px-6">
         <div className="container mx-auto max-w-6xl">
           {/* Live Chat Demo */}
@@ -503,7 +503,7 @@ export default function TogoAIPage() {
               from client #1 to #1000
             </h1>
             <p className="font-body text-lg sm:text-xl text-critter-gray max-w-2xl mx-auto mb-8">
-              AI trained on your most important data, delivering real insights and a new way to engage CRM and drive client engagement.
+              An AI assistant that uses your connected data to explain findings, explore next steps, and draft follow-ups for your review.
             </p>
             <a href={`${process.env.NEXT_PUBLIC_HUB_URL || 'https://hub.critter.pet'}/auth/signup`}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">

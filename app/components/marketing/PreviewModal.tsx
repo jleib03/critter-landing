@@ -178,7 +178,7 @@ export default function PreviewModal({
           <div className="p-4">
             <p className="font-subtitle text-sm text-critter-maroon mb-2">🎉 Happy Birthday, Max!</p>
             <p className="font-body text-sm text-critter-gray">
-              Max is turning 5! To celebrate, here&apos;s a special 15% off your next grooming appointment...
+              Max is turning 5! We hope his day includes a favorite walk and a little extra attention...
             </p>
             <div className="mt-3 p-3 bg-critter-beige rounded-lg">
               <p className="font-body text-xs text-critter-gray">Use code: <span className="font-subtitle text-critter-orange">BDAY15</span></p>
@@ -456,8 +456,8 @@ export default function PreviewModal({
         {/* Stats */}
         <div className="grid grid-cols-3 gap-3">
           <div className="bg-white rounded-xl p-4 text-center border border-critter-cream">
-            <p className="font-title text-2xl text-critter-orange">98%</p>
-            <p className="font-body text-xs text-critter-gray">Open Rate</p>
+            <p className="font-title text-2xl text-critter-orange">2-way</p>
+            <p className="font-body text-xs text-critter-gray">Client conversations</p>
           </div>
           <div className="bg-white rounded-xl p-4 text-center border border-critter-cream">
             <p className="font-title text-2xl text-critter-maroon">847</p>

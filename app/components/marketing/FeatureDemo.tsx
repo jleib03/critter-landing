@@ -44,17 +44,17 @@ export const features: Feature[] = [
     icon: <GitBranch className="h-4 w-4" />,
     value: "847",
     valueLabel: "customers in active lifecycle",
-    headline: "Never lose a customer",
+    headline: "Keep the next step in view",
     description: "Automate client relationship tracking from first contact to loyal client with smart rules to move each through your funnel.",
   },
   {
     id: "togo",
     label: "Togo",
     icon: <Dog className="h-4 w-4" />,
-    value: "∞",
+    value: "Togo",
     valueLabel: "insights at your fingertips",
     headline: "Meet Togo, your navigation assistant",
-    description: "Ask questions about your business, get instant answers, smart recommendations, and draft campaigns from an agent trained on your business data.",
+    description: "Ask about your connected data, talk through a finding, and draft a campaign for your review.",
   },
   {
     id: "automations",
@@ -62,8 +62,8 @@ export const features: Feature[] = [
     icon: <Zap className="h-4 w-4" />,
     value: "6",
     valueLabel: "automations running 24/7",
-    headline: "Set it and forget it",
-    description: "Birthday wishes, review requests, referral programs, win-back campaigns, and more - all on autopilot.",
+    headline: "Follow-ups on your schedule",
+    description: "Review birthday messages, review requests, and win-back programs. Choose the audience and timing before you activate them.",
   },
   {
     id: "customers",
@@ -72,7 +72,7 @@ export const features: Feature[] = [
     value: "1,247",
     valueLabel: "customers & pets organized",
     headline: "All your data in one place",
-    description: "Import human and pet client data from any system. Auto segmentation, tagging, and personalization at scale.",
+    description: "Connect supported pet care software or import a CSV. Organize clients and pets with segmentation and tags.",
   },
   {
     id: "leadgen",
@@ -96,10 +96,10 @@ export const features: Feature[] = [
     id: "texting",
     label: "Texting",
     icon: <MessageSquare className="h-4 w-4" />,
-    value: "98%",
-    valueLabel: "response rate",
+    value: "2-way",
+    valueLabel: "client conversations",
     headline: "Text like a pro",
-    description: "Two-way SMS that feels personal. Reminders, confirmations, and conversations.",
+    description: "Two-way SMS on eligible paid plans, with registration and customer consent. Not included on Starter or during the trial.",
   },
 ];
 
@@ -141,6 +141,7 @@ export default function FeatureDemo({
           <p className="font-body text-critter-gray max-w-md mx-auto">{features[activeFeature].description}</p>
         </div>
 
+        <p className="mb-4 text-center font-body text-xs text-critter-gray">Illustrative product preview with sample data.</p>
         {/* Product Screenshot */}
         <div className="relative">
           <div className="absolute -inset-4 bg-gradient-to-b from-critter-orange/5 to-critter-maroon/5 rounded-3xl blur-2xl" />
@@ -390,7 +391,7 @@ export default function FeatureDemo({
                       <h4 className="font-subtitle text-sm text-critter-maroon mb-4">Import From Anywhere</h4>
                       <div className="space-y-3">
                         {[
-                          { name: "Time to Pet", connected: true },
+                          { name: "Time To Pet", connected: true },
                           { name: "CSV Upload", connected: true },
                           { name: "Manual Entry", connected: true },
                           { name: "API Integration", connected: false },

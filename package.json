@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node tests/public-offer.test.cjs",
+    "test:browser": "node tests/public-site.browser.cjs"
   },
   "dependencies": {
     "@aws-sdk/client-ses": "^3.985.0",

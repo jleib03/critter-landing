@@ -6,27 +6,27 @@ import { Target, DollarSign, Users } from "lucide-react";
 export const metadata = {
   title: "Marketing Automation for Pet Care | Critter",
   description:
-    "Set-it-and-forget-it marketing tailored to your pet care business. Drive higher ROI with data-driven automation tools.",
+    "Thoughtful follow-ups for pet care businesses. Review your audience, copy, and timing, then use connected data to guide your marketing.",
   openGraph: {
     title: "Marketing Automation for Pet Care | Critter",
     description:
-      "Set-it-and-forget-it marketing tailored to your pet care business. Drive higher ROI with data-driven automation tools.",
+      "Thoughtful follow-ups for pet care businesses. Review your audience, copy, and timing, then use connected data to guide your marketing.",
     url: "https://critter.pet/features/marketing",
   },
   twitter: {
     title: "Marketing Automation for Pet Care | Critter",
     description:
-      "Set-it-and-forget-it marketing tailored to your pet care business. Drive higher ROI with data-driven automation tools.",
+      "Thoughtful follow-ups for pet care businesses. Review your audience, copy, and timing, then use connected data to guide your marketing.",
   },
 };
 
 export default function MarketingPage() {
   return (
     <FeaturePage
-      heroTitle="Set-it-and-forget-it marketing tailored to you"
-      heroSubtitle="Drive higher ROI on time and spend, engaging both existing clients and new audiences with data driven automation tools."
+      heroTitle="Thoughtful follow-ups, less manual work"
+      heroSubtitle="Use your connected data to reach the right clients. Review your audience, copy, and timing before activating a program."
       heroDemo={<MarketingDemo />}
-      sectionHeadline="A marketing sidekick analyzing your data and actively driving growth on your behalf"
+      sectionHeadline="A clearer path from customer insight to a useful follow-up"
       cards={[
         {
           tag: "Conversion",
@@ -76,7 +76,7 @@ export default function MarketingPage() {
         },
         {
           title: "Engage like you've got a whole team",
-          description: "With easy, criteria-based rules that drive ongoing outreach every time your data syncs, run highly targeted marketing and growth tactics that work together to tackle all of your goals, all at once.",
+          description: "Choose criteria that match your goals, review the message, and decide when your outreach should run. Your setup stays yours to tailor.",
           layout: "image-left",
           icon: <Users className="h-6 w-6" />,
           imagePlaceholder: <EngageTeamMockup />,
