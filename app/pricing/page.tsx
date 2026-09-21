@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CRM_OFFERS, TRIAL_COPY, formatAllowance } from "@/lib/marketing-offers";
+import { CRM_OFFERS, GRANDFATHER_COPY, TRIAL_COPY, formatAllowance } from "@/lib/marketing-offers";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
@@ -50,7 +50,7 @@ const pricingTiers: PricingTier[] = [
       { text: "1 business, owner only (no additional seats)", included: true },
       { text: "Automated funnel rules & task lists", included: true },
       { text: "Lifecycle emails", included: true },
-      { text: `${CRM_OFFERS.starter.togoChats} Togo AI chats/month`, included: true },
+      { text: "Togo AI chats", included: false },
       { text: "SMS/Texting", included: false },
     ],
     cta: "Choose Starter",
@@ -68,7 +68,7 @@ const pricingTiers: PricingTier[] = [
       { text: "Unlimited lead forms & booking schedules", included: true, highlight: true },
       { text: "Automate your funnel with transition rules", included: true, highlight: true },
       { text: "Task lists & lifecycle emails", included: true, highlight: true },
-      { text: "200 Togo AI chats/month", included: true, highlight: true },
+      { text: `${CRM_OFFERS.grow.togoChats} Togo AI chats/month`, included: true, highlight: true },
       { text: `${formatAllowance(CRM_OFFERS.grow.smsSegments)} SMS segments/month`, included: true, highlight: true },
       { text: "BI reporting suite + CSV export", included: true, highlight: true },
       { text: "Website chat widget", included: true, highlight: true },
@@ -90,7 +90,7 @@ const pricingTiers: PricingTier[] = [
       { text: "Everything in Grow", included: true },
       { text: `${formatAllowance(CRM_OFFERS.pro.emails)} base emails/month`, included: true, highlight: true },
       { text: `${formatAllowance(CRM_OFFERS.pro.smsSegments)} SMS segments/month`, included: true, highlight: true },
-      { text: "500 Togo AI chats/month", included: true, highlight: true },
+      { text: `${CRM_OFFERS.pro.togoChats} Togo AI chats/month`, included: true, highlight: true },
       { text: "Manage up to 2 businesses centrally", included: true, highlight: true },
       { text: "Priority support", included: true },
     ],
@@ -166,12 +166,12 @@ export default function PricingPage() {
           <FeatureHighlight
             icon={<Mail className="h-5 w-5" />}
             title="Email & SMS"
-            description="Up to 75K base emails and 10K SMS segments on Pro"
+            description={`Up to ${formatAllowance(CRM_OFFERS.pro.emails)} base emails and ${formatAllowance(CRM_OFFERS.pro.smsSegments)} SMS segments on Pro`}
           />
           <FeatureHighlight
             icon={<TogoIcon size={20} />}
             title="Togo AI Assistant"
-            description="Your marketing helper, included from Starter"
+            description="Your marketing helper, included from Grow"
           />
           <FeatureHighlight
             icon={<BarChart3 className="h-5 w-5" />}
@@ -185,7 +185,7 @@ export default function PricingPage() {
           />
         </div>
 
-        <p className="mt-6 text-center font-body text-sm text-critter-gray">Email allowances are shared across sending features. Additional email credits do not expire. SMS is not available on Starter or during the trial; eligible paid plans require texting registration and consent. An SMS can use more than one segment.</p>
+        <p className="mt-6 text-center font-body text-sm text-critter-gray">Email allowances are shared across sending features. Additional email credits do not expire. SMS is not available on Starter or during the trial; eligible paid plans require texting registration and consent. An SMS can use more than one segment. {GRANDFATHER_COPY}</p>
 
         {/* Trust Indicators */}
         <div className="mt-10 text-center">
@@ -226,8 +226,8 @@ export default function PricingPage() {
               </thead>
               <tbody className="font-body text-sm">
                 <ComparisonRow feature="Base emails/month" starter={formatAllowance(CRM_OFFERS.starter.emails)} grow={formatAllowance(CRM_OFFERS.grow.emails)} pro={formatAllowance(CRM_OFFERS.pro.emails)} enterprise="Custom" />
-                <ComparisonRow feature="SMS segments/month" starter={false} grow="2,000/mo" pro="10,000/mo" enterprise="Custom" />
-                <ComparisonRow feature="Togo AI Assistant" starter={`${CRM_OFFERS.starter.togoChats}/mo`} grow="200/mo" pro="500/mo" enterprise="Custom" />
+                <ComparisonRow feature="SMS segments/month" starter={false} grow={`${formatAllowance(CRM_OFFERS.grow.smsSegments)}/mo`} pro={`${formatAllowance(CRM_OFFERS.pro.smsSegments)}/mo`} enterprise="Custom" />
+                <ComparisonRow feature="Togo AI Assistant" starter={false} grow={`${CRM_OFFERS.grow.togoChats}/mo`} pro={`${CRM_OFFERS.pro.togoChats}/mo`} enterprise="Custom" />
                 <ComparisonRow feature="Lead forms & booking schedules" starter="Unlimited" grow="Unlimited" pro="Unlimited" enterprise="Unlimited" />
                 <ComparisonRow feature="Customer funnel builder" starter={true} grow={true} pro={true} enterprise={true} />
                 <ComparisonRow feature="Automated funnel transition rules" starter={true} grow={true} pro={true} enterprise={true} />
