@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
 
@@ -80,7 +81,8 @@ export default function PrivacyPage() {
             <section>
               <h2 className="font-title text-2xl text-critter-maroon mb-3">Artificial Intelligence</h2>
               <p>
-                Critter uses Anthropic&apos;s Claude AI to power features including our conversational assistant (Togo), campaign content generation, and business intelligence. AI-generated content is clearly identified where applicable. Your data is processed in accordance with this Privacy Policy and is not used to train third-party AI models.
+                Critter uses Anthropic&apos;s Claude AI to power features including our conversational assistant (Togo), campaign content generation, and business intelligence. AI-generated content is clearly identified where applicable. Names, email addresses and phone numbers are replaced with placeholders before any request reaches the AI provider, and your data is not used to train public AI models. See our{" "}
+                <Link href="/data-policy" className="text-critter-orange hover:underline">Data Policy</Link>.
               </p>
             </section>
 

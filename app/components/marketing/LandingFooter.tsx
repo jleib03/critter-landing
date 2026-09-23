@@ -73,6 +73,12 @@ export default function LandingFooter({ acquisitionSource }: { acquisitionSource
               >
                 Terms
               </Link>
+              <Link
+                href="/data-policy"
+                className="font-body text-sm text-white/90 hover:text-white transition-colors"
+              >
+                Data Policy
+              </Link>
             </div>
 
             {/* Copyright */}
