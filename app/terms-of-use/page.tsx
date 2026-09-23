@@ -32,7 +32,7 @@ export default function TermsOfUsePage() {
 
           <div className="bg-white rounded-2xl border border-critter-cream p-8 sm:p-12 space-y-6 font-body text-critter-gray leading-relaxed">
             <p>
-              <strong className="text-critter-maroon">Last Updated:</strong> February 2026
+              <strong className="text-critter-maroon">Last Updated:</strong> September 2026
             </p>
 
             <section>
@@ -65,9 +65,16 @@ export default function TermsOfUsePage() {
             </section>
 
             <section>
+              <h2 className="font-title text-2xl text-critter-maroon mb-3">Security Incidents</h2>
+              <p>
+                If we learn of a security incident that affects your data, we will notify you within 72 hours and tell you what happened, what data was involved, and what we are doing about it.
+              </p>
+            </section>
+
+            <section>
               <h2 className="font-title text-2xl text-critter-maroon mb-3">Limitation of Liability</h2>
               <p>
-                Critter is provided &quot;as is&quot; without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the Service.
+                Critter is provided &quot;as is&quot; without warranties of any kind. We are not liable for any indirect, incidental, or consequential damages arising from your use of the Service. Our total liability for any claim is limited to the fees you paid Critter in the 12 months before the claim arose.
               </p>
             </section>
 
