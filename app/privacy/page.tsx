@@ -32,7 +32,7 @@ export default function PrivacyPage() {
 
           <div className="bg-white rounded-2xl border border-critter-cream p-8 sm:p-12 space-y-6 font-body text-critter-gray leading-relaxed">
             <p>
-              <strong className="text-critter-maroon">Last Updated:</strong> February 2026
+              <strong className="text-critter-maroon">Last Updated:</strong> September 2026
             </p>
 
             <section>
@@ -61,6 +61,21 @@ export default function PrivacyPage() {
                 <li>Send transactional communications</li>
                 <li>Improve our platform and develop new features</li>
                 <li>Provide customer support</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 className="font-title text-2xl text-critter-maroon mb-3">Who Helps Us Run Critter</h2>
+              <p>These service providers process data on our behalf, and each receives only what it needs to do its part:</p>
+              <ul className="list-disc pl-6 mt-2 space-y-1">
+                <li>Supabase (database) and Vercel (hosting)</li>
+                <li>Amazon Web Services (file storage)</li>
+                <li>SendGrid (email delivery) and Twilio (text messages)</li>
+                <li>Stripe (billing and payments)</li>
+                <li>Anthropic (AI, with names, email addresses and phone numbers masked first)</li>
+                <li>Dropbox (receiving Time To Pet exports, when you connect it)</li>
+                <li>Google (sign-in with Google, and calendar sync when you connect it)</li>
+                <li>PostHog (product analytics) and Sentry (error reports)</li>
               </ul>
             </section>
 
