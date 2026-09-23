@@ -1,3 +1,4 @@
+import Link from "next/link";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
 
@@ -58,7 +59,8 @@ export default function TermsOfUsePage() {
             <section>
               <h2 className="font-title text-2xl text-critter-maroon mb-3">Your Data</h2>
               <p>
-                You retain ownership of all data you upload to Critter. We do not sell or share your data with third parties. You can export your data at any time.
+                You retain ownership of all data you upload to Critter. We do not sell or share your data with third parties. You can export your data at any time. How we use data, and how AI is handled, is set out in our{" "}
+                <Link href="/data-policy" className="text-critter-orange hover:underline">Data Policy</Link>.
               </p>
             </section>
 
