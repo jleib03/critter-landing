@@ -23,7 +23,7 @@ export default function LandingPage() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [previewModal, setPreviewModal] = useState<string | null>(null);
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/book-demo";
 
   return (
     <div className="min-h-screen bg-critter-beige">
@@ -104,14 +104,14 @@ export default function LandingPage() {
         <div className="container mx-auto max-w-5xl">
           <div className="bg-white rounded-2xl border-2 border-critter-orange p-6 sm:p-12 text-center">
             <h2 className="font-title text-2xl sm:text-3xl md:text-4xl text-critter-maroon mb-4">
-              Schedule a demo today
+              Join a live demo
             </h2>
             <p className="font-body text-sm sm:text-base text-critter-gray mb-8 max-w-xl mx-auto">
-              Meet with our team to learn what Critter can do for you today with a demo tailored to your business and your needs.
+              See Critter live on Zoom with our team — 45 minutes every Tuesday and Thursday at 11:00am and 1:00pm CT, with time for your questions.
             </p>
             <a href={demoUrl} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Book a Demo
+                Join a live demo
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>

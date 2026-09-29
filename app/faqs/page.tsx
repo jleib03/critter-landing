@@ -18,7 +18,7 @@ function FAQAccordionItem({ question, answer }: FAQItem) {
 export default function FAQsPage() {
   const demoUrl =
     process.env.NEXT_PUBLIC_DEMO_URL ||
-    "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
+    "https://hub.critter.pet/book-demo";
 
   return (
     <div className="min-h-screen bg-critter-beige">
@@ -63,15 +63,15 @@ export default function FAQsPage() {
               Still have questions?
             </h2>
             <p className="font-body text-critter-gray mb-6 max-w-md mx-auto">
-              Book a demo with our team and we&apos;ll walk you through
-              everything Critter can do for your business.
+              Join a live demo with our team on Zoom — every Tuesday and Thursday —
+              and bring your questions.
             </p>
             <a href={demoUrl} target="_blank" rel="noopener noreferrer">
               <Button
                 size="lg"
                 className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle"
               >
-                Schedule a Demo
+                Join a live demo
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>

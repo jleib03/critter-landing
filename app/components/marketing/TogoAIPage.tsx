@@ -480,7 +480,7 @@ function FeatureSection({
 }
 
 export default function TogoAIPage() {
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/forms/41/critter-demo-request-1773102085379";
+  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/book-demo";
 
   return (
     <div className="min-h-screen bg-critter-beige">
@@ -532,7 +532,7 @@ export default function TogoAIPage() {
             </p>
             <a href={demoUrl} target="_blank" rel="noopener noreferrer">
               <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Book a Demo
+                Join a live demo
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>
@@ -545,19 +545,19 @@ export default function TogoAIPage() {
         <FeatureSection key={i + 2} {...feature} />
       ))}
 
-      {/* Schedule a Demo CTA */}
+      {/* Live demo CTA */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-5xl">
           <div className="bg-white rounded-2xl border-2 border-critter-orange p-6 sm:p-12 text-center">
             <h2 className="font-title text-3xl sm:text-4xl text-critter-maroon mb-4">
-              Schedule a demo today
+              Join a live demo
             </h2>
             <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
-              Meet with our team to learn what Critter can do for you today with a demo tailored to your business and your needs.
+              See Critter live on Zoom with our team — 45 minutes every Tuesday and Thursday at 11:00am and 1:00pm CT, with time for your questions.
             </p>
             <a href={demoUrl} target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Book a Demo
+                Join a live demo
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>
