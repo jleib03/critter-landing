@@ -5,6 +5,7 @@ import { Button } from "@/app/components/ui/button";
 import { Calendar } from "lucide-react";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
+import { DEMO_PATH } from "@/lib/demo";
 
 function FAQAccordionItem({ question, answer }: FAQItem) {
   return (
@@ -16,9 +17,7 @@ function FAQAccordionItem({ question, answer }: FAQItem) {
 }
 
 export default function FAQsPage() {
-  const demoUrl =
-    process.env.NEXT_PUBLIC_DEMO_URL ||
-    "https://hub.critter.pet/book-demo";
+  const demoUrl = DEMO_PATH;
 
   return (
     <div className="min-h-screen bg-critter-beige">
@@ -66,7 +65,7 @@ export default function FAQsPage() {
               Join a live demo with our team on Zoom — every Tuesday and Thursday —
               and bring your questions.
             </p>
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+            <a href={demoUrl}>
               <Button
                 size="lg"
                 className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle"

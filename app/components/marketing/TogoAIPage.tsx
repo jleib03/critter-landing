@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
+import { DEMO_PATH } from "@/lib/demo";
 
 // Demo conversation for the live chat simulation
 const demoConversation = [
@@ -480,7 +481,7 @@ function FeatureSection({
 }
 
 export default function TogoAIPage() {
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/book-demo";
+  const demoUrl = DEMO_PATH;
 
   return (
     <div className="min-h-screen bg-critter-beige">
@@ -530,7 +531,7 @@ export default function TogoAIPage() {
             <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
               Schedule time with our team to see what impact Togo can have on your business
             </p>
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+            <a href={demoUrl}>
               <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                 Join a live demo
                 <Calendar className="ml-2 h-4 w-4" />
@@ -555,7 +556,7 @@ export default function TogoAIPage() {
             <p className="font-body text-critter-gray mb-8 max-w-xl mx-auto">
               See Critter live on Zoom with our team — 45 minutes every Tuesday and Thursday at 11:00am and 1:00pm CT, with time for your questions.
             </p>
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+            <a href={demoUrl}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                 Join a live demo
                 <Calendar className="ml-2 h-4 w-4" />

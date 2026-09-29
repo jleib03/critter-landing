@@ -18,12 +18,13 @@ import FeaturesBar from "./FeaturesBar";
 import FeaturesGrid from "./FeaturesGrid";
 import PreviewModal from "./PreviewModal";
 import { ConnectDataMockup, CaptureLeadsMockup, EngageClientsMockup, DataInsightsMockup } from "./demos/SectionMockups";
+import { DEMO_PATH } from "@/lib/demo";
 
 export default function LandingPage() {
   const [activeFeature, setActiveFeature] = useState(0);
   const [previewModal, setPreviewModal] = useState<string | null>(null);
   const hubUrl = process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet";
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/book-demo";
+  const demoUrl = DEMO_PATH;
 
   return (
     <div className="min-h-screen bg-critter-beige">
@@ -109,7 +110,7 @@ export default function LandingPage() {
             <p className="font-body text-sm sm:text-base text-critter-gray mb-8 max-w-xl mx-auto">
               See Critter live on Zoom with our team — 45 minutes every Tuesday and Thursday at 11:00am and 1:00pm CT, with time for your questions.
             </p>
-            <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+            <a href={demoUrl}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                 Join a live demo
                 <Calendar className="ml-2 h-4 w-4" />

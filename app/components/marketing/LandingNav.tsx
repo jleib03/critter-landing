@@ -26,6 +26,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import { DEMO_PATH } from "@/lib/demo";
 
 interface LandingNavProps {
   acquisitionSource?: AcquisitionSource;
@@ -38,7 +39,7 @@ export default function LandingNav({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hubLinks = getHubLinks(acquisitionSource);
   const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/book-demo";
+  const demoUrl = DEMO_PATH;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-critter-beige/80 backdrop-blur-md">
@@ -126,7 +127,7 @@ export default function LandingNav({
               </DropdownMenuTrigger>
               <DropdownMenuContent align="center" className="w-64 bg-white border-critter-cream">
                 <DropdownMenuItem asChild>
-                  <a href={demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
+                  <a href={demoUrl} className="flex items-center gap-2 cursor-pointer">
                     <Calendar className="h-4 w-4 text-critter-orange" />
                     <span className="font-body">Join a live demo</span>
                   </a>
@@ -256,8 +257,6 @@ export default function LandingNav({
               </Link>
               <a
                 href={demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg font-body text-sm text-critter-maroon hover:bg-critter-cream transition-colors"
               >

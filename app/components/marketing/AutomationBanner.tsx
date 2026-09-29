@@ -2,9 +2,10 @@
 
 import { Button } from "@/app/components/ui/button";
 import { Calendar } from "lucide-react";
+import { DEMO_PATH } from "@/lib/demo";
 
 export default function AutomationBanner() {
-  const demoUrl = process.env.NEXT_PUBLIC_DEMO_URL || "https://hub.critter.pet/book-demo";
+  const demoUrl = DEMO_PATH;
 
   return (
     <section className="py-20 px-6">
@@ -16,7 +17,7 @@ export default function AutomationBanner() {
           <p className="font-body text-base sm:text-lg text-critter-gray max-w-2xl mx-auto mb-8">
             Connect Time To Pet or Precise Pet Care to bring your customer and booking data into Critter. Explore the patterns, review your customer journey, and choose the follow-ups that make sense for your business.
           </p>
-          <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+          <a href={demoUrl}>
             <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
               Join a live demo
               <Calendar className="ml-2 h-4 w-4" />
