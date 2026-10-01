@@ -96,7 +96,19 @@ for (const label of ['Previous capability', 'Next capability']) {
 }
 const anchors = [...ttp.matchAll(/href="([^"]+)"/g)].map(x => x[1].replaceAll('&amp;', '&'));
 const authLinks = anchors.filter(x => /\/auth\/(signup|signin)/.test(x));
-check(authLinks.length >= 5, 'TTP header, hero, final, footer trial and footer sign-in CTAs render');
+check(authLinks.length >= 4, 'TTP header, Google fallback, footer trial and footer sign-in CTAs render');
+// BL-403: /ttp is the sign-up page. The form posts to Hub's sign-up API; in-page CTAs scroll to it.
+check(ttp.includes('id="signup"') && ttp.includes('aria-label="Create your Critter account"'), 'TTP hero renders the inline sign-up form');
+for (const name of ['firstName', 'lastName', 'businessName', 'email', 'password']) {
+  check(new RegExp('name="' + name + '"[^>]*required').test(ttp), 'Inline sign-up requires ' + name);
+}
+check(/name="acceptedTerms" type="checkbox" required/.test(ttp), 'Terms acceptance stays an explicit required box (BL-552)');
+check(/name="website" tabindex="-1"/.test(ttp), 'Inline sign-up keeps the Hub honeypot field');
+check(!ttp.includes('confirmPassword'), 'Inline sign-up uses Show/Hide instead of a confirm field');
+check(anchors.filter(x => x === '#signup').length >= 1, 'In-page trial CTAs scroll to the form');
+for (const base of ['https://hub.critter.pet', 'https://preview.example.test/']) {
+  check(links.getHubLinks('ttp', base).signupApi === base.replace(/\/+$/, '') + '/api/auth/signup', 'Inline form posts to the configured Hub sign-up API');
+}
 check(authLinks.every(x => new URL(x).searchParams.get('source') === 'ttp'), 'Every rendered TTP auth CTA retains source');
 check(authLinks.every(x => new URL(x).searchParams.get('callbackUrl') === links.TTP_DESTINATION), 'Every rendered TTP auth CTA retains callback');
 check(ttp.includes('Illustrative product highlights') && !ttp.includes('98%'), 'No fabricated snapshot metric claim');

@@ -66,3 +66,14 @@ Browser verification exposed an intermittent carousel hold after Play: swapping 
 - `git diff --check`: **passed**. Current screenshots remain in `/private/tmp/bl403-website-browser/`; the desktop hero was visually inspected.
 
 This follow-up is for a new website PR against `main`, not an authorized production merge. Earlier offers, pricing, auth mechanisms, billing and Hub runtime are unchanged by this refinement.
+
+## Inline sign-up on /ttp (2026-10-01)
+
+Jacob's direction: the `/ttp` page is the sign-up page, not a link to one. The hero's right column is now `TtpSignupForm`, which posts to Hub's existing public `POST /api/auth/signup` (`getHubLinks('ttp').signupApi`) with `source: 'ttp'`. Hub keeps all validation, the rate limit, the honeypot and the BL-552 terms record. The companion Hub change (branch `feature/bl-403-ttp-inline-signup`) adds a CORS allowlist for `https://critter.pet` and `https://www.critter.pet` on that one route, with no credentials. **Deploy the Hub change first**; without it, browsers block the form's request.
+
+- Fields: first/last name, business name, email, password with Show/Hide (no confirm field), and the explicit required terms checkbox (kept as-is; changing it to passive consent is a legal call).
+- On success the form becomes "Check your email". Email verification is unchanged; the verification link carries the TTP source into the connect step. A 409 shows Hub's message with a TTP-aware "Sign in instead" link.
+- Google sign-up stays on Hub's page via the "Sign up with Google" link. In-page "Start your trial" CTAs scroll to `#signup`. Shared header/footer trial links still go to Hub's signup page.
+- On phones the form follows the headline; the value points come after it. The capability showcase moved to its own section under the hero.
+- Verification: `npm test` 121 checks pass (12 new). `npm run build` passes. The browser suite passes 322 checks at 320/390/768/1440px, including a form submit against a stubbed Hub API (409, then 200). A local Hub dev server was probed: allowed preflight returns 204 with the origin, a foreign origin gets 403, and a real browser POST from the landing origin reads Hub's 400 response. **Pre-existing on main, not fixed here:** 3 unit checks and 1 browser check (×4 widths) still expect Starter's old 1,500-email allowance; `lib/marketing-offers.ts` now says 1,000.
+- Not verified: a real account creation through the form (no staging account was created), and the deployed Hub/website pair.

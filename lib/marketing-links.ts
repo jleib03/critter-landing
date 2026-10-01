@@ -9,5 +9,7 @@ export function getHubLinks(source?: AcquisitionSource, baseUrl = process.env.NE
     start: source === 'ttp' ? `${base}${TTP_DESTINATION}` : `${base}/auth/signup`,
     signup: `${base}/auth/signup${source === 'ttp' ? `?${context}` : ''}`,
     signin: `${base}/auth/signin${source === 'ttp' ? `?${context}` : ''}`,
+    /** BL-403: the inline /ttp sign-up form posts here (Hub allows critter.pet via CORS). */
+    signupApi: `${base}/api/auth/signup`,
   };
 }

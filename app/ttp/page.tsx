@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Check, ChevronRight, GitBranch, Heart, Mail, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, GitBranch, Heart, Mail, ShieldCheck } from 'lucide-react';
 import TtpCapabilityShowcase from '@/app/components/marketing/TtpCapabilityShowcase';
+import TtpSignupForm from '@/app/components/marketing/TtpSignupForm';
 import LandingNav from '@/app/components/marketing/LandingNav';
 import LandingFooter from '@/app/components/marketing/LandingFooter';
 import { TogoIcon } from '@/app/components/icons/TogoIcon';
 import { CRM_OFFERS, TTP_INSIGHTS_COPY, formatAllowance } from '@/lib/marketing-offers';
-import { getHubLinks } from '@/lib/marketing-links';
 
 export const metadata: Metadata = {
   title: 'Time To Pet + Critter | Turn your booking data into next steps',
@@ -28,8 +28,15 @@ const questions = [
   ['What happens after my trial?', TTP_INSIGHTS_COPY],
 ];
 
-function TrialLink({ secondary = false }: { secondary?: boolean }) {
-  return <a href={getHubLinks('ttp').signup} className={`inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-7 py-3 font-subtitle text-base transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 ${secondary ? 'bg-white text-critter-maroon hover:bg-critter-cream' : 'bg-critter-orange text-white hover:bg-critter-orange/90'}`}>
+const heroPoints = [
+  ['Connects in minutes.', 'Bring in the last 12 months of appointments, plus your clients, pets, and services.'],
+  ['Nothing sends without you.', 'Every follow-up waits for your review before it goes live.'],
+  ['Keep Time To Pet for scheduling.', 'Critter adds insight and marketing on top. No switching.'],
+];
+
+/** The sign-up form lives in the hero; other CTAs on the page scroll to it. */
+function TrialLink() {
+  return <a href="#signup" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-critter-orange px-7 py-3 font-subtitle text-base text-white transition-colors hover:bg-critter-orange/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
     Start your 7-day Critter trial <ArrowRight aria-hidden className="h-4 w-4 shrink-0" />
   </a>;
 }
@@ -39,8 +46,9 @@ export default function TtpPage() {
     <LandingNav acquisitionSource="ttp" />
     <main className="pt-20">
       <section className="px-6 pb-16 pt-10 sm:pt-16 lg:py-20">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          <div>
+        {/* Phones: headline, form, then the points. Desktop: copy left, form right. */}
+        <div className="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-x-16 lg:gap-y-0">
+          <div className="lg:col-start-1 lg:pt-6">
             <div className="mb-9 flex items-center gap-3 sm:gap-4" aria-label="Critter and Time To Pet">
               <Image src="/images/critter-logo.png" alt="Critter" width={120} height={40} className="h-7 w-auto sm:h-9" priority />
               <span className="font-body text-xl text-critter-gray" aria-hidden>×</span>
@@ -48,13 +56,18 @@ export default function TtpPage() {
             </div>
             <h1 className="font-title text-4xl leading-[1.12] sm:text-5xl lg:text-6xl">Your Time To Pet data.<br /><span className="text-critter-orange">A clearer plan for what comes next.</span></h1>
             <p className="mt-6 max-w-xl font-body text-lg leading-relaxed text-critter-gray">You already know your clients. Critter helps you see the patterns behind their visits, organize your customer journey, and choose the next useful follow-up.</p>
-            <div className="mt-8 flex flex-col items-start gap-5">
-              <TrialLink />
-              <a href="#how-it-works" className="inline-flex items-center gap-2 font-subtitle text-sm underline-offset-4 hover:underline">See how it works <ChevronRight aria-hidden className="h-4 w-4" /></a>
-            </div>
-            <p className="mt-5 font-body text-sm text-critter-gray">No credit card required. Keep the scheduling tools you use.</p>
           </div>
-          <TtpCapabilityShowcase />
+          <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1"><TtpSignupForm /></div>
+          <div className="lg:col-start-1">
+            <ul className="lg:mt-8 max-w-xl space-y-4">{heroPoints.map(([title, text]) => <li key={title} className="flex items-start gap-3 font-body leading-relaxed text-critter-gray"><span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-critter-orange/15"><Check aria-hidden className="h-3.5 w-3.5 text-critter-orange" /></span><span><strong className="font-subtitle font-normal text-critter-maroon">{title}</strong> {text}</span></li>)}</ul>
+            <p className="mt-8 border-t border-critter-cream pt-5 font-body text-sm text-critter-gray">7-day free trial · No credit card · Cancel anytime</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-6 pb-16 sm:pb-20">
+        <div className="mx-auto max-w-6xl">
+          <div className="mx-auto max-w-2xl"><TtpCapabilityShowcase /></div>
         </div>
       </section>
 
