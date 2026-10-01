@@ -6,4 +6,4 @@
 export const DEMO_PATH = "/demo";
 
 /** Hub origin that serves the embeddable picker (/book-demo?embed=1) and its public API. */
-export const HUB_URL = (process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet").replace(/\/$/, "");
+export const HUB_URL = (process.env.NEXT_PUBLIC_HUB_URL || "https://hub.critter.pet").trim().replace(/\/$/, "");
