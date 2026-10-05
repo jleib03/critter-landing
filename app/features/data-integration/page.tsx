@@ -2,21 +2,22 @@ import FeaturePage from "@/app/components/marketing/FeaturePage";
 import { ConnectDataMockup } from "@/app/components/marketing/demos/SectionMockups";
 import { ConnectDisconnectedMockup, AutomateInsightsMockup, OutOfBoxKPIsMockup } from "@/app/components/marketing/demos/SectionMockups";
 import { Database, Layers, BarChart3 } from "lucide-react";
+import { SUPPORTED_SYSTEMS_OR_TEXT } from "@/lib/marketing-offers";
 
 export const metadata = {
   title: "Data Integration for Pet Care | Critter",
   description:
-    "Connect Time To Pet or Precise Pet Care to explore your clients, services, and opportunities in Critter.",
+    `Connect ${SUPPORTED_SYSTEMS_OR_TEXT}, or import a CSV, to explore your clients, services, and opportunities in Critter.`,
   openGraph: {
     title: "Data Integration for Pet Care | Critter",
     description:
-      "Connect Time To Pet or Precise Pet Care to explore your clients, services, and opportunities in Critter.",
+      `Connect ${SUPPORTED_SYSTEMS_OR_TEXT}, or import a CSV, to explore your clients, services, and opportunities in Critter.`,
     url: "https://critter.pet/features/data-integration",
   },
   twitter: {
     title: "Data Integration for Pet Care | Critter",
     description:
-      "Connect Time To Pet or Precise Pet Care to explore your clients, services, and opportunities in Critter.",
+      `Connect ${SUPPORTED_SYSTEMS_OR_TEXT}, or import a CSV, to explore your clients, services, and opportunities in Critter.`,
   },
 };
 
@@ -38,8 +39,9 @@ export default function DataIntegrationPage() {
           title: "Connect the tools you use",
           icon: <Database className="h-6 w-6" />,
           bullets: [
-            "Time To Pet",
-            "Precise Pet Care",
+            "Time To Pet and Precise Pet Care",
+            "MyTime, Scout, PetPocketBook and Paw Partner",
+            "CSV import",
             "Google / Apple Calendar",
           ],
         },

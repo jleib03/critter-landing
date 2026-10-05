@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { CRM_OFFERS, GRANDFATHER_COPY, TRIAL_COPY, formatAllowance } from "@/lib/marketing-offers";
+import { CRM_OFFERS, GRANDFATHER_COPY, INTEGRATIONS_LINE, SALES_CTA, SIGNUP_CTA, TRIAL_COPY, TRIAL_LENGTH, formatAllowance } from "@/lib/marketing-offers";
 import { Button } from "@/app/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/app/components/ui/card";
 import { Badge } from "@/app/components/ui/badge";
@@ -40,20 +40,20 @@ const pricingTiers: PricingTier[] = [
     description: "Grow features, sized for one owner",
     icon: <UserPlus className="h-6 w-6" />,
     features: [
-      { text: "7-day Critter trial for new CRM businesses", included: true },
+      { text: `${TRIAL_LENGTH} Critter trial for new CRM businesses`, included: true },
       { text: "Unlimited lead forms & booking schedules", included: true, highlight: true },
       { text: "Customer journey with automated transition rules", included: true },
       { text: "Unlimited automated programs", included: true },
       { text: "One-time email campaigns", included: true },
       { text: `${formatAllowance(CRM_OFFERS.starter.emails)} base emails/month`, included: true },
-      { text: "TTP & PPC integrations", included: true },
+      { text: `Integrations: ${INTEGRATIONS_LINE}`, included: true },
       { text: "1 business, owner only (no additional seats)", included: true },
       { text: "Automated funnel rules & task lists", included: true },
       { text: "Lifecycle emails", included: true },
       { text: "Togo AI chats", included: false },
       { text: "SMS/Texting", included: false },
     ],
-    cta: "Choose Starter",
+    cta: SIGNUP_CTA,
   },
   {
     id: "grow",
@@ -64,7 +64,7 @@ const pricingTiers: PricingTier[] = [
     badge: "Most Popular",
     badgeColor: "bg-critter-orange",
     features: [
-      { text: "7-day Critter trial for new CRM businesses", included: true },
+      { text: `${TRIAL_LENGTH} Critter trial for new CRM businesses`, included: true },
       { text: "Unlimited lead forms & booking schedules", included: true, highlight: true },
       { text: "Automate your funnel with transition rules", included: true, highlight: true },
       { text: "Task lists & lifecycle emails", included: true, highlight: true },
@@ -73,10 +73,10 @@ const pricingTiers: PricingTier[] = [
       { text: "BI reporting suite + CSV export", included: true, highlight: true },
       { text: "Website chat widget", included: true, highlight: true },
       { text: `${formatAllowance(CRM_OFFERS.grow.emails)} base emails/month`, included: true },
-      { text: "TTP & PPC integrations", included: true },
+      { text: `Integrations: ${INTEGRATIONS_LINE}`, included: true },
       { text: "1 business", included: true },
     ],
-    cta: "Choose Grow",
+    cta: SIGNUP_CTA,
     popular: true,
   },
   {
@@ -86,7 +86,7 @@ const pricingTiers: PricingTier[] = [
     description: "Maximum power for established businesses",
     icon: <Rocket className="h-6 w-6" />,
     features: [
-      { text: "7-day Critter trial for new CRM businesses", included: true },
+      { text: `${TRIAL_LENGTH} Critter trial for new CRM businesses`, included: true },
       { text: "Everything in Grow", included: true },
       { text: `${formatAllowance(CRM_OFFERS.pro.emails)} base emails/month`, included: true, highlight: true },
       { text: `${formatAllowance(CRM_OFFERS.pro.smsSegments)} SMS segments/month`, included: true, highlight: true },
@@ -94,7 +94,7 @@ const pricingTiers: PricingTier[] = [
       { text: "Manage up to 2 businesses centrally", included: true, highlight: true },
       { text: "Priority support", included: true },
     ],
-    cta: "Choose Pro",
+    cta: SIGNUP_CTA,
   },
   {
     id: "enterprise",
@@ -111,7 +111,7 @@ const pricingTiers: PricingTier[] = [
       { text: "Volume email & SMS", included: true },
       { text: "Dedicated support", included: true },
     ],
-    cta: "Contact Sales",
+    cta: SALES_CTA,
     contactSales: true,
   },
 ];
@@ -143,7 +143,7 @@ export default function PricingPage() {
           </p>
         </div>
 
-        {/* Free Trial Note */}
+        {/* Trial note */}
         <div className="text-center mb-8">
           <Badge className="bg-critter-orange text-white px-4 py-1 font-subtitle text-sm">
             {TRIAL_COPY}
@@ -239,7 +239,7 @@ export default function PricingPage() {
                 <ComparisonRow feature="Notifications Center" starter={true} grow={true} pro={true} enterprise={true} />
                 <ComparisonRow feature="BI reporting + CSV export" starter={true} grow={true} pro={true} enterprise={true} />
                 <ComparisonRow feature="Website Chat Widget" starter={true} grow={true} pro={true} enterprise={true} />
-                <ComparisonRow feature="TTP & PPC integrations" starter={true} grow={true} pro={true} enterprise={true} />
+                <ComparisonRow feature={`Integrations: ${INTEGRATIONS_LINE}`} starter={true} grow={true} pro={true} enterprise={true} />
                 <ComparisonRow feature="Team members" starter="Owner only" grow="Unlimited" pro="Unlimited" enterprise="Unlimited" />
                 <ComparisonRow feature="Businesses managed" starter="1" grow="1" pro="Up to 2" enterprise="3+ (unlimited)" />
                 <ComparisonRow feature="Priority Support" starter={false} grow={false} pro={true} enterprise="Dedicated" />
@@ -318,6 +318,8 @@ function PricingCard({ tier, onSelect }: PricingCardProps) {
           variant={tier.popular ? "default" : "outline"}
           size="lg"
           onClick={() => onSelect(tier)}
+          // Same visible label on every self-serve card; the accessible name says which plan.
+          aria-label={tier.contactSales ? undefined : `${tier.cta} on ${tier.name}`}
         >
           {tier.cta}
         </Button>

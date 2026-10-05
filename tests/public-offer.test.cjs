@@ -113,7 +113,7 @@ check(authLinks.every(x => new URL(x).searchParams.get('source') === 'ttp'), 'Ev
 check(authLinks.every(x => new URL(x).searchParams.get('callbackUrl') === links.TTP_DESTINATION), 'Every rendered TTP auth CTA retains callback');
 check(ttp.includes('Illustrative product highlights') && !ttp.includes('98%'), 'No fabricated snapshot metric claim');
 check(ttp.includes('critter-favicon-circle.png') && !ttp.includes('lucide-paw-print'), 'Snapshot uses Critter mark');
-check(ttp.includes('read-only Insights') && ttp.includes('No SMS on Starter'), 'TTP post-trial and paid boundaries render');
+check(ttp.includes('read-only Insights') && ttp.includes('No Togo or SMS on Starter'), 'TTP post-trial and paid boundaries render');
 check(load('app/sitemap.ts').default().some(x => x.url === 'https://critter.pet/ttp'), 'TTP discoverable in sitemap');
 const metadata = load('app/pricing/layout.tsx').metadata;
 check(metadata.description.includes('79') && metadata.openGraph.description.includes('1,500'), 'Pricing search/social metadata aligned');

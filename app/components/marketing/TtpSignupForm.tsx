@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from 'react';
 import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import { getHubLinks } from '@/lib/marketing-links';
+import { SIGNUP_CTA, TRIAL_LENGTH } from '@/lib/marketing-offers';
 
 type Status = { kind: 'idle' | 'submitting' } | { kind: 'error'; message: string; signIn?: boolean } | { kind: 'sent'; email: string };
 
@@ -55,7 +56,7 @@ export default function TtpSignupForm() {
     return <div id="signup" className="scroll-mt-28 rounded-[28px] border border-critter-cream bg-white p-7 text-center shadow-sm sm:p-9" role="status">
       <CheckCircle2 aria-hidden className="mx-auto h-12 w-12 text-critter-orange" />
       <h2 className="mt-5 font-title text-3xl">Check your email</h2>
-      <p className="mt-4 font-body leading-relaxed text-critter-gray">We sent a verification link to <strong className="text-critter-maroon">{status.email}</strong>. Open it to start your 7-day trial. It brings you straight to connecting Time To Pet.</p>
+      <p className="mt-4 font-body leading-relaxed text-critter-gray">We sent a verification link to <strong className="text-critter-maroon">{status.email}</strong>. Open it to start your {TRIAL_LENGTH} trial. It brings you straight to connecting Time To Pet.</p>
       <p className="mt-5 font-body text-sm text-critter-gray">Nothing after a few minutes? Check your spam folder, or <a href="/contact-us" className="underline underline-offset-4">contact us</a>.</p>
     </div>;
   }
@@ -63,7 +64,7 @@ export default function TtpSignupForm() {
   const submitting = status.kind === 'submitting';
   return <div id="signup" className="scroll-mt-28 rounded-[28px] border border-critter-cream bg-white p-6 shadow-sm sm:p-9">
     <h2 className="font-title text-2xl sm:text-3xl">Create your Critter account</h2>
-    <p className="mt-2 font-body text-critter-gray">Start your 7-day free trial. After you verify your email, you&apos;ll connect Time To Pet.</p>
+    <p className="mt-2 font-body text-critter-gray">Your {TRIAL_LENGTH} free trial starts here. After you verify your email, you&apos;ll connect Time To Pet.</p>
     <form onSubmit={submit} className="mt-6 space-y-4" aria-label="Create your Critter account">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className={label}>First name<input name="firstName" autoComplete="given-name" required className={field} /></label>
@@ -89,7 +90,7 @@ export default function TtpSignupForm() {
         {status.message}{status.signIn && <> <a href={links.signin} className="font-subtitle underline underline-offset-4">Sign in instead</a></>}
       </p>}
       <button type="submit" disabled={submitting} className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-full bg-critter-orange px-7 py-3 font-subtitle text-base text-white transition-colors hover:bg-critter-orange/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 disabled:opacity-70">
-        {submitting ? <><Loader2 aria-hidden className="h-4 w-4 animate-spin" /> Creating your account…</> : <>Start my 7-day free trial <ArrowRight aria-hidden className="h-4 w-4 shrink-0" /></>}
+        {submitting ? <><Loader2 aria-hidden className="h-4 w-4 animate-spin" /> Creating your account…</> : <>{SIGNUP_CTA} <ArrowRight aria-hidden className="h-4 w-4 shrink-0" /></>}
       </button>
     </form>
     <p className="mt-5 text-center font-body text-sm text-critter-gray">No credit card required. Prefer Google? <a href={links.signup} className="underline underline-offset-4">Sign up with Google</a></p>

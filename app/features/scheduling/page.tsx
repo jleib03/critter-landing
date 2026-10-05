@@ -2,6 +2,7 @@ import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
 import Link from "next/link";
 import { ArrowRight, Calendar, Database } from "lucide-react";
+import { TRIAL_LENGTH } from "@/lib/marketing-offers";
 
 export const metadata = {
   title: "Critter Ops | Scheduling & Operations for Pet Care",
@@ -27,7 +28,7 @@ export default function SchedulingPage() {
         <section className="rounded-2xl border border-critter-cream bg-white p-8">
           <Database className="h-7 w-7 text-critter-orange" />
           <h2 className="mt-5 font-title text-3xl text-critter-maroon">Critter Hub CRM</h2>
-          <p className="mt-4 font-body leading-relaxed text-critter-gray">For understanding your clients, building a customer journey, and reviewing marketing follow-ups. The CRM plans and 7-day Critter trial on this site apply to Hub.</p>
+          <p className="mt-4 font-body leading-relaxed text-critter-gray">For understanding your clients, building a customer journey, and reviewing marketing follow-ups. The CRM plans and {TRIAL_LENGTH} Critter trial on this site apply to Hub.</p>
           <Link href="/features/crm" className="mt-6 inline-flex items-center gap-2 font-subtitle text-critter-orange">Explore Critter Hub <ArrowRight className="h-4 w-4" /></Link>
         </section>
       </div>

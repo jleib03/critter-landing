@@ -27,6 +27,7 @@ import {
   X,
 } from "lucide-react";
 import { DEMO_PATH } from "@/lib/demo";
+import { DEMO_CTA, SIGNUP_CTA } from "@/lib/marketing-offers";
 
 interface LandingNavProps {
   acquisitionSource?: AcquisitionSource;
@@ -129,7 +130,7 @@ export default function LandingNav({
                 <DropdownMenuItem asChild>
                   <a href={demoUrl} className="flex items-center gap-2 cursor-pointer">
                     <Calendar className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">Join a live demo</span>
+                    <span className="font-body">{DEMO_CTA}</span>
                   </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
@@ -148,7 +149,7 @@ export default function LandingNav({
             </Link>
           </div>
 
-          {/* Right: Log In + Free Trial + Mobile Toggle */}
+          {/* Right: Log In + sign-up + Mobile Toggle */}
           <div className="flex items-center gap-3">
             {/* Log In - Product Selector Dropdown (Desktop) */}
             <DropdownMenu>
@@ -192,10 +193,10 @@ export default function LandingNav({
               </DropdownMenuContent>
             </DropdownMenu>
 
-            {/* Free Trial - Direct link to Hub signup */}
+            {/* Sign-up - Direct link to Hub signup */}
             <a href={hubLinks.signup} className="hidden sm:block">
               <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Free Trial
+                {SIGNUP_CTA}
               </Button>
             </a>
 
@@ -261,7 +262,7 @@ export default function LandingNav({
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg font-body text-sm text-critter-maroon hover:bg-critter-cream transition-colors"
               >
                 <Calendar className="h-4 w-4 text-critter-orange" />
-                Join a live demo
+                {DEMO_CTA}
               </a>
               <Link
                 href="/faqs"
@@ -293,7 +294,7 @@ export default function LandingNav({
               </div>
               <a href={hubLinks.signup} className="block">
                 <Button className="w-full bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                  Start Free Trial
+                  {SIGNUP_CTA}
                 </Button>
               </a>
             </div>

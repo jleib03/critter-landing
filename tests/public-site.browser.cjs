@@ -118,13 +118,13 @@ async function main() {
       await page.evaluate(() => scrollTo(0, 0));
       if (width === 1440 || width === 320) await page.screenshot({ path: path.join(artifacts, 'ttp-hero-' + width + '.png') });
       await page.screenshot({ path: path.join(artifacts, 'ttp-' + width + '.png'), fullPage: true });
-      const footerLogin = new URL(await page.getByRole('link', { name: 'Sign In', exact: true }).getAttribute('href'));
+      const footerLogin = new URL(await page.getByRole('link', { name: 'Log In', exact: true }).getAttribute('href'));
       check(footerLogin.searchParams.get('source') === 'ttp', 'Footer sign-in retains TTP intent');
       await page.getByText('Does this replace Time To Pet?', { exact: true }).focus();
       await page.keyboard.press('Enter');
       check(await page.locator('details[open]').count() === 1, 'TTP FAQ keyboard opens');
       // BL-403: the page is the sign-up form. In-page CTAs scroll to it; nothing leaves for Hub's page.
-      const trial = page.getByRole('link', { name: 'Start your 7-day Critter trial' }).last();
+      const trial = page.locator('main').getByRole('link', { name: 'Start Your Free Trial' }).last();
       check(await trial.getAttribute('href') === '#signup', 'Final trial CTA targets the inline form');
       await trial.click();
       await page.waitForFunction(() => location.hash === '#signup');
@@ -144,16 +144,16 @@ async function main() {
       await form.getByRole('button', { name: 'Show' }).click();
       check(await form.getByLabel('Password', { exact: true }).getAttribute('type') === 'text', 'Show reveals the password');
       await form.getByRole('checkbox').check();
-      await form.getByRole('button', { name: /Start my 7-day free trial/ }).click();
-      check(await form.getByRole('button', { name: /Start my 7-day free trial/ }).evaluate(button => button.form.checkValidity()) === false && posted.length === 0, 'Short password is stopped before anything is sent');
+      await form.getByRole('button', { name: /Start Your Free Trial/ }).click();
+      check(await form.getByRole('button', { name: /Start Your Free Trial/ }).evaluate(button => button.form.checkValidity()) === false && posted.length === 0, 'Short password is stopped before anything is sent');
       await form.getByLabel('Password', { exact: true }).fill('long-enough-test');
-      await form.getByRole('button', { name: /Start my 7-day free trial/ }).click();
+      await form.getByRole('button', { name: /Start Your Free Trial/ }).click();
       await form.getByRole('alert').waitFor();
       check((await form.getByRole('alert').innerText()).includes('already exists'), 'Hub error is shown inline');
       const signIn = new URL(await form.getByRole('link', { name: 'Sign in instead' }).getAttribute('href'));
       check(signIn.pathname === '/auth/signin' && signIn.searchParams.get('source') === 'ttp', 'Existing account is pointed to TTP-aware sign-in');
       reply = { status: 200, body: { success: true, requiresVerification: true } };
-      await form.getByRole('button', { name: /Start my 7-day free trial/ }).click();
+      await form.getByRole('button', { name: /Start Your Free Trial/ }).click();
       await page.getByRole('heading', { name: 'Check your email' }).waitFor();
       check(posted.length === 2, 'One request per submit');
       const sent = posted[1];
@@ -191,7 +191,8 @@ async function main() {
       await page.waitForFunction(() => { const image = document.querySelector('footer img'); return image && image.complete && image.naturalWidth > 0; });
       await page.evaluate(() => scrollTo(0, 0));
       await page.screenshot({ path: path.join(artifacts, 'pricing-' + width + '.png'), fullPage: true });
-      await page.getByRole('button', { name: 'Choose Starter', exact: true }).click();
+      // BL-617: every self-serve card shows the same sign-up label; the accessible name names the plan.
+      await page.getByRole('button', { name: 'Start Your Free Trial on Starter', exact: true }).click();
       await page.waitForURL(url => url.pathname === '/auth/signup');
       check(new URL(page.url()).searchParams.get('plan') === 'starter', 'Plan selection remains a signup preference, not a checkout');
       await page.goto(origin + '/faqs');
@@ -225,7 +226,7 @@ async function main() {
     check(await currentCapability(showcase) === rotationFocus, 'Keyboard focus on rotation control also stops autoplay');
     await showcase.getByRole('button', { name: 'Play highlights' }).click();
     await moveOutsideShowcase(motionPage);
-    await motionPage.getByRole('link', { name: 'Start your 7-day Critter trial' }).first().focus();
+    await motionPage.locator('main').getByRole('link', { name: 'Start Your Free Trial' }).first().focus();
     await showcase.getByRole('button', { name: 'Pause highlights' }).click();
     await moveOutsideShowcase(motionPage);
     const pointerPaused = await currentCapability(showcase);
@@ -244,7 +245,7 @@ async function main() {
     const focused = await currentCapability(showcase);
     await motionPage.clock.runFor(15000);
     check(await currentCapability(showcase) === focused, 'Keyboard focus stops autoplay');
-    await motionPage.getByRole('link', { name: 'Start your 7-day Critter trial' }).first().focus();
+    await motionPage.locator('main').getByRole('link', { name: 'Start Your Free Trial' }).first().focus();
     await motionPage.clock.runFor(7100);
     check(await currentCapability(showcase) === focused, 'Leaving focus does not restart autoplay');
     await showcase.getByRole('button', { name: 'Play highlights' }).click();

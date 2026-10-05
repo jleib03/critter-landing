@@ -6,6 +6,7 @@ import LandingNav from "./LandingNav";
 import LandingFooter from "./LandingFooter";
 import FeatureSection from "./FeatureSection";
 import { DEMO_PATH } from "@/lib/demo";
+import { DEMO_CTA, SIGNUP_CTA, TRIAL_LENGTH } from "@/lib/marketing-offers";
 
 interface FeatureCard {
   tag: string;
@@ -62,10 +63,11 @@ export default function FeaturePage({
               </p>
               <a href={`${hubUrl}/auth/signup`}>
                 <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle font-light rounded-[20px] px-8 h-12 text-xl">
-                  Start your 7-day Critter trial
+                  {SIGNUP_CTA}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>
+              <p className="mt-3 font-body text-sm text-critter-gray">{TRIAL_LENGTH} trial · No credit card required</p>
               {relatedLink && <a href={relatedLink.href} className="mt-5 block font-subtitle text-sm text-critter-orange underline underline-offset-4">{relatedLink.label}</a>}
             </div>
             {/* Right demo / image */}
@@ -145,7 +147,7 @@ export default function FeaturePage({
             </p>
             <a href={demoUrl}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Join a live demo
+                {DEMO_CTA}
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>

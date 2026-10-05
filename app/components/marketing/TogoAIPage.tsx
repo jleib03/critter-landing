@@ -24,6 +24,7 @@ import {
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
 import { DEMO_PATH } from "@/lib/demo";
+import { DEMO_CTA, SIGNUP_CTA } from "@/lib/marketing-offers";
 
 // Demo conversation for the live chat simulation
 const demoConversation = [
@@ -51,7 +52,7 @@ const demoConversation = [
     role: "assistant",
     content: "I've drafted a VIP appreciation email:",
     draft: {
-      subject: "You're One of Our Favorites! 🌟",
+      subject: "Thank you for being one of our regulars",
       preview: "Thank you for choosing us to care for your pet. It means a lot to see you back, and we look forward to your next visit...",
     },
     followUp: "Want me to adjust the tone or add a specific offer?",
@@ -184,7 +185,7 @@ function RevenueInsightsMockup() {
         </div>
         <div className="flex items-center gap-2 p-2 bg-green-50 rounded-lg">
           <Zap className="h-3.5 w-3.5 text-green-600" />
-          <p className="font-body text-xs text-green-700">Grooming revenue up 34% — highest growth service</p>
+          <p className="font-body text-xs text-green-700">Example: Togo points out which service is growing fastest</p>
         </div>
       </div>
     </div>
@@ -462,7 +463,7 @@ function FeatureSection({
       </p>
       <a href={`${process.env.NEXT_PUBLIC_HUB_URL || 'https://hub.critter.pet'}/auth/signup`}>
         <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle w-fit">
-          Get Started
+          {SIGNUP_CTA}
         </Button>
       </a>
     </div>
@@ -508,7 +509,7 @@ export default function TogoAIPage() {
             </p>
             <a href={`${process.env.NEXT_PUBLIC_HUB_URL || 'https://hub.critter.pet'}/auth/signup`}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle px-8 h-12">
-                Try Togo
+                {SIGNUP_CTA}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>
@@ -533,7 +534,7 @@ export default function TogoAIPage() {
             </p>
             <a href={demoUrl}>
               <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Join a live demo
+                {DEMO_CTA}
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>
@@ -558,7 +559,7 @@ export default function TogoAIPage() {
             </p>
             <a href={demoUrl}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Join a live demo
+                {DEMO_CTA}
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>

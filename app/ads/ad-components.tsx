@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { SIGNUP_CTA, TRIAL_LENGTH } from "@/lib/marketing-offers";
 import { Badge } from "@/app/components/ui/badge";
 import {
   Check,
@@ -457,10 +458,10 @@ export function FunCommunicationsVisual() {
     <div className="relative w-full flex items-center justify-center py-12 px-5 overflow-hidden" style={{ minHeight: 420 }}>
       <div className="relative" style={{ width: 560, height: 380 }}>
         {[
-          { x: 20, y: 0, w: 360, bg: "bg-critter-orange", text: "Happy birthday, Luna! 🎉", color: "text-white" },
+          { x: 20, y: 0, w: 360, bg: "bg-critter-orange", text: "Happy birthday, Luna!", color: "text-white" },
           { x: 180, y: 85, w: 340, bg: "bg-critter-maroon", text: "Your grooming is tomorrow!", color: "text-white" },
           { x: 10, y: 175, w: 380, bg: "bg-white border-2 border-critter-cream", text: "Thanks! See you at 2pm!", color: "text-critter-maroon" },
-          { x: 160, y: 265, w: 320, bg: "bg-critter-orange/90", text: "Max loved his walk today 🐕", color: "text-white" },
+          { x: 160, y: 265, w: 320, bg: "bg-critter-orange/90", text: "Max loved his walk today", color: "text-white" },
         ].map((msg, i) => (
           <div key={i} className={`absolute ${msg.bg} rounded-2xl px-8 py-5 shadow-lg`}
             style={{ left: msg.x, top: msg.y, width: msg.w }}>
@@ -687,7 +688,7 @@ export const ads: Ad[] = [
     layout: "left",
     headline: "Pet parents refer you.\nYour business grows.",
     subHero: "Give happy clients a way to recommend you with referral programs you control.",
-    cta: "Start your 7-day trial",
+    cta: SIGNUP_CTA,
     Visual: ReferralVisual,
   },
   {
@@ -695,7 +696,7 @@ export const ads: Ad[] = [
     layout: "left",
     headline: "Use pet care data for\ntargeted marketing.",
     subHero: "Reach relevant clients with email. Texting is available on eligible paid plans.",
-    cta: "Start your 7-day trial",
+    cta: SIGNUP_CTA,
     Visual: TargetedMarketingVisual,
   },
   {
@@ -703,7 +704,7 @@ export const ads: Ad[] = [
     layout: "left",
     headline: "Automate pet care\ncommunications.",
     subHero: "Use booking data to choose useful follow-ups. Review your copy and timing before turning them on.",
-    cta: "Start your 7-day trial",
+    cta: SIGNUP_CTA,
     Visual: CommunicationsVisual,
   },
   {
@@ -762,7 +763,7 @@ export const adsFun: Ad[] = [
     layout: "centered",
     headline: "Pet parents refer you.\nYour business grows.",
     subHero: "Give happy clients a way to recommend you with referral programs you control.",
-    cta: "Start your 7-day trial",
+    cta: SIGNUP_CTA,
     Visual: FunReferralVisual,
   },
   {
@@ -770,7 +771,7 @@ export const adsFun: Ad[] = [
     layout: "centered",
     headline: "Use pet care data for\ntargeted marketing.",
     subHero: "Reach relevant clients with email. Texting is available on eligible paid plans.",
-    cta: "Start your 7-day trial",
+    cta: SIGNUP_CTA,
     Visual: FunTargetedMarketingVisual,
   },
   {
@@ -778,7 +779,7 @@ export const adsFun: Ad[] = [
     layout: "centered",
     headline: "Automate pet care\ncommunications.",
     subHero: "Use booking data to choose useful follow-ups. Review your copy and timing before turning them on.",
-    cta: "Start your 7-day trial",
+    cta: SIGNUP_CTA,
     Visual: FunCommunicationsVisual,
   },
   {
@@ -956,7 +957,7 @@ export function AdCanvas({ ad, idPrefix = "ad", forExport = false }: { ad: Ad; i
         </div>
       )}
 
-      <p className="font-body text-critter-gray text-center" style={{ fontSize: 16, marginTop: 16 }}>Illustrative preview · Sample data · 7-day Critter trial for new CRM businesses</p>
+      <p className="font-body text-critter-gray text-center" style={{ fontSize: 16, marginTop: 16 }}>Illustrative preview · Sample data · {TRIAL_LENGTH} Critter trial for new CRM businesses</p>
       {/* Visual area */}
       <div style={{ ...visualContainerStyle, marginTop: 32 }}>
         <div className="rounded-2xl" style={visualStyle}>
