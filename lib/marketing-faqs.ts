@@ -1,4 +1,4 @@
-import { CRM_OFFERS, TTP_INSIGHTS_COPY, formatAllowance } from "./marketing-offers";
+import { CRM_OFFERS, ONBOARDING_COPY, SUPPORTED_SYSTEMS_TEXT, TRIAL_LENGTH, TTP_INSIGHTS_COPY, formatAllowance } from "./marketing-offers";
 
 export interface FAQItem {
   question: string;
@@ -27,7 +27,7 @@ export const faqCategories: FAQCategory[] = [
       {
         question: "How is Critter different from generic CRM or marketing tools?",
         answer:
-          "Unlike generic platforms, Critter pulls in data from the pet care software you already use — like Time To Pet and Precise Pet Care — so your customer and booking data flows in automatically. Every feature is designed around how pet care businesses actually work, from pet profiles and service-based segmentation to lifecycle communications tailored to your industry.",
+          `Unlike generic platforms, Critter pulls in data from the pet care software you already use — like ${SUPPORTED_SYSTEMS_TEXT} — so your customer and booking data flows in automatically. Every feature is designed around how pet care businesses actually work, from pet profiles and service-based segmentation to lifecycle communications tailored to your industry.`,
       },
     ],
   },
@@ -36,11 +36,11 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: "How do I get started?",
-        answer: "Sign up for a 7-day Critter trial — no credit card required. Connect your pet care software or import a CSV, explore your business snapshot, then review the journey, rules, and drafted follow-ups before turning anything on.",
+        answer: `Sign up for a ${TRIAL_LENGTH} Critter trial — no credit card required. Connect your pet care software or import a CSV, explore your business snapshot, then review the journey, rules, and drafted follow-ups before turning anything on.`,
       },
       {
         question: "Do I need a credit card to start my free trial?",
-        answer: "No. New CRM businesses start with a 7-day Critter trial, with no credit card required. Explore your connected data, customer journey, email tools, lead generation, and Togo. SMS is not included during the trial.",
+        answer: `No. New CRM businesses start with a ${TRIAL_LENGTH} Critter trial, with no credit card required. Explore your connected data, customer journey, email tools, lead generation, and Togo. SMS is not included during the trial.`,
       },
       {
         question: "What happens when my trial ends?",
@@ -48,7 +48,7 @@ export const faqCategories: FAQCategory[] = [
       },
       {
         question: "How long does it take to set up?",
-        answer: "Setup guides you through your business details and data connection. Import time depends on the amount of data and your provider. You can take a high-level product introduction while data loads, then review your own snapshot and setup when it is ready.",
+        answer: `Setup guides you through your business details and data connection. Import time depends on the amount of data and your provider. You can take a high-level product introduction while data loads, then review your own snapshot and setup when it is ready. ${ONBOARDING_COPY}`,
       },
     ],
   },
@@ -57,7 +57,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: "What is Togo AI?",
-        answer: "Togo is Critter's AI assistant. Ask about client retention, service mix, or revenue trends using your connected data, or get help drafting a follow-up. Togo helps explain the findings and your options; you review proposed changes and copy before acting.",
+        answer: "Togo is Critter's AI assistant. Ask about client retention, service mix, or revenue trends using your connected data, or get help drafting a follow-up. Togo helps explain the findings and your options; you review proposed changes and copy before acting. Togo is included from Grow, and you can try it during the trial.",
       },
       {
         question: "Can I send both email and SMS campaigns?",
@@ -90,7 +90,7 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: "What software does Critter sync data from?",
-        answer: "Critter connects with Time To Pet and Precise Pet Care. Available records and sync timing depend on the connector. CSV import is also available.",
+        answer: `Critter connects with ${SUPPORTED_SYSTEMS_TEXT}. Available records and sync timing depend on the connector. CSV import is also available.`,
       },
       {
         question: "Can I import my existing customer data?",
@@ -113,11 +113,11 @@ export const faqCategories: FAQCategory[] = [
     items: [
       {
         question: "How much does Critter cost?",
-        answer: `New monthly offers are Starter at $${CRM_OFFERS.starter.monthlyUsd} USD, Grow at $${CRM_OFFERS.grow.monthlyUsd} USD, and Pro at $${CRM_OFFERS.pro.monthlyUsd} USD. Enterprise is custom-priced for franchises and multi-business operators. New CRM businesses start with a 7-day Critter trial. Existing customers keep their billed price unless they change their subscription.`,
+        answer: `New monthly offers are Starter at $${CRM_OFFERS.starter.monthlyUsd} USD, Grow at $${CRM_OFFERS.grow.monthlyUsd} USD, and Pro at $${CRM_OFFERS.pro.monthlyUsd} USD. Enterprise is custom-priced for franchises and multi-business operators. New CRM businesses start with a ${TRIAL_LENGTH} Critter trial. Existing customers keep their billed price unless they change their subscription.`,
       },
       {
         question: "What's the difference between the plans?",
-        answer: `Starter includes Grow's features with ${formatAllowance(CRM_OFFERS.starter.emails)} base emails per month, owner-only access, and no SMS. That includes automated journey rules, task lists, lifecycle emails, unlimited forms and programs, Togo, reporting, and the website chat widget. Grow adds team access, ${formatAllowance(CRM_OFFERS.grow.emails)} base emails and ${formatAllowance(CRM_OFFERS.grow.smsSegments)} SMS segments. Pro expands allowances and adds management of up to two businesses and priority support.`,
+        answer: `Starter includes Grow's features with ${formatAllowance(CRM_OFFERS.starter.emails)} base emails per month, owner-only access, and no SMS. That includes automated journey rules, task lists, lifecycle emails, unlimited forms and programs, reporting, and the website chat widget. Togo is not included on Starter. Grow adds team access, ${CRM_OFFERS.grow.togoChats} Togo chats, ${formatAllowance(CRM_OFFERS.grow.emails)} base emails and ${formatAllowance(CRM_OFFERS.grow.smsSegments)} SMS segments per month. Pro expands allowances and adds management of up to two businesses and priority support.`,
       },
       {
         question: "Do you offer enterprise pricing?",

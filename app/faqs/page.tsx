@@ -6,6 +6,7 @@ import { Calendar } from "lucide-react";
 import LandingNav from "@/app/components/marketing/LandingNav";
 import LandingFooter from "@/app/components/marketing/LandingFooter";
 import { DEMO_PATH } from "@/lib/demo";
+import { DEMO_CTA } from "@/lib/marketing-offers";
 
 function FAQAccordionItem({ question, answer }: FAQItem) {
   return (
@@ -70,7 +71,7 @@ export default function FAQsPage() {
                 size="lg"
                 className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle"
               >
-                Join a live demo
+                {DEMO_CTA}
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>

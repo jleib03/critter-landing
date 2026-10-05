@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/app/components/ui/button";
+import { SIGNUP_CTA } from "@/lib/marketing-offers";
 import {
   Database,
   ClipboardList,
@@ -228,7 +229,7 @@ export default function FeatureSection({
       </p>
       <a href={`${hubUrl}/auth/signup`}>
         <Button className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle w-fit">
-          Get Started
+          {SIGNUP_CTA}
         </Button>
       </a>
     </div>

@@ -16,6 +16,7 @@ import FeatureSection from "./FeatureSection";
 import AutomationBanner from "./AutomationBanner";
 import FeaturesBar from "./FeaturesBar";
 import FeaturesGrid from "./FeaturesGrid";
+import { DEMO_CTA, SIGNUP_CTA, TRIAL_LENGTH } from "@/lib/marketing-offers";
 import PreviewModal from "./PreviewModal";
 import { ConnectDataMockup, CaptureLeadsMockup, EngageClientsMockup, DataInsightsMockup } from "./demos/SectionMockups";
 import { DEMO_PATH } from "@/lib/demo";
@@ -45,10 +46,11 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <a href={`${hubUrl}/auth/signup`}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle font-light rounded-[20px] px-8 h-12 text-xl">
-                Start your 7-day Critter trial
+                {SIGNUP_CTA}
               </Button>
             </a>
           </div>
+          <p className="mt-3 font-body text-sm text-critter-gray">{TRIAL_LENGTH} trial · No credit card required</p>
         </div>
       </section>
 
@@ -112,7 +114,7 @@ export default function LandingPage() {
             </p>
             <a href={demoUrl}>
               <Button size="lg" className="bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
-                Join a live demo
+                {DEMO_CTA}
                 <Calendar className="ml-2 h-4 w-4" />
               </Button>
             </a>

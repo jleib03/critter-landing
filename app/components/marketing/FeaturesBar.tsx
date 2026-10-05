@@ -1,6 +1,7 @@
 "use client";
 
 import { Rocket, Settings, HeartHandshake, GraduationCap } from "lucide-react";
+import { ONBOARDING_COPY } from "@/lib/marketing-offers";
 
 const features = [
   {
@@ -20,8 +21,8 @@ const features = [
   },
   {
     icon: <GraduationCap className="h-6 w-6" />,
-    title: "Onboarding included",
-    description: "Up to 8 hours of hands-on onboarding working sessions included to ensure smooth sailing and speed on day one.",
+    title: "Help getting set up",
+    description: ONBOARDING_COPY,
   },
 ];
 

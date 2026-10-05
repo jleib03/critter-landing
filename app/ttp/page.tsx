@@ -7,13 +7,13 @@ import TtpSignupForm from '@/app/components/marketing/TtpSignupForm';
 import LandingNav from '@/app/components/marketing/LandingNav';
 import LandingFooter from '@/app/components/marketing/LandingFooter';
 import { TogoIcon } from '@/app/components/icons/TogoIcon';
-import { CRM_OFFERS, TTP_INSIGHTS_COPY, formatAllowance } from '@/lib/marketing-offers';
+import { CRITTER_TRIAL_DAYS, CRM_OFFERS, SIGNUP_CTA, TRIAL_LENGTH, TTP_INSIGHTS_COPY, formatAllowance } from '@/lib/marketing-offers';
 
 export const metadata: Metadata = {
   title: 'Time To Pet + Critter | Turn your booking data into next steps',
-  description: 'Connect Time To Pet to Critter for a clearer business snapshot, a customer journey, and follow-ups you review before turning on. Start a 7-day Critter trial.',
+  description: `Connect Time To Pet to Critter for a clearer business snapshot, a customer journey, and follow-ups you review before turning on. Start a ${TRIAL_LENGTH} Critter trial.`,
   alternates: { canonical: 'https://critter.pet/ttp' },
-  openGraph: { title: 'Your Time To Pet data. A clearer plan for what comes next.', description: 'Meet your business snapshot, customer journey, and next useful follow-up. Start a 7-day Critter trial.', url: 'https://critter.pet/ttp' },
+  openGraph: { title: 'Your Time To Pet data. A clearer plan for what comes next.', description: `Meet your business snapshot, customer journey, and next useful follow-up. Start a ${TRIAL_LENGTH} Critter trial.`, url: 'https://critter.pet/ttp' },
 };
 
 const steps = [
@@ -24,7 +24,7 @@ const steps = [
 const questions = [
   ['Does this replace Time To Pet?', 'No. Keep Time To Pet for scheduling and operations. Critter connects your data to customer insights, relationship management, and marketing tools.'],
   ['Will Critter start sending messages when I connect?', 'Connecting and building your setup does not activate its drafts. Review your copy, audience, and settings before turning on a follow-up.'],
-  ['Do I need a credit card?', 'No. New CRM businesses start with a 7-day Critter trial without a credit card. Texting is not included during the trial.'],
+  ['Do I need a credit card?', `No. New CRM businesses start with a ${TRIAL_LENGTH} Critter trial without a credit card. Texting is not included during the trial.`],
   ['What happens after my trial?', TTP_INSIGHTS_COPY],
 ];
 
@@ -37,7 +37,7 @@ const heroPoints = [
 /** The sign-up form lives in the hero; other CTAs on the page scroll to it. */
 function TrialLink() {
   return <a href="#signup" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-critter-orange px-7 py-3 font-subtitle text-base text-white transition-colors hover:bg-critter-orange/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4">
-    Start your 7-day Critter trial <ArrowRight aria-hidden className="h-4 w-4 shrink-0" />
+    {SIGNUP_CTA} <ArrowRight aria-hidden className="h-4 w-4 shrink-0" />
   </a>;
 }
 
@@ -60,7 +60,7 @@ export default function TtpPage() {
           <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1"><TtpSignupForm /></div>
           <div className="lg:col-start-1">
             <ul className="lg:mt-8 max-w-xl space-y-4">{heroPoints.map(([title, text]) => <li key={title} className="flex items-start gap-3 font-body leading-relaxed text-critter-gray"><span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-critter-orange/15"><Check aria-hidden className="h-3.5 w-3.5 text-critter-orange" /></span><span><strong className="font-subtitle font-normal text-critter-maroon">{title}</strong> {text}</span></li>)}</ul>
-            <p className="mt-8 border-t border-critter-cream pt-5 font-body text-sm text-critter-gray">7-day free trial · No credit card · Cancel anytime</p>
+            <p className="mt-8 border-t border-critter-cream pt-5 font-body text-sm text-critter-gray">{TRIAL_LENGTH} free trial · No credit card · Cancel anytime</p>
           </div>
         </div>
       </section>
@@ -97,12 +97,12 @@ export default function TtpPage() {
       <section className="bg-critter-maroon px-6 py-16 text-white sm:py-20">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2 md:gap-16">
           <div><p className="font-subtitle text-xs uppercase tracking-widest text-white/70">After your trial</p><h2 className="mt-4 font-title text-3xl sm:text-4xl">Keep the insight.<br />Choose when to do more.</h2><p className="mt-5 font-body leading-relaxed text-white/80">{TTP_INSIGHTS_COPY}</p><p className="mt-4 font-body text-sm text-white/70">Insights is not a free sending or automation plan. Your eligibility depends on the connection and account status.</p></div>
-          <div className="rounded-2xl border border-white/20 p-7"><p className="font-subtitle text-sm">Ready for the full CRM?</p><h3 className="mt-3 font-title text-3xl">Starter · ${CRM_OFFERS.starter.monthlyUsd}<span className="font-body text-sm text-white/70"> USD/month</span></h3><p className="mt-4 font-body leading-relaxed text-white/80">Grow features, sized for one owner.</p><ul className="mt-5 space-y-3 font-body text-sm">{[`${formatAllowance(CRM_OFFERS.starter.emails)} base emails per month`, 'Owner-only access · no additional seats', 'Journey automation, task lists, Togo, and reporting', 'No SMS on Starter'].map(item => <li key={item} className="flex items-start gap-2"><Check aria-hidden className="h-4 w-4 shrink-0" />{item}</li>)}</ul><Link href="/pricing" className="mt-6 inline-flex items-center gap-2 font-subtitle text-sm underline underline-offset-4">Compare paid plans <ArrowRight aria-hidden className="h-4 w-4" /></Link></div>
+          <div className="rounded-2xl border border-white/20 p-7"><p className="font-subtitle text-sm">Ready for the full CRM?</p><h3 className="mt-3 font-title text-3xl">Starter · ${CRM_OFFERS.starter.monthlyUsd}<span className="font-body text-sm text-white/70"> USD/month</span></h3><p className="mt-4 font-body leading-relaxed text-white/80">Grow features, sized for one owner.</p><ul className="mt-5 space-y-3 font-body text-sm">{[`${formatAllowance(CRM_OFFERS.starter.emails)} base emails per month`, 'Owner-only access · no additional seats', 'Journey automation, task lists, and reporting', 'No Togo or SMS on Starter (both start on Grow)'].map(item => <li key={item} className="flex items-start gap-2"><Check aria-hidden className="h-4 w-4 shrink-0" />{item}</li>)}</ul><Link href="/pricing" className="mt-6 inline-flex items-center gap-2 font-subtitle text-sm underline underline-offset-4">Compare paid plans <ArrowRight aria-hidden className="h-4 w-4" /></Link></div>
         </div>
       </section>
 
       <section className="px-6 py-16 sm:py-20"><div className="mx-auto max-w-3xl"><h2 className="mb-8 font-title text-3xl sm:text-4xl">A few things you might be wondering</h2><div className="space-y-3">{questions.map(([question, answer]) => <details key={question} className="rounded-xl border border-critter-cream bg-white"><summary className="cursor-pointer p-5 font-subtitle focus-visible:outline-critter-orange">{question}</summary><p className="px-5 pb-5 font-body leading-relaxed text-critter-gray">{answer}</p></details>)}</div></div></section>
-      <section className="px-6 pb-20"><div className="mx-auto max-w-6xl rounded-[28px] bg-[#FBEBDD] p-8 text-center sm:p-14"><h2 className="font-title text-3xl sm:text-4xl">Let’s see what your data can tell you.</h2><p className="mx-auto mb-7 mt-4 max-w-xl font-body text-critter-gray">Connect Time To Pet, get your bearings, and build from there.</p><TrialLink /><p className="mt-4 font-body text-sm text-critter-gray">7 days to explore. No credit card required.</p></div></section>
+      <section className="px-6 pb-20"><div className="mx-auto max-w-6xl rounded-[28px] bg-[#FBEBDD] p-8 text-center sm:p-14"><h2 className="font-title text-3xl sm:text-4xl">Let’s see what your data can tell you.</h2><p className="mx-auto mb-7 mt-4 max-w-xl font-body text-critter-gray">Connect Time To Pet, get your bearings, and build from there.</p><TrialLink /><p className="mt-4 font-body text-sm text-critter-gray">{CRITTER_TRIAL_DAYS} days to explore. No credit card required.</p></div></section>
     </main>
     <LandingFooter acquisitionSource="ttp" />
   </div>;

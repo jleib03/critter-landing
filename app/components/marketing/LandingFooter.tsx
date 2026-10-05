@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AcquisitionSource, getHubLinks } from "@/lib/marketing-links";
 import Image from "next/image";
 import { Button } from "@/app/components/ui/button";
+import { SIGNUP_CTA } from "@/lib/marketing-offers";
 
 export default function LandingFooter({ acquisitionSource }: { acquisitionSource?: AcquisitionSource }) {
   const hubLinks = getHubLinks(acquisitionSource);
@@ -25,10 +26,10 @@ export default function LandingFooter({ acquisitionSource }: { acquisitionSource
               />
             </div>
 
-            {/* Start Free Trial button */}
+            {/* Sign-up button */}
             <a href={hubLinks.signup}>
               <Button className="bg-white text-critter-orange hover:bg-white/90 font-subtitle px-6">
-                Start Free Trial
+                {SIGNUP_CTA}
               </Button>
             </a>
           </div>
@@ -59,7 +60,7 @@ export default function LandingFooter({ acquisitionSource }: { acquisitionSource
                 href={hubLinks.signin}
                 className="font-body text-sm text-white/90 hover:text-white transition-colors"
               >
-                Sign In
+                Log In
               </a>
               <Link
                 href="/privacy"
