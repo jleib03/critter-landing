@@ -4,10 +4,7 @@ Marketing landing page for Critter - CRM & Marketing Automation for Pet Care Bus
 
 ## Overview
 
-This is a standalone Next.js application that serves as the marketing landing page at `critter.pet`. It links to two products:
-
-- **Critter Hub CRM** (`hub.critter.pet`) - Marketing & customer management
-- **Critter Ops** (`app.critter.pet`) - Scheduling & operations
+This is a standalone Next.js application that serves as the marketing landing page at `critter.pet`. Log In and sign-up go to **Critter Hub CRM** (`hub.critter.pet`). The legacy Critter Ops scheduling product is retired from this site; `/features/scheduling` redirects to `/features/data-integration`.
 
 ## Tech Stack
 
@@ -35,7 +32,6 @@ Visit `http://localhost:3000` to see the landing page.
 
 ```bash
 NEXT_PUBLIC_HUB_URL=https://hub.critter.pet
-NEXT_PUBLIC_OPS_URL=https://app.critter.pet
 ```
 
 ## Pages
@@ -47,7 +43,7 @@ NEXT_PUBLIC_OPS_URL=https://app.critter.pet
 | `/togo-ai` | Togo AI assistant feature page |
 | `/ttp` | Time To Pet introduction and context-preserving CRM signup |
 | `/faqs` | Product, onboarding, and billing FAQs |
-| `/features/*` | CRM and product feature pages; Ops is explicitly separate |
+| `/features/*` | CRM and product feature pages |
 
 ## Deployment
 
@@ -63,14 +59,9 @@ This repo is configured to deploy to Vercel. The `vercel.json` includes redirect
 }
 ```
 
-## Product Selector
+## Log In & Sign-up
 
-The navigation's "Log In" dropdown allows users to choose between:
-
-- Critter Hub CRM - Marketing & customer management
-- Critter Ops - Scheduling & operations
-
-Trial buttons start a new **Hub CRM** account. On `/ttp`, signup and sign-in retain the fixed Time To Pet onboarding destination. Other routes keep generic CRM signup behavior. The approved public offer facts live in `lib/marketing-offers.ts`; visible FAQs and FAQ structured data share `lib/marketing-faqs.ts`.
+"Log In" links straight to Hub sign-in. Trial buttons start a new **Hub CRM** account. On `/ttp`, signup and sign-in retain the fixed Time To Pet onboarding destination. Other routes keep generic CRM signup behavior. The approved public offer facts live in `lib/marketing-offers.ts`; visible FAQs and FAQ structured data share `lib/marketing-faqs.ts`.
 
 ## Verification
 

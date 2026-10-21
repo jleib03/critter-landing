@@ -119,9 +119,9 @@ const metadata = load('app/pricing/layout.tsx').metadata;
 check(metadata.description.includes('79') && metadata.openGraph.description.includes('1,500'), 'Pricing search/social metadata aligned');
 const rootMarkup = render('app/layout.tsx');
 check(rootMarkup.includes('&quot;lowPrice&quot;') || rootMarkup.includes('"lowPrice":"79"'), 'Aggregate offer low price aligned');
-const ops = render('app/features/scheduling/page.tsx');
-check(ops.includes('https://app.critter.pet') && ops.includes('Critter Ops'), 'Ops links remain distinct');
-check(ops.includes('apply to Hub'), 'CRM trial not represented as Ops offer');
+check(!require('node:fs').existsSync(path.join(root, 'app/features/scheduling')), 'Legacy Ops scheduling page retired');
+check(!load('app/sitemap.ts').default().some(x => x.url.includes('/features/scheduling')), 'Legacy Ops page out of sitemap');
+check(JSON.parse(require('node:fs').readFileSync(path.join(root, 'vercel.json'), 'utf8')).redirects.some(r => r.source === '/features/scheduling' && r.permanent), 'Legacy Ops URL redirects permanently');
 const adModule = load('app/ads/ad-components.tsx');
 for (const ad of adModule.allAds) {
   const markup = renderToStaticMarkup(React.createElement(adModule.AdCanvas, { ad }));

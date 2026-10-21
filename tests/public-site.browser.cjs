@@ -70,15 +70,13 @@ async function main() {
       check((await page.locator('main > section').first().boundingBox()).y >= (await ttpNav.boundingBox()).height, 'TTP hero clears the fixed header');
       if (width < 1024) {
         await ttpNav.getByRole('button', { name: 'Toggle menu' }).click();
-        const login = new URL(await ttpNav.getByRole('link', { name: 'Hub Login' }).getAttribute('href'));
+        const login = new URL(await ttpNav.getByRole('link', { name: 'Log In', exact: true }).getAttribute('href'));
         check(login.searchParams.get('source') === 'ttp' && login.searchParams.get('callbackUrl') === '/dashboard/home?source=ttp', 'TTP mobile login retains acquisition context');
         check(await ttpNav.locator('a[href="/ttp"]').count() === 0, 'TTP mobile menu has no redundant partner entry');
         await ttpNav.getByRole('button', { name: 'Toggle menu' }).click();
       } else {
-        await ttpNav.getByRole('button', { name: 'Log In', exact: true }).click();
-        const login = new URL(await page.getByRole('menuitem').filter({ hasText: 'Critter Hub CRM' }).getAttribute('href'));
+        const login = new URL(await ttpNav.getByRole('link', { name: 'Log In', exact: true }).getAttribute('href'));
         check(login.searchParams.get('source') === 'ttp' && login.searchParams.get('callbackUrl') === '/dashboard/home?source=ttp', 'TTP desktop login retains acquisition context');
-        await page.keyboard.press('Escape');
       }
       if (!await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)) {
         await page.screenshot({ path: path.join(artifacts, 'ttp-overflow-' + width + '.png'), fullPage: true });
@@ -118,7 +116,7 @@ async function main() {
       await page.evaluate(() => scrollTo(0, 0));
       if (width === 1440 || width === 320) await page.screenshot({ path: path.join(artifacts, 'ttp-hero-' + width + '.png') });
       await page.screenshot({ path: path.join(artifacts, 'ttp-' + width + '.png'), fullPage: true });
-      const footerLogin = new URL(await page.getByRole('link', { name: 'Log In', exact: true }).getAttribute('href'));
+      const footerLogin = new URL(await page.locator('footer').getByRole('link', { name: 'Log In', exact: true }).getAttribute('href'));
       check(footerLogin.searchParams.get('source') === 'ttp', 'Footer sign-in retains TTP intent');
       await page.getByText('Does this replace Time To Pet?', { exact: true }).focus();
       await page.keyboard.press('Enter');
@@ -174,14 +172,12 @@ async function main() {
       check(await page.getByRole('navigation').locator('a[href="/ttp"]').count() === 0, 'Desktop header excludes Time To Pet');
       if (width < 1024) {
         await page.getByRole('button', { name: 'Toggle menu' }).click();
-        check(await page.getByRole('link', { name: 'Hub Login' }).isVisible(), 'Generic mobile navigation still works');
+        check(await page.getByRole('navigation').getByRole('link', { name: 'Log In', exact: true }).isVisible(), 'Generic mobile navigation still works');
         check(await page.getByRole('navigation').locator('a[href="/ttp"]').count() === 0, 'Expanded mobile header excludes Time To Pet');
-        check(!new URL(await page.getByRole('link', { name: 'Hub Login' }).getAttribute('href')).search, 'Generic mobile login remains context-free');
+        check(!new URL(await page.getByRole('navigation').getByRole('link', { name: 'Log In', exact: true }).getAttribute('href')).search, 'Generic mobile login remains context-free');
         await page.getByRole('button', { name: 'Toggle menu' }).click();
       } else {
-        await page.getByRole('button', { name: 'Log In', exact: true }).click();
-        check(!new URL(await page.getByRole('menuitem').filter({ hasText: 'Critter Hub CRM' }).getAttribute('href')).search, 'Generic desktop login remains context-free');
-        await page.keyboard.press('Escape');
+        check(!new URL(await page.getByRole('navigation').getByRole('link', { name: 'Log In', exact: true }).getAttribute('href')).search, 'Generic desktop login remains context-free');
       }
       check(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Pricing table scrolls locally at ' + width);
       check((await page.locator('main, body').first().innerText()).includes('1,500 base emails/month'), 'Real browser pricing allowance');

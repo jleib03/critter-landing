@@ -5,6 +5,7 @@
     { "source": "/api/((?!contact).*)", "destination": "https://hub.critter.pet/api/$1", "permanent": true },
     { "source": "/admin/:path*", "destination": "https://hub.critter.pet/admin/:path*", "permanent": true },
     { "source": "/features", "destination": "/features/crm", "permanent": false },
+    { "source": "/features/scheduling", "destination": "/features/data-integration", "permanent": true },
     { "source": "/apps", "destination": "/", "permanent": false },
     { "source": "/terms", "destination": "/terms-of-use", "permanent": false }
   ]

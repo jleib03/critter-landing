@@ -10,8 +10,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSeparator,
-  DropdownMenuLabel,
 } from "@/app/components/ui/dropdown-menu";
 import {
   ChevronDown,
@@ -39,7 +37,6 @@ export default function LandingNav({
 }: LandingNavProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const hubLinks = getHubLinks(acquisitionSource);
-  const opsUrl = process.env.NEXT_PUBLIC_OPS_URL || "https://app.critter.pet";
   const demoUrl = DEMO_PATH;
 
   return (
@@ -98,12 +95,6 @@ export default function LandingNav({
                     <span className="font-body">Data Integration</span>
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/features/scheduling" className="flex items-center gap-2 cursor-pointer">
-                    <Calendar className="h-4 w-4 text-critter-orange" />
-                    <span className="font-body">Schedule & Operations</span>
-                  </Link>
-                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
 
@@ -152,46 +143,11 @@ export default function LandingNav({
           {/* Right: Log In + sign-up + Mobile Toggle */}
           <div className="flex items-center gap-3">
             {/* Log In - Product Selector Dropdown (Desktop) */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="hidden lg:flex items-center gap-1 font-subtitle text-black hover:text-critter-orange">
-                  Log In
-                  <ChevronDown className="h-4 w-4" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-72 bg-white border-critter-cream">
-                <DropdownMenuLabel className="font-subtitle text-critter-gray text-xs">Choose your product</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <a
-                    href={hubLinks.signin}
-                    className="flex items-center gap-3 cursor-pointer py-3"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-critter-orange/10 flex items-center justify-center">
-                      <Database className="h-5 w-5 text-critter-orange" />
-                    </div>
-                    <div>
-                      <p className="font-subtitle text-critter-maroon">Critter Hub CRM</p>
-                      <p className="font-body text-xs text-critter-gray">Marketing & customer management</p>
-                    </div>
-                  </a>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <a
-                    href={opsUrl}
-                    className="flex items-center gap-3 cursor-pointer py-3"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-critter-blue/20 flex items-center justify-center">
-                      <Calendar className="h-5 w-5 text-critter-blue" />
-                    </div>
-                    <div>
-                      <p className="font-subtitle text-critter-maroon">Critter Ops</p>
-                      <p className="font-body text-xs text-critter-gray">Scheduling & operations</p>
-                    </div>
-                  </a>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <a href={hubLinks.signin} className="hidden lg:block">
+              <Button variant="ghost" className="font-subtitle text-black hover:text-critter-orange">
+                Log In
+              </Button>
+            </a>
 
             {/* Sign-up - Direct link to Hub signup */}
             <a href={hubLinks.signup} className="hidden sm:block">
@@ -225,7 +181,6 @@ export default function LandingNav({
               { href: "/features/lead-generation", icon: <ClipboardList className="h-4 w-4 text-critter-orange" />, label: "Lead Generation" },
               { href: "/features/referrals", icon: <GitBranch className="h-4 w-4 text-critter-orange" />, label: "Referral Program" },
               { href: "/features/data-integration", icon: <Database className="h-4 w-4 text-critter-orange" />, label: "Data Integration" },
-              { href: "/features/scheduling", icon: <Calendar className="h-4 w-4 text-critter-orange" />, label: "Schedule & Operations" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -276,22 +231,12 @@ export default function LandingNav({
 
             {/* Login + CTA */}
             <div className="border-t border-critter-cream pt-3 mt-2 space-y-2">
-              <div className="flex gap-2">
-                <a
-                  href={hubLinks.signin}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-critter-cream font-subtitle text-sm text-critter-maroon hover:bg-critter-cream transition-colors"
-                >
-                  <Database className="h-4 w-4 text-critter-orange" />
-                  Hub Login
-                </a>
-                <a
-                  href={opsUrl}
-                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-critter-cream font-subtitle text-sm text-critter-maroon hover:bg-critter-cream transition-colors"
-                >
-                  <Calendar className="h-4 w-4 text-critter-blue" />
-                  Ops Login
-                </a>
-              </div>
+              <a
+                href={hubLinks.signin}
+                className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-critter-cream font-subtitle text-sm text-critter-maroon hover:bg-critter-cream transition-colors"
+              >
+                Log In
+              </a>
               <a href={hubLinks.signup} className="block">
                 <Button className="w-full bg-critter-orange hover:bg-critter-orange/90 text-white font-subtitle">
                   {SIGNUP_CTA}
