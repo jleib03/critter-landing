@@ -18,7 +18,6 @@ async function isolate(page) {
     const url = new URL(route.request().url());
     if (url.origin === origin || url.protocol === 'data:') return route.continue();
     if (url.hostname === 'hub.critter.pet' && /^\/auth\/(signup|signin)$/.test(url.pathname)) return route.fulfill({ contentType: 'text/html', body: '<h1>Local synthetic Hub navigation boundary</h1>' });
-    if (url.href === 'https://www.timetopet.com/images/logo-ttp-color.svg') return route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="150" height="40"><text x="0" y="27" fill="#430018" font-family="sans-serif" font-size="20">Time To Pet</text></svg>' });
     return route.abort();
   });
 }
