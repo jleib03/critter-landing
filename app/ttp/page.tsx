@@ -52,7 +52,7 @@ export default function TtpPage() {
             <div className="mb-9 flex items-center gap-3 sm:gap-4" aria-label="Critter and Time To Pet">
               <Image src="/images/critter-logo.png" alt="Critter" width={120} height={40} className="h-7 w-auto sm:h-9" priority />
               <span className="font-body text-xl text-critter-gray" aria-hidden>×</span>
-              <img src="https://www.timetopet.com/images/logo-ttp-color.svg" alt="Time To Pet" width="150" height="40" className="h-7 w-auto max-w-[120px] sm:h-9 sm:max-w-[150px]" />
+              <img src="/images/ttp-logo-2026.png" alt="Time To Pet" width="150" height="40" className="h-7 w-auto max-w-[120px] object-contain sm:h-9 sm:max-w-[150px]" />
             </div>
             <h1 className="font-title text-4xl leading-[1.12] sm:text-5xl lg:text-6xl">Your Time To Pet data.<br /><span className="text-critter-orange">A clearer plan for what comes next.</span></h1>
             <p className="mt-6 max-w-xl font-body text-lg leading-relaxed text-critter-gray">You already know your clients. Critter helps you see the patterns behind their visits, organize your customer journey, and choose the next useful follow-up.</p>
